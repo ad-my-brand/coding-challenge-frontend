@@ -1,0 +1,12 @@
+{
+  "name": "mobile-platform",
+  "displayName": "mobile-platform",
+  "expo": {
+    "name": "mobile-platform",
+    "slug": "mobile-platform",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
