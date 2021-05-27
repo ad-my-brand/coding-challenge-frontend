@@ -1,0 +1,7 @@
+span.spinner-container {
+  margin-right: 1rem;
+}
+
+.spinner-border {
+  vertical-align: baseline !important;
+}
