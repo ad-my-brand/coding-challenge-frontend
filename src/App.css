@@ -1,0 +1,57 @@
+.semi-transparent {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  background-image: url(https://cdn.pixabay.com/photo/2014/02/27/16/10/tree-276014__340.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+.App form {
+  margin: 15px;
+  height: fit-content;
+  width: fit-content;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px inset rgba(255, 255, 255, 0.4);
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: fit-content;
+  transition: 200ms;
+  margin: 10px 0;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+.button-disabled {
+  background-color: gray;
+}
+
+.button-disabled:hover {
+  background-color: gray !important;
+}
+
+.button:active {
+  transform: translateY(2px);
+}
+
+.button-disabled:active {
+  transform: translateY(0);
+}
