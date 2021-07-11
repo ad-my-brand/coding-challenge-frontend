@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Form, Button, Alert, Row, Col } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 
 const FormPage = ({ ...props }) => {
   const { onChange, onSubmit, success, error, postData } = props

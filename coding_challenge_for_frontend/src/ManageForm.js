@@ -58,7 +58,11 @@ const ManageForm = ({ ...props }) => {
             postData
           );
           successMessage('Data saved successfully.');
-          
+          setPostData({
+            title: '',
+            body: '',
+            userId: '',
+          })
         } catch (err) {
             errorMessage(`${err}`);
         }
