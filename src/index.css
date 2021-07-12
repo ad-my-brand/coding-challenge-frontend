@@ -1,0 +1,147 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.3rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form_group {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form_field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.2rem;
+  color: rgb(48, 47, 47);
+  padding: 0.3em;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin-top: 1em;
+}
+
+.form_field::placeholder {
+  font-weight: 700;
+  color: rgb(92, 92, 92);
+}
+
+.form_field:focus {
+  border-bottom: 2px solid #138df0;
+}
+
+.container {
+  width: 100%;
+  cursor: pointer;
+}
+
+.header {
+  padding: 0.3em;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgb(48, 47, 47);
+  border-bottom: 2px solid #9b9b9b;
+  display: flex;
+  position: relative;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  position: absolute;
+  right: 0;
+}
+
+.options {
+  width: 20%;
+  height: 0px;
+  overflow-y: scroll;
+  transition: height 0.2s ease-in-out;
+  position: fixed;
+  background-color: #fff;
+  z-index: 99;
+}
+
+.open {
+  height: 300px;
+}
+
+.option {
+  font-size: 1.2rem;
+  padding: 0.5em;
+  border-bottom: 2px solid #9b9b9b;
+}
+
+.option:hover {
+  background-color: royalblue;
+}
+
+.active {
+  background-color: royalblue;
+  color: white;
+}
+
+.submit {
+  margin-top: 1em;
+  padding: 0.5em;
+  border-radius: 2em;
+  border: 2px solid black;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.submit:hover {
+  background-color: rgb(0, 162, 255);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.error {
+  margin: 0.3em;
+  padding: 0.5em;
+  color: rgba(255, 0, 0, 0.74);
+}
+
+.map {
+  width: 50%;
+  height: 500px;
+}
+
+.marker {
+  font-size: 2rem;
+  color: red;
+  z-index: 99;
+}
+
+.success {
+  margin: 0.3em;
+  padding: 0.5em;
+  background-color: rgb(21, 243, 13);
+}
