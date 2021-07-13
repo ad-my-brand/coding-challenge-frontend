@@ -1,13 +1,111 @@
+*{
+    box-sizing: border-box;
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+.message {
+    font-size: 22px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.75);
+    top: 30px;
+    right: 50px;
+    padding: 10px;
+}
+
+.error {
+    background-color: #cc3300;
+    color: #fff;
+}
+
+.success {
+    background-color: #339900;
+    color: #fff;
+}
+
+.warning {
+    background-color: #FF9966;
+}
+
+form {
+    background-color: rgb(192, 242, 255);
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 11px -2px rgba(0, 0, 0, 0.75);
+}
+
+.form-input {
+    margin: 100px auto;
+    max-width: 400px;
+    padding: 20px 12px 10px 20px;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.form-input label {
+    margin: 20px 0 3px 0;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 0px;
+    display: block;
+    font-weight: bold;
+}
+
+textarea,
+select,
+input {
+    border: 1px solid #bebebe;
+    padding: 7px;
+    margin-top: 20px;
+    outline: none;
+}
+
+.empty {
+    border: 1px solid red;
+    padding: 7px;
+    margin: 0px;
+    outline: none;
+}
+
+.user-input,
+.title-input,
+.message-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 3px;
+    border-radius: 5px;
+}
+
+.message-input {
+    height: 100px;
+}
+
+.form-input input[type="submit"] {
+    cursor: pointer;
+    background: #ff5f5f;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px -2px rgba(0, 0, 0, 0.75);
+    border: none;
+    font-size: 16px;
+    color: #fff;
+}
+
+.form-input input[type="submit"]:hover {
+    background: #f84141;
+
 }
