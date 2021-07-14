@@ -2,8 +2,16 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import FormControl from './components/FormControl/FormControl';
 
+const initialState = {
+  title: '',
+  body: '',
+  userId: '',
+};
+
 function App() {
   const [users, setUsers] = useState([]);
+
+  const [inputValues, setInputValues] = useState(initialState);
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -15,7 +23,7 @@ function App() {
   }, []);
 
   const handleValueChange = (event) => {
-    console.log(event.target.value);
+    setInputValues({ ...inputValues, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
@@ -27,11 +35,10 @@ function App() {
     <div className="App">
       <form onSubmit={handleSubmit}>
         {users.map((user) => {
-          console.log(user.id);
           return (
             <FormControl
               key={user.id}
-              name="user"
+              name="userId"
               label={user.name}
               id={user.id}
               type="radio"
