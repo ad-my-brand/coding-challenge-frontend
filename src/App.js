@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import classes from './App.module.css';
 import FormControl from './components/FormControl/FormControl';
+import Map from './components/Map/Map';
 
 const initialState = {
   title: '',
@@ -29,8 +30,11 @@ function App() {
   const handleValueChange = (event) => {
     setInputValues({ ...inputValues, [event.target.name]: event.target.value });
     if (event.target.type === 'radio') {
-      const selectedUser = users.find((user) => user.id === userIdNum);
-      setSelectedUserLocation(selectedUser?.address.geo);
+      const selectedUser = users.find((user) => user.id === Number.parseInt(event.target.value));
+      setSelectedUserLocation({
+        lat: Number.parseFloat(selectedUser?.address.geo.lat),
+        lng: Number.parseFloat(selectedUser?.address.geo.lng),
+      });
     }
   };
 
@@ -40,7 +44,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={classes.App}>
       <form onSubmit={handleSubmit}>
         {users.map((user) => {
           return (
@@ -69,6 +73,7 @@ function App() {
         />
         <button>Submit</button>
       </form>
+      <Map className={classes.Map} center={selectedUserLocation} />
     </div>
   );
 }

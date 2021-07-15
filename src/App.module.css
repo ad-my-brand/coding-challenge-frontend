@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.Map {
+  margin: 0 auto;
+}
