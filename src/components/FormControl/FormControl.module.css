@@ -1,4 +1,9 @@
+.FormControl {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .error-text {
   color: brown;
-  
 }

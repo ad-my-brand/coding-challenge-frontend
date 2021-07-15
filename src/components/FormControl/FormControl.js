@@ -3,7 +3,7 @@ import classes from './FormControl.module.css';
 const FormControl = (props) => {
   return (
     <div className={classes.FormControl}>
-      <label htmlFor={props.name}>{props.label}</label>
+      <label htmlFor={props.type === 'radio' ? props.id : props.name}>{props.label}</label>
       <input
         name={props.name}
         type={!props.type ? 'text' : props.type}

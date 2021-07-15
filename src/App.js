@@ -114,23 +114,27 @@ function App() {
   return (
     <div className={classes.App}>
       <form onSubmit={handleSubmit}>
-        {users.length ? (
-          users.map((user) => {
-            return (
-              <FormControl
-                key={user.id}
-                name="userId"
-                label={user.name}
-                id={user.id}
-                type="radio"
-                value={user.id}
-                onChange={handleValueChange}
-              />
-            );
-          })
-        ) : (
-          <p>{httpError}</p>
-        )}
+        <div className={classes.users}>
+          {users.length && <p className={classes['users-title']}>Users List:</p>}
+          {users.length ? (
+            users.map((user) => {
+              return (
+                <FormControl
+                  key={user.id}
+                  name="userId"
+                  label={user.name}
+                  
+                  id={user.id}
+                  type="radio"
+                  value={user.id}
+                  onChange={handleValueChange}
+                />
+              );
+            })
+          ) : (
+            <p>{httpError}</p>
+          )}
+        </div>
         <FormControl
           name="title"
           label="Title"
