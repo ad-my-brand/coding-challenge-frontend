@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import classes from './App.module.css';
 import FormControl from './components/FormControl/FormControl';
 import Map from './components/Map/Map';
@@ -40,17 +40,17 @@ function App() {
     return jsonResponse;
   };
 
-  const fetchUserData = () => {
+  const fetchUserData = useCallback(() => {
     getApiResponse()
       .then((jsonResponse) => setUsers(jsonResponse))
       .catch((responseError) => {
         setHttpError(responseError.message);
       });
-  };
+  }, []);
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [fetchUserData]);
 
   const handleValueChange = (event) => {
     setInputValues({ ...inputValues, [event.target.name]: event.target.value });
