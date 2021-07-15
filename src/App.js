@@ -19,27 +19,48 @@ function App() {
   const [isUserSelected, setIsUserSelected] = useState(false);
   const [selectedUserLocation, setSelectedUserLocation] = useState({});
 
-  const [error, setError] = useState({
+  const [inputError, setInputError] = useState({
     titleError: null,
     bodyError: null,
   });
 
+  const [httpError, setHttpError] = useState(null);
+
+  const fetchUserData = async () => {
+    try {
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/users'
+      );
+      if (!response.ok) {
+        throw new Error('Something went wrong while fetching user data');
+      }
+      const jsonResponse = await response.json();
+      setUsers(jsonResponse);
+    } catch (responseError) {
+      setHttpError(responseError.message);
+    }
+  };
+
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then((response) => response.json())
-      .then((jsonResponse) => setUsers(jsonResponse))
-      .catch((error) => {
-        console.log(error.message);
-      });
+    fetchUserData();
   }, []);
 
   const handleValueChange = (event) => {
     setInputValues({ ...inputValues, [event.target.name]: event.target.value });
 
-    setError({
-      titleError: event.target.value ? null : 'Title cannot be empty',
-      bodyError: event.target.value ? null : 'Body cannot be empty',
-    });
+    if (event.target.name === 'title') {
+      setInputError({
+        ...inputError,
+        titleError: event.target.value ? null : 'Title cannot be empty',
+      });
+    }
+
+    if (event.target.name === 'body') {
+      setInputError({
+        ...inputError,
+        bodyError: event.target.value ? null : 'Body cannot be empty',
+      });
+    }
 
     if (event.target.type === 'radio') {
       setIsUserSelected(true);
@@ -53,45 +74,76 @@ function App() {
     }
   };
 
+  const postData = async (data) => {
+    try {
+      const response = await fetch(
+        'https://jsonplaceholder.typicode.com/posts',
+        {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+      if (!response.ok) {
+        throw new Error('Something went wrong posting user data');
+      }
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+    } catch (responseError) {
+      setHttpError(responseError.message);
+    }
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    setError({
+    setInputError({
       titleError: title ? null : 'Title cannot be empty',
       bodyError: body ? null : 'Body cannot be empty',
     });
     if (!title || !body || !userIdNum) return;
-    console.log({ ...inputValues, userId: userIdNum });
+    postData({ ...inputValues, userId: userIdNum });
   };
+
+  let postError;
+  if (users.length) {
+    if (httpError) {
+      postError = <p>{httpError}</p>;
+    }
+  }
 
   return (
     <div className={classes.App}>
       <form onSubmit={handleSubmit}>
-        {users.map((user) => {
-          return (
-            <FormControl
-              key={user.id}
-              name="userId"
-              label={user.name}
-              id={user.id}
-              type="radio"
-              value={user.id}
-              onChange={handleValueChange}
-            />
-          );
-        })}
+        {users.length ? (
+          users.map((user) => {
+            return (
+              <FormControl
+                key={user.id}
+                name="userId"
+                label={user.name}
+                id={user.id}
+                type="radio"
+                value={user.id}
+                onChange={handleValueChange}
+              />
+            );
+          })
+        ) : (
+          <p>{httpError}</p>
+        )}
         <FormControl
           name="title"
           label="Title"
           onChange={handleValueChange}
           value={title}
-          error={error.titleError}
+          error={inputError.titleError}
         />
         <FormControl
           name="body"
           label="Body"
           onChange={handleValueChange}
           value={body}
-          error={error.bodyError}
+          error={inputError.bodyError}
         />
         <button>Submit</button>
       </form>
@@ -101,6 +153,7 @@ function App() {
       ) : (
         <p>Please select a user</p>
       )}
+      {postError}
     </div>
   );
 }
