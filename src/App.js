@@ -16,7 +16,13 @@ function App() {
   const { title, body, userId } = inputValues;
   const userIdNum = Number.parseInt(userId);
 
+  const [isUserSelected, setIsUserSelected] = useState(false);
   const [selectedUserLocation, setSelectedUserLocation] = useState({});
+
+  const [error, setError] = useState({
+    titleError: null,
+    bodyError: null,
+  });
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -29,8 +35,17 @@ function App() {
 
   const handleValueChange = (event) => {
     setInputValues({ ...inputValues, [event.target.name]: event.target.value });
+
+    setError({
+      titleError: event.target.value ? null : 'Title cannot be empty',
+      bodyError: event.target.value ? null : 'Body cannot be empty',
+    });
+
     if (event.target.type === 'radio') {
-      const selectedUser = users.find((user) => user.id === Number.parseInt(event.target.value));
+      setIsUserSelected(true);
+      const selectedUser = users.find(
+        (user) => user.id === Number.parseInt(event.target.value)
+      );
       setSelectedUserLocation({
         lat: Number.parseFloat(selectedUser?.address.geo.lat),
         lng: Number.parseFloat(selectedUser?.address.geo.lng),
@@ -40,6 +55,11 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError({
+      titleError: title ? null : 'Title cannot be empty',
+      bodyError: body ? null : 'Body cannot be empty',
+    });
+    if (!title || !body || !userIdNum) return;
     console.log({ ...inputValues, userId: userIdNum });
   };
 
@@ -64,16 +84,23 @@ function App() {
           label="Title"
           onChange={handleValueChange}
           value={title}
+          error={error.titleError}
         />
         <FormControl
           name="body"
           label="Body"
           onChange={handleValueChange}
           value={body}
+          error={error.bodyError}
         />
         <button>Submit</button>
       </form>
-      <Map className={classes.Map} center={selectedUserLocation} />
+      {}
+      {isUserSelected ? (
+        <Map className={classes.Map} center={selectedUserLocation} />
+      ) : (
+        <p>Please select a user</p>
+      )}
     </div>
   );
 }
