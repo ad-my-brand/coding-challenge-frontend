@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  font-family: 'Quicksand', sans-serif;;
+  font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,4 +18,8 @@ button {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.error-text {
+  color: #b40e0e;
 }

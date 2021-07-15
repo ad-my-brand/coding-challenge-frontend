@@ -4,17 +4,54 @@
   align-items: center;
 }
 
+.users {
+  width: 15rem;
+}
+
 .users-title {
   font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-.App form {
-  width: 50%;
+.users-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   padding: 1rem;
   margin: 2rem;
-  border-radius: 10%;
+  border-radius: 10px;
   box-shadow: 0 2px 10px 5px rgba(0, 0, 0, 0.25);
+}
+
+.text-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 15rem;
+}
+
+button {
+  background-color: #240370;
+  color: white;
+  border: 1px solid #240370;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover,
+button:active {
+  background-color: #33059e;
+  border-color: #33059e;
 }
 
 .Map {

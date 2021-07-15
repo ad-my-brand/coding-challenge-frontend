@@ -3,8 +3,8 @@ import React from 'react';
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '400px',
-  height: '400px',
+  width: '250px',
+  height: '250px',
 };
 
 const options = {
@@ -24,7 +24,7 @@ function Map({ center, className }) {
     <div className={className}>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        zoom={4}
+        zoom={3}
         center={center}
         options={options}
       >

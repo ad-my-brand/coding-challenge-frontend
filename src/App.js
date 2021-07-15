@@ -28,9 +28,7 @@ function App() {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch(
-        'https://jsonplaceholder.typicode.com/users'
-      );
+      const response = await fetch('https://jsonplaceholder.typicode.com/users');
       if (!response.ok) {
         throw new Error('Something went wrong while fetching user data');
       }
@@ -104,10 +102,20 @@ function App() {
     postData({ ...inputValues, userId: userIdNum });
   };
 
+  let userSelectError;
+
+  if (users.length) {
+    if (!isUserSelected) {
+      userSelectError = <p className="error-text">Please select a user</p>;
+    } else {
+      userSelectError = null;
+    }
+  }
+
   let postError;
   if (users.length) {
     if (httpError) {
-      postError = <p>{httpError}</p>;
+      postError = <p className="error-text">{httpError}</p>;
     }
   }
 
@@ -115,47 +123,51 @@ function App() {
     <div className={classes.App}>
       <form onSubmit={handleSubmit}>
         <div className={classes.users}>
-          {users.length && <p className={classes['users-title']}>Users List:</p>}
           {users.length ? (
-            users.map((user) => {
-              return (
-                <FormControl
-                  key={user.id}
-                  name="userId"
-                  label={user.name}
-                  
-                  id={user.id}
-                  type="radio"
-                  value={user.id}
-                  onChange={handleValueChange}
-                />
-              );
-            })
-          ) : (
-            <p>{httpError}</p>
-          )}
+            <p className={classes['users-title']}>Users List:</p>
+          ) : null}
+          <div className={classes['users-list']}>
+            {users.length ? (
+              users.map((user) => {
+                return (
+                  <FormControl
+                    key={user.id}
+                    name="userId"
+                    label={user.name}
+                    id={user.id}
+                    type="radio"
+                    value={user.id}
+                    onChange={handleValueChange}
+                  />
+                );
+              })
+            ) : (
+              <p className="error-text">{httpError}</p>
+            )}
+          </div>
         </div>
-        <FormControl
-          name="title"
-          label="Title"
-          onChange={handleValueChange}
-          value={title}
-          error={inputError.titleError}
-        />
-        <FormControl
-          name="body"
-          label="Body"
-          onChange={handleValueChange}
-          value={body}
-          error={inputError.bodyError}
-        />
+        <div className={classes['text-inputs']}>
+          <FormControl
+            name="title"
+            label="Title"
+            onChange={handleValueChange}
+            value={title}
+            error={inputError.titleError}
+          />
+          <FormControl
+            name="body"
+            label="Body"
+            onChange={handleValueChange}
+            value={body}
+            error={inputError.bodyError}
+          />
+        </div>
         <button>Submit</button>
       </form>
-      {}
       {isUserSelected ? (
         <Map className={classes.Map} center={selectedUserLocation} />
       ) : (
-        <p>Please select a user</p>
+        userSelectError
       )}
       {postError}
     </div>

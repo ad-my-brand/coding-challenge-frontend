@@ -1,4 +1,28 @@
-.FormControl {
+.FormControlText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.FormControlText label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.FormControlText input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.FormControlText input:focus {
+  outline: none;
+  border-color: #240370;
+  background: rgb(192, 201, 241);
+}
+
+.FormControlRadio {
   width: 100%;
   display: flex;
   justify-content: space-between;

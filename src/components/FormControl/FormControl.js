@@ -1,9 +1,14 @@
 import classes from './FormControl.module.css';
 
 const FormControl = (props) => {
+  const formControlClasses =
+    props.type === 'radio' ? classes.FormControlRadio : classes.FormControlText;
+    
   return (
-    <div className={classes.FormControl}>
-      <label htmlFor={props.type === 'radio' ? props.id : props.name}>{props.label}</label>
+    <div className={`${formControlClasses}`}>
+      <label htmlFor={props.type === 'radio' ? props.id : props.name}>
+        {props.label}
+      </label>
       <input
         name={props.name}
         type={!props.type ? 'text' : props.type}
@@ -13,7 +18,7 @@ const FormControl = (props) => {
         onBlur={props.onBlur}
         value={props.value}
       />
-      {props.error && <p>{props.error}</p>}
+      {props.error && <p className="error-text">{props.error}</p>}
     </div>
   );
 };
