@@ -12,6 +12,10 @@ function App() {
   const [users, setUsers] = useState([]);
 
   const [inputValues, setInputValues] = useState(initialState);
+  const { title, body, userId } = inputValues;
+  const userIdNum = Number.parseInt(userId);
+
+  const [selectedUserLocation, setSelectedUserLocation] = useState({});
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -24,11 +28,15 @@ function App() {
 
   const handleValueChange = (event) => {
     setInputValues({ ...inputValues, [event.target.name]: event.target.value });
+    if (event.target.type === 'radio') {
+      const selectedUser = users.find((user) => user.id === userIdNum);
+      setSelectedUserLocation(selectedUser?.address.geo);
+    }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('hi');
+    console.log({ ...inputValues, userId: userIdNum });
   };
 
   return (
@@ -47,8 +55,18 @@ function App() {
             />
           );
         })}
-        <FormControl name="title" label="Title" onChange={handleValueChange} />
-        <FormControl name="body" label="Body" onChange={handleValueChange} />
+        <FormControl
+          name="title"
+          label="Title"
+          onChange={handleValueChange}
+          value={title}
+        />
+        <FormControl
+          name="body"
+          label="Body"
+          onChange={handleValueChange}
+          value={body}
+        />
         <button>Submit</button>
       </form>
     </div>
