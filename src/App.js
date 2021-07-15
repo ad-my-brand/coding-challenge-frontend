@@ -26,17 +26,26 @@ function App() {
 
   const [httpError, setHttpError] = useState(null);
 
-  const fetchUserData = async () => {
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      if (!response.ok) {
-        throw new Error('Something went wrong while fetching user data');
-      }
-      const jsonResponse = await response.json();
-      setUsers(jsonResponse);
-    } catch (responseError) {
-      setHttpError(responseError.message);
+  const getApiResponse = async (isGet = true, headers = {}) => {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/${isGet ? 'users' : 'posts'}`,
+      headers
+    );
+    if (!response.ok) {
+      throw new Error(
+        `Something went wrong while ${isGet ? 'fetching' : 'posting'} user data`
+      );
     }
+    const jsonResponse = await response.json();
+    return jsonResponse;
+  };
+
+  const fetchUserData = () => {
+    getApiResponse()
+      .then((jsonResponse) => setUsers(jsonResponse))
+      .catch((responseError) => {
+        setHttpError(responseError.message);
+      });
   };
 
   useEffect(() => {
@@ -73,23 +82,13 @@ function App() {
   };
 
   const postData = async (data) => {
-    try {
-      const response = await fetch(
-        'https://jsonplaceholder.typicode.com/posts',
-        {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
-      if (!response.ok) {
-        throw new Error('Something went wrong posting user data');
-      }
-      const jsonResponse = await response.json();
-      console.log(jsonResponse);
-    } catch (responseError) {
-      setHttpError(responseError.message);
-    }
+    getApiResponse(false, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((jsonResponse) => console.log(jsonResponse))
+      .catch((responseError) => setHttpError(responseError.message));
   };
 
   const handleSubmit = (event) => {
@@ -100,6 +99,7 @@ function App() {
     });
     if (!title || !body || !userIdNum) return;
     postData({ ...inputValues, userId: userIdNum });
+    setInputValues(initialState);
   };
 
   let userSelectError;
