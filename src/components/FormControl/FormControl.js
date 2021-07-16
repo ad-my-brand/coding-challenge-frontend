@@ -6,19 +6,19 @@ const FormControl = (props) => {
     
   return (
     <div className={`${formControlClasses}`}>
-      <label htmlFor={props.type === 'radio' ? props.id : props.name}>
+      <label data-testid='label' htmlFor={props.type === 'radio' ? props.id : props.name}>
         {props.label}
       </label>
       <input
+        data-testid='input'
         name={props.name}
         type={!props.type ? 'text' : props.type}
         id={props.type === 'radio' ? props.id : props.name}
         placeholder={`Enter ${props.name}`}
         onChange={props.onChange}
-        onBlur={props.onBlur}
         value={props.value}
       />
-      {props.error && <p className="error-text">{props.error}</p>}
+      {props.error && <p data-testid='error-text' className="error-text">{props.error}</p>}
     </div>
   );
 };

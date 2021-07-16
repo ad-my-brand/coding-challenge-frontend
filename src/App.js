@@ -179,7 +179,7 @@ function App() {
             error={inputError.bodyError}
           />
         </div>
-        <button>Submit</button>
+        <button data-testid='submit-btn'>Submit</button>
         <>
           {isSubmitting && !httpError && (
             <p>Your request is being submitted...</p>
