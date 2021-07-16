@@ -11,6 +11,7 @@ const initialState = {
 
 function App() {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [inputValues, setInputValues] = useState(initialState);
   const { title, body, userId } = inputValues;
@@ -25,6 +26,9 @@ function App() {
   });
 
   const [httpError, setHttpError] = useState(null);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const getApiResponse = async (isGet = true, headers = {}) => {
     const response = await fetch(
@@ -41,8 +45,12 @@ function App() {
   };
 
   const fetchUserData = useCallback(() => {
+    setIsLoading(true);
     getApiResponse()
-      .then((jsonResponse) => setUsers(jsonResponse))
+      .then((jsonResponse) => {
+        setIsLoading(false);
+        setUsers(jsonResponse);
+      })
       .catch((responseError) => {
         setHttpError(responseError.message);
       });
@@ -82,13 +90,21 @@ function App() {
   };
 
   const postData = async (data) => {
+    setIsSubmitting(true);
     getApiResponse(false, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     })
-      .then((jsonResponse) => console.log(jsonResponse))
-      .catch((responseError) => setHttpError(responseError.message));
+      .then((jsonResponse) => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        console.log(jsonResponse);
+      })
+      .catch((responseError) => {
+        setIsSubmitted(false);
+        setHttpError(responseError.message);
+      });
   };
 
   const handleSubmit = (event) => {
@@ -122,6 +138,7 @@ function App() {
   return (
     <div className={classes.App}>
       <form onSubmit={handleSubmit}>
+        <>{isLoading && !httpError && <p>Users are Loading...</p>}</>
         <div className={classes.users}>
           {users.length ? (
             <p className={classes['users-title']}>Users List:</p>
@@ -163,13 +180,19 @@ function App() {
           />
         </div>
         <button>Submit</button>
+        <>
+          {isSubmitting && !httpError && (
+            <p>Your request is being submitted...</p>
+          )}
+        </>
+        <>{isSubmitted && <p>Successfully submitted!</p>}</>
+        {postError}
       </form>
       {isUserSelected ? (
         <Map className={classes.Map} center={selectedUserLocation} />
       ) : (
         userSelectError
       )}
-      {postError}
     </div>
   );
 }
