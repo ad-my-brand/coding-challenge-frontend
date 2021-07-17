@@ -1,0 +1,221 @@
+*{
+    margin:0;
+    padding:0;
+    
+}
+html{
+    font-size: 16px;
+}
+body{
+    width:70vw;
+    margin:auto;
+    max-width: 1200px;
+}
+@media screen and (max-width: 1170px){
+    .dropDownController{
+        font-size: .8rem !important;
+    }
+}
+.labelFormWrapper{
+    height: 30vh;
+}
+.outClickChecker{
+    width:60%;
+    
+    margin:auto;
+}
+
+.dropDownBox{
+    width:100%;
+    margin:auto;
+    height:2.5rem;
+    background-color: cadetblue;
+    border-radius: 1rem 1rem 1rem 1rem;
+    display: flex;
+  
+}
+.selectDropValue{
+    width: 80%;
+    background-color: white;
+    height: 100%;
+    padding-left: 1rem;
+    border-radius: 0  1rem 1rem 0;
+    padding-top:.3rem;
+    border:1px solid;
+}
+.dropDownContent{
+    width:100%;
+    display:none;
+    background-color: honeydew;
+    margin:auto;
+    /* border:2px solid; */
+    list-style: none;
+    z-index: 4;
+    height: 10rem;
+    overflow: scroll;
+}
+.showList{
+    display:block !important;
+}
+.dropDownContent li {
+    position:relative;
+    margin-left: -1rem;
+    z-index:4;
+  
+    list-style-position: inside;
+    list-style-type: none;
+    cursor: pointer;
+}
+.dropDownContent li:hover {
+   background-color: cadetblue;
+   color:white;
+}
+
+
+.dropDownButton{
+    width:20%;
+  
+}
+.dropDownController{
+    width:100%;
+    height: 100%;
+    box-sizing: border-box;
+    
+    
+    text-align: center;
+    border-radius: 1rem 0 0 1rem;
+    color: white;
+    background-color: rgb(212, 108, 238) ;
+  
+}
+
+.errorMsgWrapper{
+  width:60%;
+  height: 2rem;
+  margin:auto;
+  margin-top:2rem;
+  color:white;
+  text-align: center;
+  z-index: 4;
+  border-radius: .5rem;
+  background-color: rgb(241, 111, 79);
+}
+.entryErrorBox{
+    width:100%;
+    border: 2px black;
+    margin: auto;
+    padding:2rem;
+    text-align: center;
+    border-radius: .5rem;
+    color:white;
+    background-color: rgb(220, 77, 20);
+}
+.green{
+    background-color: rgb(16, 199, 16);
+
+}
+.green .close-message{
+    color:rgb(16, 199, 16);
+}
+.close-message{
+    background-color: white;
+    color:rgb(220, 77, 20);
+    width:50%;
+    margin:auto;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 3px grey;
+}
+.close-message:hover{
+    background-color: rgba(255, 255, 255, 0.89);
+}
+.formAndMapWrapper{
+    display: flex;
+    justify-content: space-evenly;
+}
+.formTitle{
+    width:100%;
+    display: flex;
+    margin:auto;
+}
+.formTitle label{
+    box-sizing: border-box;
+    padding: .48rem;
+    height: 2.5rem;
+    text-align: center;
+    border-radius: 1rem 0  0 1rem;
+    width: 20%;
+    color: white;
+    background-color: indianred;
+    margin-bottom: .2rem;
+
+}
+.formBody label{
+    box-sizing: border-box;
+    display: inline-block;
+    padding: .48rem;
+    height: 2.5rem;
+    text-align: center;
+    border-radius: 1rem 0  0 1rem;
+    width: 20%;
+    color: white;
+    background-color: indianred;
+    margin-bottom: .3rem;
+
+}
+.formTitle input, .formBody input{
+    box-sizing: border-box;
+    height: 2.5rem;
+    padding-left: .2rem;
+    width: 80%;
+    
+    border-radius: 0 1rem  1rem 0;
+    /* background-color: indianred; */
+    margin-bottom: .2rem;
+    /* width: 100%; */
+}
+.formTitle input:focus, .formBody input:focus{
+    outline: none;
+}
+.formBody{
+    width:100%;
+    margin:auto;
+}
+.formButton{
+  position: relative;
+  background-color:rgb(212, 108, 238) ;
+  color:white;
+  width:8rem;
+  padding: .4rem;
+  margin:1rem;
+  left:50%;
+  transform:translateX(-50%);
+  border: 2px solid;
+  right:10rem;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 1rem 1rem 1rem 1rem;
+ 
+
+}
+.mapWrapper{
+ background-color: indianred;
+ height: 20rem;
+ width: 40%;
+ position: relative;
+ text-align: center;
+ color:white;
+ z-index: -1;
+ border-radius: 1rem;
+ /* z-index: -1; */
+}
+
+iframe{
+    position: relative;
+    z-index: -1;
+    margin-bottom: 10rem;
+}
+.allFormWrapper{
+
+    width:50%;
+}
