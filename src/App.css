@@ -1,0 +1,10 @@
+@import "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+button:disabled, button[disabled]{
+    background-color: gray;;
+}
+
