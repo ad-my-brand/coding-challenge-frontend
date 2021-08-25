@@ -16,7 +16,7 @@
 <body>
 
 <div class="container mt-5">
-    <h1>Hello World</h1>
+    <h1>admybrand.com</h1>
 
     <div class="row">
         <div class="col-6 col-md-3">
@@ -98,6 +98,10 @@ function send_post_req(){
             dataType: "json",
             success: function (data) {
                 console.log(data);
+                $("#title").val("");
+                $("#body").val("");
+                $("#select_user").val("");
+                alert("Data Submitted successfully");
                 
             },
             error: function (data){
