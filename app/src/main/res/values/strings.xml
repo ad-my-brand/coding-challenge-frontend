@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Assignment</string>
+
+    <string name="username">username: </string>
+    <string name="show_user">Show user</string>
+    <string name="repositories">Repositories</string>
+</resources>
