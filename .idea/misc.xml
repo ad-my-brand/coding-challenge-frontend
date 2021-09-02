@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/drawable/ic_github_fork.xml" value="0.240625" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/drawable/ic_github_issues.xml" value="0.240625" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/drawable/ic_github_stars.xml" value="0.240625" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/activity_intro.xml" value="0.264" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/activity_issue.xml" value="0.25416666666666665" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/activity_main.xml" value="0.2485207100591716" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/even_item.xml" value="0.264" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/event_item.xml" value="0.22447916666666667" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/fragment_overview.xml" value="0.25416666666666665" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/fragment_repository.xml" value="0.25416666666666665" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/issue_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Development/AndroidProjects/GitApi/app/src/main/res/layout/repository_item.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

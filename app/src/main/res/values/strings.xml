@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GitApi</string>
+    <string name="app_name_info">GitApi 1.0</string>
+    <string name="loading">loading</string>
+    <string name="zero">0</string>
+    <string name="app_info">Developed by Sarvesh Hon</string>
+    <string name="enter_github_username">Enter Github Username</string>
+    <string name="verify_username">Verify Username</string>
+    <string name="repository">Repository</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+    <string name="visit_profile">Visit Profile</string>
+</resources>
