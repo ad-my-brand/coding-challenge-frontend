@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <TextView
+        android:id="@+id/dir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.9"
+        android:text="pranay999000 / intelify"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.1"
+        android:textAlignment="textEnd"
+        android:textSize="16sp"
+        android:text="#3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@tools:sample/lorem/random"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/dir"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open"
+        android:textColor="#8BC34A"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:textColor="#F44336"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/comment_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_outline_mode_comment_24"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        app:layout_constraintTop_toTopOf="@+id/comment_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/comment_logo"
+        app:layout_constraintLeft_toRightOf="@+id/comment_logo"
+        android:layout_marginStart="8dp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#32FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/comment_logo"
+        android:layout_marginTop="16dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
