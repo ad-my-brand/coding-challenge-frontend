@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">github</string>
+    <string name="settings">Settings</string>
+    <string name="share">Share</string>
+</resources>
