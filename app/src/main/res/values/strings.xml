@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GitHubReposIssues</string>
+    <string name="repoActivity">GetRepositories</string>
+    <string name="userActivity">SeeProfile</string>
+</resources>
