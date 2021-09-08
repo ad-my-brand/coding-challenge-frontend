@@ -83,9 +83,7 @@ class RemoteDataSourceTest {
             name = "Chris Wanstrath",
             userName = "defunkt",
             avatarUrl = "https://avatars.githubusercontent.com/u/2?v=4",
-            bio = "\uD83C\uDF54",
-            following = 210,
-            followers = 21264
+            bio = "\uD83C\uDF54"
         )
 
         // Then :

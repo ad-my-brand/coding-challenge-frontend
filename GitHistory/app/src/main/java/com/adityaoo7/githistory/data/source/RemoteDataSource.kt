@@ -5,7 +5,7 @@ import com.adityaoo7.githistory.models.Issue
 import com.adityaoo7.githistory.models.Repository
 import com.adityaoo7.githistory.models.User
 import com.adityaoo7.githistory.network.GithubApiService
-import com.adityaoo7.githistory.utils.Result
+import com.adityaoo7.githistory.utils.*
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -20,7 +20,7 @@ class RemoteDataSource(
             return@withContext if (user != null) {
                 Result.Success(user)
             } else {
-                Result.Error(Exception("User not found"))
+                Result.Error(Exception(USER_NOT_FOUND_ERROR))
             }
         } catch (e: Exception) {
             return@withContext Result.Error(e)
@@ -34,7 +34,7 @@ class RemoteDataSource(
                 return@withContext if (repository != null) {
                     Result.Success(repository)
                 } else {
-                    Result.Error(Exception("Repository not found"))
+                    Result.Error(Exception(REPOSITORY_NOT_FOUND_ERROR))
                 }
             } catch (e: Exception) {
                 return@withContext Result.Error(e)
@@ -48,7 +48,7 @@ class RemoteDataSource(
                 return@withContext if (repositories != null) {
                     Result.Success(repositories)
                 } else {
-                    Result.Error(Exception("Unable to fetch repositories"))
+                    Result.Error(Exception(FETCHING_REPOSITORIES_ERROR))
                 }
             } catch (e: Exception) {
                 return@withContext Result.Error(e)
@@ -65,7 +65,7 @@ class RemoteDataSource(
             return@withContext if (issue != null) {
                 Result.Success(issue)
             } else {
-                Result.Error(Exception("Given issue number not found"))
+                Result.Error(Exception(ISSUE_NOT_FOUND_ERROR))
             }
         } catch (e: Exception) {
             return@withContext Result.Error(e)
@@ -79,7 +79,7 @@ class RemoteDataSource(
                 return@withContext if (issues != null) {
                     Result.Success(issues)
                 } else {
-                    Result.Error(Exception("Unable to fetch issues"))
+                    Result.Error(Exception(FETCHING_ISSUES_ERROR))
                 }
             } catch (e: Exception) {
                 return@withContext Result.Error(e)
@@ -96,7 +96,7 @@ class RemoteDataSource(
             return@withContext if (comments != null) {
                 Result.Success(comments)
             } else {
-                Result.Error(Exception("Unable to fetch comments"))
+                Result.Error(Exception(FETCHING_COMMENTS_ERROR))
             }
         } catch (e: Exception) {
             return@withContext Result.Error(e)

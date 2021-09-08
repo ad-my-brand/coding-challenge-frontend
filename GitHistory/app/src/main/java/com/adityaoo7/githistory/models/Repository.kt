@@ -14,7 +14,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Repository(
     val name: String,
-    val description: String,
+    val description: String?,
     @Json(name = "stargazers_count") val stars: Int,
     val forks: Int
 ) : Parcelable

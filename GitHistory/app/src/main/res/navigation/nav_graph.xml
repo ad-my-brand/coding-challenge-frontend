@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.adityaoo7.githistory.presentation.search.SearchFragment"
+        android:label="@string/git_history_app"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.adityaoo7.githistory.presentation.user.UserFragment"
+        android:label="@string/user_screen"
+        tools:layout="@layout/fragment_user">
+        <argument
+            android:name="user"
+            app:argType="com.adityaoo7.githistory.models.User" />
+        <action
+            android:id="@+id/action_userFragment_to_repositoryFragment"
+            app:destination="@id/repositoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repositoryFragment"
+        android:name="com.adityaoo7.githistory.presentation.repository.RepositoryFragment"
+        android:label="@string/repo_screen"
+        tools:layout="@layout/fragment_repository">
+        <argument
+            android:name="repository"
+            app:argType="com.adityaoo7.githistory.models.Repository" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_repositoryFragment_to_issueFragment"
+            app:destination="@id/issueFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/issueFragment"
+        android:name="com.adityaoo7.githistory.presentation.issue.IssueFragment"
+        android:label="@string/issue_screen"
+        tools:layout="@layout/fragment_issue">
+        <argument
+            android:name="issue"
+            app:argType="com.adityaoo7.githistory.models.Issue" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="repoName"
+            app:argType="string" />
+    </fragment>
+</navigation>

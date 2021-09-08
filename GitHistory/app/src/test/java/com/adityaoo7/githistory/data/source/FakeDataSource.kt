@@ -4,16 +4,14 @@ import com.adityaoo7.githistory.models.Comment
 import com.adityaoo7.githistory.models.Issue
 import com.adityaoo7.githistory.models.Repository
 import com.adityaoo7.githistory.models.User
-import com.adityaoo7.githistory.utils.Result
+import com.adityaoo7.githistory.utils.*
 
 class FakeDataSource : IDataSource {
     val user = User(
         name = "Test User",
         userName = "tasty",
         avatarUrl = "https://avatars.githubusercontent.com/",
-        bio = "Another Developer",
-        following = 210,
-        followers = 212
+        bio = "Another Developer"
     )
 
     val repositories = listOf(
@@ -69,27 +67,44 @@ class FakeDataSource : IDataSource {
         shouldReturnError = value
     }
 
+    private var shouldReturnEmpty = false
+    fun setShouldReturnEmpty(value: Boolean) {
+        shouldReturnEmpty = value
+    }
+
     override suspend fun getUser(userName: String): Result<User> {
-        return if (shouldReturnError) {
-            Result.Error(Exception("Test Exception"))
-        } else {
-            Result.Success(user)
+        return when {
+            shouldReturnError -> {
+                Result.Error(Exception("Test Exception"))
+            }
+            else -> {
+                Result.Success(user)
+            }
         }
     }
 
     override suspend fun getRepository(userName: String, repoName: String): Result<Repository> {
-        return if (shouldReturnError) {
-            Result.Error(Exception("Test Exception"))
-        } else {
-            Result.Success(repositories[0])
+        return when {
+            shouldReturnError -> {
+                Result.Error(Exception("Test Exception"))
+            }
+            else -> {
+                Result.Success(repositories[0])
+            }
         }
     }
 
     override suspend fun getRepositories(userName: String): Result<List<Repository>> {
-        return if (shouldReturnError) {
-            Result.Error(Exception("Test Exception"))
-        } else {
-            Result.Success(repositories)
+        return when {
+            shouldReturnError -> {
+                Result.Error(Exception("Test Exception"))
+            }
+            shouldReturnEmpty -> {
+                Result.Success(emptyList())
+            }
+            else -> {
+                Result.Success(repositories)
+            }
         }
     }
 
@@ -98,18 +113,27 @@ class FakeDataSource : IDataSource {
         repoName: String,
         issueNumber: Int
     ): Result<Issue> {
-        return if (shouldReturnError) {
-            Result.Error(Exception("Test Exception"))
-        } else {
-            Result.Success(issues[0])
+        return when {
+            shouldReturnError -> {
+                Result.Error(Exception("Test Exception"))
+            }
+            else -> {
+                Result.Success(issues[0])
+            }
         }
     }
 
     override suspend fun getIssues(userName: String, repoName: String): Result<List<Issue>> {
-        return if (shouldReturnError) {
-            Result.Error(Exception("Test Exception"))
-        } else {
-            Result.Success(issues)
+        return when {
+            shouldReturnError -> {
+                Result.Error(Exception("Test Exception"))
+            }
+            shouldReturnEmpty -> {
+                Result.Success(emptyList())
+            }
+            else -> {
+                Result.Success(issues)
+            }
         }
     }
 
@@ -118,10 +142,16 @@ class FakeDataSource : IDataSource {
         repoName: String,
         issueNumber: Int
     ): Result<List<Comment>> {
-        return if (shouldReturnError) {
-            Result.Error(Exception("Test Exception"))
-        } else {
-            Result.Success(comments)
+        return when {
+            shouldReturnError -> {
+                Result.Error(Exception("Test Exception"))
+            }
+            shouldReturnEmpty -> {
+                Result.Success(emptyList())
+            }
+            else -> {
+                Result.Success(comments)
+            }
         }
     }
 }
