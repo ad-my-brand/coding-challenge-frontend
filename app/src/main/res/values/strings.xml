@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">User github history</string>
+    <string name="get_user">Get user git history</string>
+    <string name="enter_issue_number">Enter issue number</string>
+    <string name="view_issue">View Issue</string>
+    <string name="enter_github">Enter github username</string>
+    <string name="user_image">user image</string>
+    <string name="get_list_of_repositories">Get list of repositories</string>
+</resources>
