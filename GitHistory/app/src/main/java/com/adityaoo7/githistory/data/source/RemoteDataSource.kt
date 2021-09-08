@@ -7,12 +7,14 @@ import com.adityaoo7.githistory.models.User
 import com.adityaoo7.githistory.network.GithubApiService
 import com.adityaoo7.githistory.utils.*
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RemoteDataSource(
+@Singleton
+class RemoteDataSource @Inject constructor(
     private val apiService: GithubApiService,
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val ioDispatcher: CoroutineDispatcher
 ) : IDataSource {
     override suspend fun getUser(userName: String): Result<User> = withContext(ioDispatcher) {
         try {

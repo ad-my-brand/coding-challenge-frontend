@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
  * @see IDataSource
  * @see User
  */
+
 class UserViewModel(private val dataSource: IDataSource, private val userModel: User) :
     ViewModel() {
 
@@ -37,7 +38,7 @@ class UserViewModel(private val dataSource: IDataSource, private val userModel: 
             val result = dataSource.getRepositories(userModel.userName)
             if (result.succeeded) {
                 val repos = (result as Result.Success).data
-                _repositories.value = repos ?: emptyList()
+                _repositories.postValue(repos ?: emptyList())
             } else {
                 _error.postValue(R.string.repos_fetch_error)
             }

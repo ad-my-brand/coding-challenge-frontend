@@ -44,7 +44,7 @@ class IssueViewModel(
             if (result.succeeded) {
                 val comments = (result as Result.Success).data
 
-                _comments.value = comments ?: emptyList()
+                _comments.postValue(comments ?: emptyList())
             } else {
                 _error.postValue(R.string.comments_fetch_error)
             }

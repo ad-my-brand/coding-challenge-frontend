@@ -1,5 +1,6 @@
 package com.adityaoo7.githistory.presentation.issue
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,9 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.adityaoo7.githistory.GitHistoryApp
 import com.adityaoo7.githistory.R
+import com.adityaoo7.githistory.data.source.IDataSource
 import com.adityaoo7.githistory.databinding.FragmentIssueBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialSharedAxis
+import javax.inject.Inject
 
 class IssueFragment : Fragment() {
 
@@ -19,13 +22,16 @@ class IssueFragment : Fragment() {
 
     private val args: IssueFragmentArgs by navArgs()
 
+    @Inject
+    lateinit var dataSource: IDataSource
+
     private val model: IssueViewModel by viewModels {
-        IssueViewModelFactory(
-            (requireContext().applicationContext as GitHistoryApp).dataSource,
-            args.issue,
-            args.userName,
-            args.repoName
-        )
+        IssueViewModelFactory(dataSource, args.issue, args.userName, args.repoName)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as GitHistoryApp).appComponent.inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

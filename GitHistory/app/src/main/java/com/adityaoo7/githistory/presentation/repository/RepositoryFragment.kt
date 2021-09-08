@@ -1,5 +1,6 @@
 package com.adityaoo7.githistory.presentation.repository
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,9 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.adityaoo7.githistory.GitHistoryApp
 import com.adityaoo7.githistory.R
+import com.adityaoo7.githistory.data.source.IDataSource
 import com.adityaoo7.githistory.databinding.FragmentRepositoryBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialSharedAxis
+import javax.inject.Inject
 
 class RepositoryFragment : Fragment() {
 
@@ -20,12 +23,16 @@ class RepositoryFragment : Fragment() {
 
     private val args: RepositoryFragmentArgs by navArgs()
 
+    @Inject
+    lateinit var dataSource: IDataSource
+
     private val model: RepositoryViewModel by viewModels {
-        RepositoryViewModelFactory(
-            (requireContext().applicationContext as GitHistoryApp).dataSource,
-            args.repository,
-            args.userName
-        )
+        RepositoryViewModelFactory(dataSource, args.repository, args.userName)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as GitHistoryApp).appComponent.inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

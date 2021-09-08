@@ -1,5 +1,6 @@
 package com.adityaoo7.githistory.presentation.search
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,16 +10,26 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.adityaoo7.githistory.GitHistoryApp
 import com.adityaoo7.githistory.R
+import com.adityaoo7.githistory.data.source.IDataSource
 import com.adityaoo7.githistory.databinding.FragmentSearchBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialSharedAxis
+import javax.inject.Inject
 
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 
+    @Inject
+    lateinit var dataSource: IDataSource
+
     private val model: SearchViewModel by viewModels {
-        SearchViewModelFactory((requireContext().applicationContext as GitHistoryApp).dataSource)
+        SearchViewModelFactory(dataSource)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as GitHistoryApp).appComponent.inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

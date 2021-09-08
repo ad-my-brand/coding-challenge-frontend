@@ -41,7 +41,7 @@ class RepositoryViewModel(
             val result = dataSource.getIssues(userName, repositoryModel.name)
             if (result.succeeded) {
                 val issues = (result as Result.Success).data
-                _issues.value = issues ?: emptyList()
+                _issues.postValue(issues ?: emptyList())
             } else {
                 _error.postValue(R.string.issues_fetch_error)
             }

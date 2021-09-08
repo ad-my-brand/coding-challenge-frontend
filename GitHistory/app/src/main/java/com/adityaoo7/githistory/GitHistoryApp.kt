@@ -1,9 +1,16 @@
 package com.adityaoo7.githistory
 
 import android.app.Application
-import com.adityaoo7.githistory.data.source.IDataSource
+import com.adityaoo7.githistory.di.AppComponent
+import com.adityaoo7.githistory.di.DaggerAppComponent
 
-class GitHistoryApp : Application() {
+open class GitHistoryApp : Application() {
 
-    val dataSource: IDataSource = ServiceLocator.provideDataSource()
+    val appComponent: AppComponent by lazy {
+        initializeComponent()
+    }
+
+    open fun initializeComponent(): AppComponent {
+        return DaggerAppComponent.factory().create()
+    }
 }

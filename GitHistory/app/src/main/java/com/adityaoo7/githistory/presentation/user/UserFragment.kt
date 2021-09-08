@@ -1,5 +1,6 @@
 package com.adityaoo7.githistory.presentation.user
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,10 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.adityaoo7.githistory.GitHistoryApp
 import com.adityaoo7.githistory.R
+import com.adityaoo7.githistory.data.source.IDataSource
 import com.adityaoo7.githistory.databinding.FragmentUserBinding
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialSharedAxis
+import javax.inject.Inject
 
 class UserFragment : Fragment() {
 
@@ -21,11 +24,17 @@ class UserFragment : Fragment() {
 
     private val args: UserFragmentArgs by navArgs()
 
+    @Inject
+    lateinit var dataSource: IDataSource
+
+
     private val model: UserViewModel by viewModels {
-        UserViewModelFactory(
-            (requireContext().applicationContext as GitHistoryApp).dataSource,
-            args.user
-        )
+        UserViewModelFactory(dataSource, args.user)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as GitHistoryApp).appComponent.inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,10 +108,10 @@ class UserFragment : Fragment() {
         model.empty.observe(viewLifecycleOwner, { isEmpty ->
             if (isEmpty) {
                 binding.repositoryListRefreshLayout.visibility = View.GONE
-                binding.emptyListTextView.visibility = View.VISIBLE
+                binding.emptyRepoListTextView.visibility = View.VISIBLE
             } else {
                 binding.repositoryListRefreshLayout.visibility = View.VISIBLE
-                binding.emptyListTextView.visibility = View.GONE
+                binding.emptyRepoListTextView.visibility = View.GONE
             }
         })
 

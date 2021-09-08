@@ -12,9 +12,7 @@ import kotlinx.coroutines.launch
  * View model for [SearchFragment]
  * @param dataSource data source which implements [IDataSource]
  */
-class SearchViewModel(private val dataSource: IDataSource) : ViewModel() {
-
-    private val TAG = SearchViewModel::class.java.simpleName
+class SearchViewModel(val dataSource: IDataSource) : ViewModel() {
 
     private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean> = _loading
