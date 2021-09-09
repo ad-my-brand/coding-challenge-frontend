@@ -1,5 +1,6 @@
 package com.adityaoo7.githistory.di
 
+import com.adityaoo7.githistory.AppNavigationTest
 import com.adityaoo7.githistory.presentation.issue.IssueFragmentTest
 import com.adityaoo7.githistory.presentation.repository.RepositoryFragmentTest
 import com.adityaoo7.githistory.presentation.search.SearchFragmentTest
@@ -15,4 +16,5 @@ interface TestAppComponent : AppComponent {
     fun inject(fragment: UserFragmentTest)
     fun inject(fragment: RepositoryFragmentTest)
     fun inject(fragment: IssueFragmentTest)
+    fun inject(navigation: AppNavigationTest)
 }

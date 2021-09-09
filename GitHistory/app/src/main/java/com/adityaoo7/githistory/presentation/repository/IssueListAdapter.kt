@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.adityaoo7.githistory.databinding.IssueListItemBinding
 import com.adityaoo7.githistory.models.Issue
+import com.adityaoo7.githistory.utils.convertToSimpleDateAndTime
 
 /**
  * List adapter of [RecyclerView] for list of [Issue].
@@ -29,7 +30,9 @@ class IssueListAdapter(private val viewModel: RepositoryViewModel) :
         fun bind(viewModel: RepositoryViewModel, item: Issue) {
             binding.viewModel = viewModel
             binding.issue = item
-            binding.listIssueNumberText.text = item.number.toString()
+            binding.issueDate.text = item.date.convertToSimpleDateAndTime()
+            val issueNumber = "#${item.number}"
+            binding.listIssueNumberText.text = issueNumber
 
             binding.executePendingBindings()
         }

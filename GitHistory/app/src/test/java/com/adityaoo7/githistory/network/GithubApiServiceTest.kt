@@ -1,9 +1,6 @@
 package com.adityaoo7.githistory.network
 
-import com.adityaoo7.githistory.models.Comment
-import com.adityaoo7.githistory.models.Issue
-import com.adityaoo7.githistory.models.Repository
-import com.adityaoo7.githistory.models.User
+import com.adityaoo7.githistory.models.*
 import com.adityaoo7.githistory.utils.enqueueResponse
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -147,7 +144,8 @@ class GithubApiServiceTest {
                 title = "cache_fu's config is conflict to config in rails3",
                 body = "when i do:\n" +
                         "rake db:migrate  RAILS_ENV=development",
-                url = "https://github.com/defunkt/cache_fu/issues/5"
+                date = "2010-09-22T20:45:25Z",
+                author = Author(userName = "IceskYsl")
             )
 
             // Then :
@@ -171,14 +169,16 @@ class GithubApiServiceTest {
                 number = 2,
                 title = "avoid overriding the \"cache_key\" method for ActiveRecord::Base children",
                 body = "recent rails versions come with a nice cache_key method that concatenates",
-                url = "https://github.com/defunkt/cache_fu/issues/2"
+                date = "2009-10-02T09:13:25Z",
+                author = Author(userName = "ktlacaelel")
             ),
             Issue(
                 number = 1,
                 title = "Action caching broken",
                 body = "I spent a couple hours banging my head against " +
                         "the wall trying to figure out why our action caching wasn't working",
-                url = "https://github.com/defunkt/cache_fu/issues/1"
+                date = "2010-10-19T04:57:03Z",
+                author = Author(userName = "bgreenlee")
             )
         )
 
@@ -202,7 +202,8 @@ class GithubApiServiceTest {
             val expected = listOf(
                 Comment(
                     body = "It looks like this error is being caused by the \"config\" method in tasks",
-                    date = "2010-09-22T20:45:25Z"
+                    date = "2010-09-22T20:45:25Z",
+                    author = Author(userName = "ahwatts")
                 )
             )
 

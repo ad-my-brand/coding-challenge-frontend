@@ -29,8 +29,9 @@ class CommentListAdapter :
 
         fun bind(item: Comment) {
             binding.commentBody.text = item.body
-            val date = item.date.convertToSimpleDateAndTime()
-            binding.commentDate.text = date
+            binding.commentDate.text = item.date.convertToSimpleDateAndTime()
+            val author = "By ${item.author.userName}"
+            binding.commentAuthor.text = author
             binding.executePendingBindings()
         }
 

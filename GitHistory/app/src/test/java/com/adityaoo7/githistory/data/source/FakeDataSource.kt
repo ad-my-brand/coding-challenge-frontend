@@ -1,9 +1,6 @@
 package com.adityaoo7.githistory.data.source
 
-import com.adityaoo7.githistory.models.Comment
-import com.adityaoo7.githistory.models.Issue
-import com.adityaoo7.githistory.models.Repository
-import com.adityaoo7.githistory.models.User
+import com.adityaoo7.githistory.models.*
 import com.adityaoo7.githistory.utils.*
 
 class FakeDataSource : IDataSource {
@@ -40,25 +37,29 @@ class FakeDataSource : IDataSource {
             number = 2,
             title = "avoid overriding the \"cache_key\" method for ActiveRecord::Base children",
             body = "recent rails versions come with a nice cache_key method that concatenates",
-            url = "https://github.com/defunkt/cache_fu/issues/2"
+            date = "2009-10-02T09:13:25Z",
+            author = Author(userName = "ktlacaelel")
         ),
         Issue(
             number = 1,
             title = "Action caching broken",
             body = "I spent a couple hours banging my head against " +
                     "the wall trying to figure out why our action caching wasn't working",
-            url = "https://github.com/defunkt/cache_fu/issues/1"
+            date = "2010-10-19T04:57:03Z",
+            author = Author(userName = "bgreenlee")
         )
     )
 
     val comments = listOf(
         Comment(
             body = "It looks like this error is being caused by the \"config\" method in tasks",
-            date = "2010-09-22T20:45:25Z"
+            date = "2010-09-22T20:45:25Z",
+            author = Author(userName = "ahwatts")
         ),
         Comment(
             body = "Error is being caused by method in tasks",
-            date = "2018-20-22T20:25:03Z"
+            date = "2018-20-22T20:25:03Z",
+            author = Author(userName = "JustAnotherUser")
         )
     )
 

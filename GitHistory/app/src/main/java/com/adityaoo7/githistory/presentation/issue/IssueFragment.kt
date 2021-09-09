@@ -12,6 +12,7 @@ import com.adityaoo7.githistory.GitHistoryApp
 import com.adityaoo7.githistory.R
 import com.adityaoo7.githistory.data.source.IDataSource
 import com.adityaoo7.githistory.databinding.FragmentIssueBinding
+import com.adityaoo7.githistory.utils.convertToSimpleDateAndTime
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.transition.MaterialSharedAxis
 import javax.inject.Inject
@@ -55,6 +56,9 @@ class IssueFragment : Fragment() {
         val issue = args.issue
         val issueNumberText = "#${issue.number}"
         binding.issueNumber.text = issueNumberText
+        val author = "By ${issue.author.userName}"
+        binding.issueAuthorTextView.text = author
+        binding.issueDateTextView.text = issue.date.convertToSimpleDateAndTime()
 
         val adapter = CommentListAdapter()
 

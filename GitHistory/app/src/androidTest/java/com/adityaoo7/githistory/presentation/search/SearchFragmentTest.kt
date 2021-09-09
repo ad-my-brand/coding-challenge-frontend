@@ -10,6 +10,7 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.filters.MediumTest
 import androidx.test.filters.SmallTest
 import com.adityaoo7.githistory.R
 import com.adityaoo7.githistory.TestApplication
@@ -23,7 +24,7 @@ import org.mockito.Mockito.verify
 import javax.inject.Inject
 
 @RunWith(AndroidJUnit4::class)
-@SmallTest
+@MediumTest
 class SearchFragmentTest {
 
     @Inject
