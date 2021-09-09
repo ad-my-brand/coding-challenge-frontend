@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Git History</string>
+
+    <string name="empty_field_error">User name field should not be empty.</string>
+    <string name="user_fetch_error">User Not found. Either user does not exist or internet connection is down.</string>
+    <string name="repos_fetch_error">Failed to fetch repositories. Check connection and try again.</string>
+    <string name="issues_fetch_error">Failed to fetch issues. Check connection and try again.</string>
+    <string name="comments_fetch_error">Failed to fetch comments. Check connection and try again.</string>
+
+    <string name="user_name_edit_text_hint">Enter user name</string>
+    <string name="search_button_text">Search</string>
+    <string name="star_icon_description">Stars for repository</string>
+    <string name="forks_icon_description">Forks of repository</string>
+    <string name="followers_text_text_view">Followers</string>
+    <string name="following_text_text_view">Following</string>
+    <string name="avatar_image_description">user avatar photo</string>
+    <string name="repositories_text">Repositories</string>
+    <string name="no_repositories_found_text">No repositories found</string>
+    <string name="issues_text">Issues</string>
+    <string name="empty_issue_list_text">No Issues found</string>
+    <string name="comments_text">Comments</string>
+    <string name="empty_comment_list_text">No Comments found</string>
+
+    <string name="git_history_app">Git History</string>
+    <string name="user_screen">User Profile</string>
+    <string name="repo_screen">Repository</string>
+    <string name="issue_screen">Issue</string>
+    <string name="icon_description">github icon</string>
+</resources>

@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://api.github.com/repos/defunkt/cache_fu/issues/comments/423914",
+    "html_url": "https://github.com/defunkt/cache_fu/issues/5#issuecomment-423914",
+    "issue_url": "https://api.github.com/repos/defunkt/cache_fu/issues/5",
+    "id": 423914,
+    "node_id": "MDEyOklzc3VlQ29tbWVudDQyMzkxNA==",
+    "user": {
+      "login": "ahwatts",
+      "id": 308758,
+      "node_id": "MDQ6VXNlcjMwODc1OA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/308758?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ahwatts",
+      "html_url": "https://github.com/ahwatts",
+      "followers_url": "https://api.github.com/users/ahwatts/followers",
+      "following_url": "https://api.github.com/users/ahwatts/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ahwatts/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ahwatts/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ahwatts/subscriptions",
+      "organizations_url": "https://api.github.com/users/ahwatts/orgs",
+      "repos_url": "https://api.github.com/users/ahwatts/repos",
+      "events_url": "https://api.github.com/users/ahwatts/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ahwatts/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "created_at": "2010-09-22T20:45:25Z",
+    "updated_at": "2010-09-22T20:45:25Z",
+    "author_association": "NONE",
+    "body": "It looks like this error is being caused by the \"config\" method in tasks",
+    "performed_via_github_app": null
+  }
+]
