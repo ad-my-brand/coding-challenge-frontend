@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IssueDisplay">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/issue_details"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_margin="30sp"
+        android:id="@+id/heading"/>
+
+    <TextView
+        android:id="@+id/Details"
+        android:layout_width="match_parent"
+        android:layout_height="500sp"
+        android:layout_marginTop="30sp"
+        android:layout_margin="30sp"
+        app:layout_constraintBottom_toTopOf="@id/issueweb"
+        app:layout_constraintTop_toBottomOf="@id/heading"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more_details"
+        android:id="@+id/issueweb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="30sp"
+        android:textSize="30sp"
+        android:textColor="#3F51B5"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
