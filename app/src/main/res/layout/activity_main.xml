@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/changeUser"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20sp"
+                android:src="@drawable/editwhite" />
+
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="30sp"
+        android:orientation="vertical"
+        android:id="@+id/startGuide"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="80sp"
+        android:orientation="horizontal"
+        android:id="@+id/topGuide"/>
+
+    <ImageView
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:background="@drawable/oval"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintStart_toEndOf="@id/startGuide"
+        app:layout_constraintTop_toBottomOf="@id/topGuide"
+        android:id="@+id/avatar"/>
+<!--    <ImageButton-->
+<!--        android:id="@+id/changeUser"-->
+<!--        android:layout_width="40sp"-->
+<!--        android:layout_height="40sp"-->
+<!--        app:layout_constraintTop_toTopOf="@id/topGuide"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:src="@drawable/ic_baseline_edit_24"-->
+<!--        android:layout_marginEnd="25sp"/>-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_id"
+        android:textColor="#455259"
+        android:textSize="30sp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@id/topGuide"
+        android:layout_marginStart="30sp"
+        android:id="@+id/userName"/>
+
+    <TextView
+        android:id="@+id/email"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30sp"
+        android:layout_marginStart="30sp"
+        android:text="@string/email_email_com"
+        android:textColor="#7A8B94"
+        android:textSize="20sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/avatar"
+        app:layout_constraintTop_toBottomOf="@id/userName" />
+
+    <ImageView
+        android:id="@+id/sepLine"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginTop="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30sp"
+        android:layout_marginStart="30sp"
+        app:layout_constraintTop_toBottomOf="@id/avatar"
+        android:background="#2D606060"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/publicRepos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/public_repos"
+        android:textColor="#7A8B94"
+        android:textSize="30sp"
+        android:layout_marginTop="40sp"
+        app:layout_constraintTop_toBottomOf="@id/sepLine"
+        app:layout_constraintStart_toEndOf="@id/startGuide"/>
+
+    <TextView
+        android:id="@+id/publicGists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/public_gists"
+        android:textColor="#7A8B94"
+        android:textSize="30sp"
+        android:layout_marginTop="30sp"
+        app:layout_constraintTop_toBottomOf="@id/publicRepos"
+        app:layout_constraintStart_toEndOf="@id/startGuide"/>
+
+    <TextView
+        android:id="@+id/followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/followers"
+        android:textSize="30sp"
+        android:layout_marginTop="30sp"
+        android:textColor="#7A8B94"
+        app:layout_constraintTop_toBottomOf="@id/publicGists"
+        app:layout_constraintStart_toEndOf="@id/startGuide"/>
+
+    <TextView
+        android:id="@+id/following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/following"
+        android:textColor="#7A8B94"
+        android:textSize="30sp"
+        android:layout_marginTop="30sp"
+        app:layout_constraintTop_toBottomOf="@id/followers"
+        app:layout_constraintStart_toEndOf="@id/startGuide"/>
+    <TextView
+        android:id="@+id/showProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="#B04068CD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/repositories"
+        android:layout_marginBottom="60sp"
+        android:text="@string/github_profile"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/repositories"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:background="@drawable/buttonrec"
+        android:layout_margin="20sp"
+        android:text="@string/repositories"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

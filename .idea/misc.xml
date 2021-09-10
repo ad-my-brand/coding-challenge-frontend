@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/drawable/background.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/drawable/buttonrec.xml" value="0.25555555555555554" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/drawable/oval.xml" value="0.25555555555555554" />
+        <entry key="app/src/main/res/drawable/reporow.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/drawable/ripple.xml" value="0.24814814814814815" />
+        <entry key="app/src/main/res/layout/activity_issue.xml" value="0.1983695652173913" />
+        <entry key="app/src/main/res/layout/activity_issue_display.xml" value="0.18931159420289856" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_repository.xml" value="0.1983695652173913" />
+        <entry key="app/src/main/res/layout/issuesrow.xml" value="0.1983695652173913" />
+        <entry key="app/src/main/res/layout/reporow.xml" value="0.1983695652173913" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

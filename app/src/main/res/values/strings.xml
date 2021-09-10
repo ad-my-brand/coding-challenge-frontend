@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SudGoyal App</string>
+    <string name="public_repos">Public Repos: </string>
+    <string name="public_gists">Public Gists :</string>
+    <string name="followers">Followers:</string>
+    <string name="following">Following:</string>
+    <string name="repositories">Repositories</string>
+    <string name="github_profile">Open Github Profile</string>
+    <string name="user_id">User ID</string>
+    <string name="email_email_com">email@email.com</string>
+    <string name="more_details">More Details</string>
+    <string name="issue_details">Issue Details</string>
+
+</resources>
