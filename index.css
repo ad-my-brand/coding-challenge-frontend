@@ -1,0 +1,27 @@
+input{
+  margin: 10px;
+  padding: 5px 2px; 
+  width: 90%;
+  
+} 
+form{
+  background-color: aliceblue;
+  width: 50%;  
+  height: 12rem;
+  margin: 0 auto;
+  border-radius: 5px;
+} 
+.my-input{
+ 
+
+} 
+button{
+  float: right;
+  margin: 10px;
+  padding: 9px 17px;
+  color: white;
+  background-color: black;
+  border: none; 
+  border-radius: 5px;
+  cursor: pointer;
+}
