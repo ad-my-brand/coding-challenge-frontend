@@ -21,11 +21,14 @@
            android:text = "Android App Development"
            android:textSize = "20sp"
            android:gravity = "center_vertical"
+           android:maxLines="1"
+           android:ellipsize="end"
            />
        <ImageView
+           android:id = "@+id/fork"
            android:layout_height = "match_parent"
            android:layout_width = "20dp"
-           android:src="@drawable/eye"
+           android:src="@drawable/forked"
            />
    </LinearLayout>
 
@@ -41,9 +44,9 @@
             android:layout_height = "100dp"
             android:layout_weight = "1"
             android:padding = "5dp"
-            android:text = "Develop an android and consume gitapi to get an overview
-            the users git history; look into the list of repositories of the user and go to specific
-            issues."
+            android:text = "No description provided."
+            android:ellipsize = "end"
+            android:maxLines = "3"
             />
         <Button
             android:layout_height = "40dp"

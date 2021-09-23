@@ -46,10 +46,18 @@
         >
 
         <pl.droidsonroids.gif.GifImageView
+            android:id = "@+id/gifs"
             android:layout_height = "wrap_content"
             android:layout_width = "match_parent"
             android:src = "@drawable/windmill"
             android:layout_gravity = "center"
+            />
+        <ImageView
+            android:id ="@+id/not_found"
+            android:layout_height = "wrap_content"
+            android:layout_width = "match_parent"
+            android:src = "@drawable/not_found"
+            android:visibility = "gone"
             />
 
     </LinearLayout>

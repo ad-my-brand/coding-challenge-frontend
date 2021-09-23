@@ -1,10 +1,12 @@
 package com.alert.github_api;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,14 @@ public class CustomAdapter extends ArrayAdapter<DataModel> {
 
         TextView repo_description = currentItemView.findViewById(R.id.rep_desc);
         repo_description.setText(currentNumberPosition.getRepo_description());
+
+        ImageView is_forked = currentItemView.findViewById(R.id.fork);
+        if(currentNumberPosition.get_is_forked()){
+            is_forked.setImageResource(R.drawable.forked);
+        }
+        else{
+            is_forked.setImageResource(R.drawable.not_forked);
+        }
         return currentItemView;
     }
 }
