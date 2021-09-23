@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Github_Api</string>
+    <string name="search_user">search user..</string>
 </resources>
