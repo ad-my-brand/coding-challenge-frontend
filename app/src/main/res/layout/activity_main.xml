@@ -33,10 +33,12 @@
             android:layout_marginRight = "5dp"
             android:background="@drawable/search_icon"
             android:scaleType = "centerCrop"
+            android:onClick="fetch_repo_info"
             />
     </LinearLayout>
 
     <LinearLayout
+        android:id ="@+id/no_data"
         android:layout_height = "match_parent"
         android:layout_width = "match_parent"
         android:orientation = "vertical"
@@ -52,7 +54,12 @@
 
     </LinearLayout>
 
-
+    <ListView
+        android:id = "@+id/list_of_repos"
+        android:layout_height = "wrap_content"
+        android:layout_width = "match_parent"
+        android:visibility="gone"
+        ></ListView>
 
 
 
