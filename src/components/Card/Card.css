@@ -1,0 +1,10 @@
+.Card{
+    width: 85%;
+    min-width: 10rem;
+    max-width: 30rem;
+    text-align: center;
+    background-color: azure;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+}

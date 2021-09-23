@@ -1,0 +1,48 @@
+.error{
+    height: 1rem;
+    color:red;
+}
+.inputControls{
+    display: flex;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+}
+.inputControls label{
+    font-weight:bold;
+    margin-bottom:0.5rem ;
+    width: 100px;
+    text-align: left;
+}
+.inputControls input,
+.inputControls label{
+    display: block;
+}
+.inputControls input{
+    border-radius: 1px;
+    background-color: rgb(218, 247, 248);
+    flex: 1;
+    padding: 0.25rem 0.25rem;
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left:none;
+    border-right:none;
+    height: 1.5rem;
+}
+.inputControls input:focus{
+    border: 2px solid rgb(35, 100, 240);
+}   
+.inputControls.invalid input{
+    background-color: wheat;
+    border-bottom: 2px solid rgb(247, 86, 86);
+    border-top: none;
+    border-left:none;
+    border-right:none;
+}
+@media (min-width: 768px){
+    .inputControls{
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
