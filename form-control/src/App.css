@@ -1,0 +1,82 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+ body {
+  width: 100%;
+  padding: 0%;
+  margin: 0%;
+}
+
+.container {
+  position: relative;
+  top: 80px;
+  margin: auto;
+  width: 90%;
+  background-color: rgb(205, 225, 243);
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 35px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 45px;
+}
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: tan;
+  margin: 10px 15px;
+  padding: 15px 15px;
+  width: 40%;
+  height: 50%;
+  box-shadow: 5px 3px white;
+  border-radius: 8px;
+}
+
+span {
+  font-weight: 600;
+}
+h4, h5, h6{
+  padding-bottom: 5px;
+}
+
+.form {
+  width: 550px;
+  margin: auto;
+  padding: 50px 20px 40px 42px;
+  background-color: lightsalmon;
+}
+label {
+  font-size: 26px;
+}
+input {
+  width: 450px;
+  height: 32px;
+  padding-left: 5px;
+  font-size: 22px;
+}
+button {
+  font-size: 18px;
+  padding: 5px 10px;
+  background-color: limegreen;
+  margin-left: 7px;
+}
+.btn {
+  display: flex;
+  padding-top: 10px;
+}
+
+.clr {
+  font-size: 18px;
+  padding: 5px 10px;
+  background-color: rgb(194, 91, 23);
+}
