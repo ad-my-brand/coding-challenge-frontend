@@ -3,6 +3,7 @@ package com.alert.github_api;
 public class DataModel {
     String repo_name,repo_description,issues_url;
     boolean is_forked;
+    public DataModel(){}
     public DataModel(String repo_name, String repo_description, String issues_url,boolean is_forked){
         this.repo_name = repo_name;
         this.repo_description = repo_description;

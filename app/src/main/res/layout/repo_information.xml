@@ -55,7 +55,7 @@
             android:textColor = "@color/white"
             android:text = "issues"
             android:backgroundTint = "@color/mediumseagreen"
-
+            android:onClick = "checkTheIssues"
             />
     </LinearLayout>
 </LinearLayout>

@@ -3,11 +3,13 @@ package com.alert.github_api;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,6 +31,10 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
     private static final String USER_AGENT = "Mozilla/5.0";
+    //important variables
+    ArrayList<DataModel> list_of_repository;
+    String username;
+    //----------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -49,15 +55,32 @@ public class MainActivity extends AppCompatActivity {
         }
         return username;
     }
+
+    public void checkTheIssues(View v){
+
+        LinearLayout parentRow = (LinearLayout) v.getParent();
+        LinearLayout grandParentRow = (LinearLayout)parentRow.getParent();
+        ListView listView = (ListView) grandParentRow.getParent();
+        final int position = listView.getPositionForView(parentRow);
+        //Toast.makeText(this,String.valueOf(position),Toast.LENGTH_LONG).show();
+        DataModel dm = list_of_repository.get(position);
+        String repository_name = dm.getRepo_name();
+
+        Intent intent = new Intent(this,IssuesPanel.class);
+        intent.putExtra("username",username);
+        intent.putExtra("repository_name",repository_name);
+        startActivity(intent);
+    }
+
     public void fetch_repo_info(View view){
         //disable the initial container
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.no_data);
         linearLayout.setVisibility(View.GONE);
         GifImageView gif = (GifImageView)findViewById(R.id.gifs);
         //-----------
-        String username = is_valid_username();
+        username = is_valid_username();
         if(!username.equals("")) {
-            ArrayList<DataModel> list_of_repository = new ArrayList<>();
+            list_of_repository = new ArrayList<>();
             try {
                 int flag = 0;
                 String url = "https://api.github.com/users/"+username+"/repos";
@@ -104,11 +127,12 @@ public class MainActivity extends AppCompatActivity {
             catch(Exception ex){
                 Toast.makeText(getApplicationContext(),String.valueOf(ex),Toast.LENGTH_LONG).show();
             }
-            
+
             CustomAdapter customAdapter = new CustomAdapter(this, list_of_repository);
             ListView listView = (ListView) findViewById(R.id.list_of_repos);
             listView.setVisibility(View.VISIBLE);
             listView.setAdapter(customAdapter);
+
         }
         else{
 
