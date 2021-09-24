@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation = "vertical"
+    android:layout_marginTop = "5dp"
     >
    <LinearLayout
        android:layout_height = "50dp"
@@ -33,7 +34,7 @@
    </LinearLayout>
 
     <LinearLayout
-        android:layout_height = "100dp"
+        android:layout_height = "70dp"
         android:layout_width = "match_parent"
         android:orientation="horizontal"
         android:padding = "5dp"
@@ -48,10 +49,29 @@
             android:ellipsize = "end"
             android:maxLines = "3"
             />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding = "10dp"
+        android:background = "@drawable/issue_search_box_background"
+
+        >
+
+        <EditText
+            android:layout_width = "0dp"
+            android:layout_height = "40dp"
+            android:layout_weight = "1"
+            android:inputType = "number"
+            android:hint = "Enter issue number"
+            android:background = "@null"
+
+            />
         <Button
             android:layout_height = "40dp"
             android:layout_width = "100dp"
-            android:layout_marginTop = "30dp"
             android:textColor = "@color/white"
             android:text = "issues"
             android:backgroundTint = "@color/mediumseagreen"

@@ -62,13 +62,15 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout grandParentRow = (LinearLayout)parentRow.getParent();
         ListView listView = (ListView) grandParentRow.getParent();
         final int position = listView.getPositionForView(parentRow);
-        //Toast.makeText(this,String.valueOf(position),Toast.LENGTH_LONG).show();
+
+        TextView iss_num = (TextView)parentRow.getChildAt(0);
         DataModel dm = list_of_repository.get(position);
         String repository_name = dm.getRepo_name();
-
+        String issue_number = String.valueOf(iss_num.getText());
         Intent intent = new Intent(this,IssuesPanel.class);
         intent.putExtra("username",username);
         intent.putExtra("repository_name",repository_name);
+        intent.putExtra("issue_number",issue_number);
         startActivity(intent);
     }
 
