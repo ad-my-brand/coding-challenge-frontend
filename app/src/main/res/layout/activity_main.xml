@@ -8,7 +8,7 @@
     android:orientation = "vertical"
     android:padding = "5dp"
     >
-
+    <!--search box goes here-->
     <LinearLayout
         android:layout_height = "wrap_content"
         android:layout_width = "match_parent"
@@ -36,7 +36,9 @@
             android:onClick="fetch_repo_info"
             />
     </LinearLayout>
+    <!--search box ends here-->
 
+    <!--preview gifs on start-->
     <LinearLayout
         android:id ="@+id/no_data"
         android:layout_height = "match_parent"
@@ -61,14 +63,16 @@
             />
 
     </LinearLayout>
+    <!--preview gifs ends here-->
 
+    <!--repository list goes here-->
     <ListView
         android:id = "@+id/list_of_repos"
         android:layout_height = "wrap_content"
         android:layout_width = "match_parent"
         android:visibility="gone"
         ></ListView>
-
+    <!--repolist ends here-->
 
 
 </LinearLayout>

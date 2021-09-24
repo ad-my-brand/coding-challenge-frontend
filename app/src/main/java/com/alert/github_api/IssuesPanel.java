@@ -47,7 +47,7 @@ public class IssuesPanel extends AppCompatActivity {
     public void fetch_issue(String username,String repo_name,String issue_number){
         String title = "",comments = "";
         try {
-            int flag = 0;
+            
             String url = "https://api.github.com/repos/"+username+"/"+repo_name+"/issues/"+issue_number;
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();

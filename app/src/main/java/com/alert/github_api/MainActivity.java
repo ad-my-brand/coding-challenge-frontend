@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         //-------------------------
 
     }
+    //function to check whether the username is valid or not
     public String is_valid_username(){
         EditText user = (EditText)findViewById(R.id.get_username);
         String username = user.getText().toString();
@@ -55,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return username;
     }
+    //----------------------------------
 
+    //go to the issues page when button is clicked for a particular repo
     public void checkTheIssues(View v){
 
         LinearLayout parentRow = (LinearLayout) v.getParent();
@@ -73,9 +76,11 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("issue_number",issue_number);
         startActivity(intent);
     }
+   //---------------------------------------------------
 
+    //fetch all the required info from the api to list the repos
     public void fetch_repo_info(View view){
-        //disable the initial container
+        //disable the preview container
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.no_data);
         linearLayout.setVisibility(View.GONE);
         GifImageView gif = (GifImageView)findViewById(R.id.gifs);
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         if(!username.equals("")) {
             list_of_repository = new ArrayList<>();
             try {
-                int flag = 0;
+
                 String url = "https://api.github.com/users/"+username+"/repos";
                 URL obj = new URL(url);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -136,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             listView.setAdapter(customAdapter);
 
         }
-        else{
+        else{//run this block if user provides an invalid username
 
             linearLayout.setVisibility(View.VISIBLE);
             gif.setVisibility(View.GONE);
@@ -144,4 +149,5 @@ public class MainActivity extends AppCompatActivity {
             imgView.setVisibility(View.VISIBLE);
         }
     }
+    //-----------------------------------------------
 }

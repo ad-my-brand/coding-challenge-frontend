@@ -6,6 +6,8 @@
     android:orientation = "vertical"
     android:layout_marginTop = "5dp"
     >
+
+    <!--repo title geos here-->
    <LinearLayout
        android:layout_height = "50dp"
        android:layout_width = "match_parent"
@@ -25,14 +27,18 @@
            android:maxLines="1"
            android:ellipsize="end"
            />
+       <!-- code to know whether a repo is forked or not-->
        <ImageView
            android:id = "@+id/fork"
            android:layout_height = "match_parent"
            android:layout_width = "20dp"
            android:src="@drawable/forked"
            />
+       <!--*********************-->
    </LinearLayout>
+    <!--repo tile code ends here-->
 
+    <!--repo description goes here-->
     <LinearLayout
         android:layout_height = "70dp"
         android:layout_width = "match_parent"
@@ -51,6 +57,9 @@
             />
 
     </LinearLayout>
+    <!--repo description ends here-->
+
+    <!-- code to ask the user for issue number goes here-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,4 +87,5 @@
             android:onClick = "checkTheIssues"
             />
     </LinearLayout>
+    <!-- issue number asking code ends here-->
 </LinearLayout>
