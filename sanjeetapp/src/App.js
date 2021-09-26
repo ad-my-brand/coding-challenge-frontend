@@ -1,22 +1,20 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import FormControl from './components/FormControl'
 
-const styles = {
-  backgroundColor:'yellow',
-  fontSize :'3em',
-  fontWeight:'bold',
-  boxShadow:'3px 3px 3px green'
-}
+
 
 function App() {
 
 
-  return (
-    <div className="App" style={styles}>
-  
-       Form Control Assignment 
 
-    </div>
+
+
+  return ( <>
+   <FormControl></FormControl>
+
+    </>
   );
 }
 

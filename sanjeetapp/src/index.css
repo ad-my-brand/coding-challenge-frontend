@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.btn {
+  box-shadow:'2px 2px 2px red';
+
+}
+
+input {
+
+  height:1.99em;
+}
+
+
+input:focus{
+box-shadow:3px 3px 3px green;
+}
