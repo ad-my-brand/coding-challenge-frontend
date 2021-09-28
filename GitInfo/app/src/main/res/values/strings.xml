@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Git Info</string>
+    <string name="user_name">user name</string>
+    <string name="get_repo">Get Repo</string>
+    <string name="empty_username">username cannot be empty</string>
+    <string name="repo_desc">description</string>
+    <string name="issues_in_this_repo">Issues in this repo</string>
+</resources>
