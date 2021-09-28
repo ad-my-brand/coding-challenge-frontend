@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 String userName = binding.gitUsername.getText().toString().trim();
 
                 if (userName.length() != 0){
+                    repoArrayList.clear();
 
                     requestService(userName);
                     setAdapter();
