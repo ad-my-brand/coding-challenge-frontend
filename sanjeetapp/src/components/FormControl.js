@@ -1,83 +1,250 @@
-import { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import ListPopulate from './ListPopulate';
+import Emap from './Emap';
 
-const styles = {
-    backgroundColor:'yellow',
-    fontSize :'3em',
-    fontWeight:'bold',
-    boxShadow:'3px 3px 3px green'
+
+const dummy_data = [
+  {
+    title: 'dummytitle',
+    body: 'ab'
+  },
+  {
+    title: 'dummytitle2',
+    body: 'abc'
+  },
+  {
+    title: 'dummytitle3',
+    body: 'aop'
   }
-  
-  const style2 = {
-    display :'flex',
-    flexDirection:'column',
-    alignItems:'center',
-    marginTop:'4%',
-    backgroundColor:'#454545'
+
+]
+
+const FormControl = (props) => {
+
+
+// json object data states_and_properties
+
+
+const [jsony, setjsony] = useState(dummy_data);
+
+const addjsonHandler = (jsony) => {
+  setjsony((prevjsony) => {
+    return [jsony, ...prevjsony];
+  });
+};
+
+// ***********
+
+
+
+  // fetch api states
+
+  const [error, setError] = useState(null);
+  const [json, setjson] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // **
+
+
+  const [enteredName, setEnteredName] = useState('');
+  const [enteredBody, setEnteredBody] = useState('');
+  const [enteredNameTouched, setEnteredNameTouched] = useState(false);
+  const [enteredBodyTouched, setEnteredBodyTouched] = useState(false);
+
+  const enteredNameIsValid = enteredName.trim() !== '';
+  const enteredBodyIsValid = enteredBody.trim() !== '';
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
+  const BodyInputIsInvalid = !enteredBodyIsValid && enteredBodyTouched;
+
+// fetch fetch ****************************************************************
+
+
+
+
+ 
+
+ 
+
+
+
+
+  function addMovieHandler(movie) {
+    console.log(movie);
   }
-  
-  const style3 = {
-   color:'white',
-   marginRight:'4%',
-   transform:'translateY(10px)',
-   fontSize:'1.4em'
-  
+
+  let content = <p>Found no movies.</p>;
+
+  if (json.length > 0) {
+    // content = <MoviesList movies={movies} />;
   }
-  
-  const style4 = {
-    fontSize:'2em'
+
+  if (error) {
+    content = <p>{error}</p>;
   }
-function FormControl(){
-    const [enteredTitle,setenteredTitle] = useState('');
-    const [enteredBody,setEnteredBody] = useState('');
-    
-    
-    
-     function formsubmit(event){
-        event.preventDefault();
-     }
-    
-     function titlesubmit(event){
-      setenteredTitle(event.target.value);
+
+  if (isLoading) {
+    content = <p>Loading...</p>;
+  }
+
+
+
+
+
+// ************************************************************************************************
+
+
+  let formIsValid = false;
+
+  if (enteredNameIsValid && enteredBodyIsValid) { 
+    formIsValid = true;
+  }
+
+  const enteredObject = {
+    title : enteredName,
+    body : enteredBody
+  }
+
+  const nameInputChangeHandler = (event) => {
+    setEnteredName(event.target.value);
+  
+  };
+  const BodyInputChangeHandler = (event) => {
+    setEnteredBody(event.target.value);
+  };
+
+  const nameInputBlurHandler = (event) => {
+    setEnteredNameTouched(true);
+  };
+
+  const BodyInputBlurHandler = (event) => {
+    setEnteredBodyTouched(true);
+  };
+
+  const formSubmissionHandler = (event) => {
+    event.preventDefault();
+  
+    setEnteredNameTouched(true);
+    setEnteredBodyTouched(true);
+
+    if (!(enteredNameIsValid && enteredBodyIsValid)) {
+      return;
     }
-    
-    function bodysubmit(event){
-      setEnteredBody(event.target.value);
-    }
-return(
-    <>
-    
-    <div className="App" style={styles}>
 
-  
-Form Control Assignment 
+    // handling errors in fetch with faulty parameters
+    fetch('https://jsonplaceholder.typicode.com/postijhbvh', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json()).then((json) => console.log(json)).then(res => {
+        
+        if (!res.ok && res!=null) {
+           throw new Error(res.error);
+        }
+        return res;
+      })
+      .catch(err => console.log(err+' : error occured'));
+    console.log(enteredName);
 
+    // nameInputRef.current.value = ''; => NOT IDEAL, DON'T MANIPULATE THE DOM
+    setEnteredName('');
+    setEnteredBody('');
+    setEnteredNameTouched(false);
+    setEnteredBodyTouched(false);
+
+
+// fetch api json placeholder error free
+
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify({
+    title: 'foo',
+    body: 'bar',
+    userId: 1,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+
+
+
+
+
+
+
+    console.log(enteredObject)
+  };
+
+  const nameInputClasses = nameInputIsInvalid
+    ? 'form-control invalid'
+    : 'form-control';
+
+
+    // fetch('https://jsonplaceholder.typicode.com/todos/1')
+    // .then(response => response.json())
+    // .then(json => console.log(json))
+
+
+   
+
+
+  return ( <>
+    <form onSubmit={formSubmissionHandler}>
+      <div className={nameInputClasses}>
+        <label htmlFor='name'>Title</label>
+        <input
+          type='text'
+          id='name'
+          onChange={nameInputChangeHandler}
+          onBlur={nameInputBlurHandler}
+          value={enteredName}
+        />
+        {nameInputIsInvalid && (
+          <p className='error-text'>Title must not be empty.</p>
+        )}
+      </div>
+
+      <div className={nameInputClasses}>
+        <label htmlFor='name'>Body</label>
+        <input
+          type='text'
+          id='name'
+          onChange={BodyInputChangeHandler}
+          onBlur={BodyInputBlurHandler}
+          value={enteredBody}
+        />
+        {BodyInputIsInvalid && (
+          <p className='error-text'>Body must not be empty.</p>
+        )}
+      </div>
+
+
+      <div className='form-actions' style={{borderBottom: '2px solid green'}}>
+        <button disabled={!formIsValid} style={{marginBottom: '23%'}}>Submit</button>
+      </div>
+    </form>
+
+    <div style={{marginLeft:'13%',display:'flex',justifyContent: 'space-around',paddingTop: '3em'}}>
+<ListPopulate 
+prop={enteredObject}
+items={jsony}
+onAddExpense={addjsonHandler}
+></ListPopulate>
+<Emap></Emap>
 </div>
 
-
-<div>
-<form onSubmit={formsubmit}> 
-<div style={style2}>
-<div style={{paddingTop:'4%'}} >
-<label style={style3}><span style={style4}>T</span>itle</label>
-<input type="text" onchange={titlesubmit}  ></input>
-</div>
-<div style={{paddingTop:'2%'}}>
-<label style={style3}>
-<span style={style4}>B</span>ody
-</label>
-<input type="text" onchange={bodysubmit}>
-</input>
-</div>
-<div style={{paddingTop:'3%',paddingBottom:'3%',height:'2em'}}><button className="btn" style={{backgroundColor:'yellow',height:'2em',width:'5em',marginLeft:'-5em'}}>Submit</button></div>
-</div>
-</form>
-
-</div>
-<i>- by sanjeet bharti</i>
     </>
-)
+  );
+};
 
-
-}
-
-export default FormControl
+export default FormControl;
