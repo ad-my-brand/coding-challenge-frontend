@@ -1,6 +1,6 @@
-
+import '../index.css'
 const stylec = {
-    backgroundColor:'pink',
+    backgroundColor:'',
     borderBottom:'2px solid grey'
     , listStyleType:'none',
     paddingRight:'63px',
@@ -23,17 +23,17 @@ function ListPopulate(props) {
 
     return(
         <>
-     <div className="grida" style={{overflow:'scroll',backgroundColor:'wheat',boxShadow:'6px 6px 2px gold',width:'64%',marginLeft:'-11%'}}>
+     <div className="grida" style={{overflow:'scroll',backgroundColor:'wheat',width:'64%',marginLeft:'-38%'}}>
          {/* <marquee direction="up" scrollAmount="2"> */}
      
     <span style={{margin:'2%'}}> <span style={{fontSize:'2.3em'}}>T</span>itles</span>
       <ul>
      
      <li style={stylec}>
-          {props.prop.title}
+          {props.fetch}
           </li>
           {props.items.map((e) => (
-          <li>{e.title}</li>
+          <li style={stylec} id="ListItem">{e.title}</li>
         ))}
           <li style={stylec}>
 

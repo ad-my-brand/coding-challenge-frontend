@@ -72,7 +72,7 @@ const addjsonHandler = (jsony) => {
     console.log(movie);
   }
 
-  let content = <p>Found no movies.</p>;
+  let content = <p></p>;
 
   if (json.length > 0) {
     // content = <MoviesList movies={movies} />;
@@ -120,6 +120,10 @@ const addjsonHandler = (jsony) => {
     setEnteredBodyTouched(true);
   };
 
+
+
+  //form submission function
+
   const formSubmissionHandler = (event) => {
     event.preventDefault();
   
@@ -131,25 +135,7 @@ const addjsonHandler = (jsony) => {
     }
 
     // handling errors in fetch with faulty parameters
-    fetch('https://jsonplaceholder.typicode.com/postijhbvh', {
-      method: 'POST',
-      body: JSON.stringify({
-        title: 'foo',
-        body: 'bar',
-        userId: 1,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json()).then((json) => console.log(json)).then(res => {
-        
-        if (!res.ok && res!=null) {
-           throw new Error(res.error);
-        }
-        return res;
-      })
-      .catch(err => console.log(err+' : error occured'));
+
     console.log(enteredName);
 
     // nameInputRef.current.value = ''; => NOT IDEAL, DON'T MANIPULATE THE DOM
@@ -162,19 +148,7 @@ const addjsonHandler = (jsony) => {
 // fetch api json placeholder error free
 
 
-fetch('https://jsonplaceholder.typicode.com/posts', {
-  method: 'POST',
-  body: JSON.stringify({
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+
 
 
 
@@ -184,6 +158,58 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 
     console.log(enteredObject)
   };
+
+  //fetxh api function
+
+
+
+
+const[data,setData] = useState('');
+async function FetchEntity() {
+setError(null)
+try {
+  const Response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+      title: enteredObject.title,
+      body: enteredObject.body,
+      userId: 1,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+const data = await Response.json();
+setData(data)
+console.log(data)
+}catch(error){
+  setError(error.message);
+  console.log("something went wrong")
+
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const nameInputClasses = nameInputIsInvalid
     ? 'form-control invalid'
@@ -199,7 +225,9 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 
 
   return ( <>
-    <form onSubmit={formSubmissionHandler}>
+   <div style={{display: 'flex',justifyContent: 'space-between'}}>
+ <div>
+ <form onSubmit={formSubmissionHandler}>
       <div className={nameInputClasses}>
         <label htmlFor='name'>Title</label>
         <input
@@ -229,15 +257,26 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
       </div>
 
 
-      <div className='form-actions' style={{borderBottom: '2px solid green'}}>
-        <button disabled={!formIsValid} style={{marginBottom: '23%'}}>Submit</button>
+      <div className='form-actions' style={{borderBottom: '2px solid green',
+marginTop: '-15%',
+display: 'inline-block',
+transform: 'translateY(39px)'}}>
+        <button disabled={!formIsValid} style={{marginBottom: '18%',
+paddingTop: '0em',
+marginRight: '26%'}} onClick={FetchEntity} >Submit</button>
       </div>
     </form>
+ </div>
+<div>
+<p style={{fontSize: '18px',fontWeight: 'bold',fontFamily:'monospace',backgroundColor:'#ededed'}}>{content}</p>
 
+</div>
+   </div>
     <div style={{marginLeft:'13%',display:'flex',justifyContent: 'space-around',paddingTop: '3em'}}>
 <ListPopulate 
 prop={enteredObject}
 items={jsony}
+fetch={data.title}
 onAddExpense={addjsonHandler}
 ></ListPopulate>
 <Emap></Emap>
