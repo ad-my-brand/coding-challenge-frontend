@@ -1,11 +1,22 @@
 package com.alert.github_api;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.AsyncTaskLoader;
+import androidx.loader.content.Loader;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.renderscript.ScriptGroup;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -21,6 +32,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -29,11 +42,11 @@ import java.util.List;
 
 import pl.droidsonroids.gif.GifImageView;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String USER_AGENT = "Mozilla/5.0";
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
     //important variables
-    ArrayList<DataModel> list_of_repository;
-    String username;
+    ArrayList<DataModel> list_of_repository = new ArrayList<>();
+    static String username = "";
+    int LDR = 0;
     //----------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,64 +54,136 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //allow network on main thread
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-        //-------------------------
-
     }
-    //function to check whether the username is valid or not
-    public String is_valid_username(){
-        EditText user = (EditText)findViewById(R.id.get_username);
-        String username = user.getText().toString();
-        if(username.equals("")){
-            return "";
-        }
-        return username;
-    }
-    //----------------------------------
 
-    //go to the issues page when button is clicked for a particular repo
-    public void checkTheIssues(View v){
-
-        LinearLayout parentRow = (LinearLayout) v.getParent();
-        LinearLayout grandParentRow = (LinearLayout)parentRow.getParent();
-        ListView listView = (ListView) grandParentRow.getParent();
-        final int position = listView.getPositionForView(parentRow);
-
-        TextView iss_num = (TextView)parentRow.getChildAt(0);
-        DataModel dm = list_of_repository.get(position);
-        String repository_name = dm.getRepo_name();
-        String issue_number = String.valueOf(iss_num.getText());
-        Intent intent = new Intent(this,IssuesPanel.class);
-        intent.putExtra("username",username);
-        intent.putExtra("repository_name",repository_name);
-        intent.putExtra("issue_number",issue_number);
-        startActivity(intent);
-    }
-   //---------------------------------------------------
-
-    //fetch all the required info from the api to list the repos
+    //method to listen to the button click by user
     public void fetch_repo_info(View view){
-        //disable the preview container
+        EditText get_the_username = (EditText)findViewById(R.id.get_username);
+        username = get_the_username.getText().toString();
+        start_the_service(username);//calling the function to start background work
+    }
+    //------------
+
+    //starter method to fetch data from the API
+    private void start_the_service(String username){
+        if(!username.equals("")){
+            //check the internet connection
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            boolean is_Internet_Available = activeNetworkInfo != null && activeNetworkInfo.isConnected();
+            if(is_Internet_Available) {
+                LoaderManager loaderManager = LoaderManager.getInstance(this);
+                loaderManager.initLoader(LDR, null, this);
+                LDR++;
+            }
+            else{
+                GifImageView gifImageView = (GifImageView)findViewById(R.id.gifs);
+                gifImageView.setVisibility(View.GONE);
+                ImageView imageView = (ImageView)findViewById(R.id.no_internet);
+                imageView.setVisibility(View.VISIBLE);
+            }
+        }
+        else{
+            ListView listView = (ListView)findViewById(R.id.list_of_repos);
+            listView.setVisibility(View.GONE);
+            GifImageView gifImageView = (GifImageView)findViewById(R.id.gifs);
+            gifImageView.setVisibility(View.GONE);
+            ImageView imageView = (ImageView)findViewById(R.id.no_internet);
+            imageView.setImageResource(R.drawable.not_found);
+            imageView.setVisibility(View.VISIBLE);
+        }
+    }
+    //------------
+
+    //code that will work when user clicks checkTheIssues(View) method
+    public void checkTheIssues(View view){
+       LinearLayout parent = (LinearLayout)view.getParent();
+       LinearLayout grandParent = (LinearLayout)parent.getParent();
+       LinearLayout textViewParent = (LinearLayout)grandParent.getChildAt(0);
+       TextView textView = (TextView)textViewParent.getChildAt(0);
+       EditText editText = (EditText)parent.getChildAt(0);
+       String issue_num = editText.getText().toString();
+       String repo_name = textView.getText().toString();
+
+       Intent intent = new Intent(this,IssuesPanel.class);
+       intent.putExtra("username",username);
+       intent.putExtra("repository_name",repo_name);
+       intent.putExtra("issue_number",issue_num);
+       startActivity(intent);
+    }
+    //-------------------
+
+    @NonNull
+    @Override
+    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
+        return new Repo(this);
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
+        //fetching important data from the jsonobject and storing it into an arraylist of objects
+        try {
+             list_of_repository.clear();
+            JSONArray arr = new JSONArray(data);
+
+            for(int i=0;i<arr.length();i++){
+                JSONObject jsonObject = arr.getJSONObject(i);
+                String title = jsonObject.getString("name");
+                String description = jsonObject.getString("description");
+                if(description.equals("null")){
+                    description = "No description provided.";
+                }
+                boolean fork = Boolean.parseBoolean(jsonObject.getString("fork"));
+                list_of_repository.add(new DataModel(title,description,"",fork));
+            }
+
+
+        } catch (Exception ex) {
+            Toast.makeText(getApplicationContext(),String.valueOf(ex),Toast.LENGTH_LONG).show();
+        }
+        //----------------------------------
+
+        //adding data to the UI component
+        CustomAdapter customAdapter = new CustomAdapter(this, list_of_repository);
+        ListView listView = (ListView) findViewById(R.id.list_of_repos);
+        //disable visibility of gifimageview's parent
         LinearLayout linearLayout = (LinearLayout)findViewById(R.id.no_data);
         linearLayout.setVisibility(View.GONE);
-        GifImageView gif = (GifImageView)findViewById(R.id.gifs);
-        //-----------
-        username = is_valid_username();
-        if(!username.equals("")) {
-            list_of_repository = new ArrayList<>();
-            try {
+        //-------------
+        listView.setVisibility(View.VISIBLE);
+        listView.setAdapter(customAdapter);
+        //---------------------
 
-                String url = "https://api.github.com/users/"+username+"/repos";
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<String> loader) {
+         loader = null;
+    }
+
+    //Async task loder class to load the required data in background
+    public static class Repo extends AsyncTaskLoader<String> {
+
+        public Repo(@NonNull Context context) {
+            super(context);
+        }
+
+        @Nullable
+        @Override
+        public String loadInBackground() {
+            String result = "";
+            HttpURLConnection httpURLConnection = null;
+            InputStream inputStream = null;
+            try {
+                String url = "https://api.github.com/users/" + username + "/repos";
                 URL obj = new URL(url);
-                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-                con.setRequestMethod("GET");
-                con.setRequestProperty("User-Agent", USER_AGENT);
-                int responseCode = con.getResponseCode();
+                httpURLConnection = (HttpURLConnection) obj.openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode == HttpURLConnection.HTTP_OK) { // success
-                    BufferedReader in = new BufferedReader(new InputStreamReader(
-                            con.getInputStream()));
+                    inputStream = httpURLConnection.getInputStream();
+                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                    BufferedReader in = new BufferedReader(inputStreamReader);
                     String inputLine;
                     StringBuilder response = new StringBuilder();
 
@@ -106,48 +191,52 @@ public class MainActivity extends AppCompatActivity {
                         response.append(inputLine);
 
                     }
-                    in.close();
-
+                    result = String.valueOf(response);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            } finally {
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                if (inputStream != null) {
                     try {
-
-                        JSONArray arr = new JSONArray(response.toString());
-
-                        for(int i=0;i<arr.length();i++){
-                            JSONObject jsonObject = arr.getJSONObject(i);
-                            String title = jsonObject.getString("name");
-                            String description = jsonObject.getString("description");
-                            if(description.equals("null")){
-                                description = "No description provided.";
-                            }
-                            boolean fork = Boolean.parseBoolean(jsonObject.getString("fork"));
-                            list_of_repository.add(new DataModel(title,description,"",fork));
-                        }
-
-
-                    } catch (Exception ex) {
-                        Toast.makeText(getApplicationContext(),String.valueOf(ex),Toast.LENGTH_LONG).show();
+                        inputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                } else {
-                    Toast.makeText(getApplicationContext(), "Something Went Wrong!", Toast.LENGTH_SHORT).show();
                 }
             }
-            catch(Exception ex){
-                Toast.makeText(getApplicationContext(),String.valueOf(ex),Toast.LENGTH_LONG).show();
-            }
-
-            CustomAdapter customAdapter = new CustomAdapter(this, list_of_repository);
-            ListView listView = (ListView) findViewById(R.id.list_of_repos);
-            listView.setVisibility(View.VISIBLE);
-            listView.setAdapter(customAdapter);
-
+            return result;
         }
-        else{//run this block if user provides an invalid username
 
-            linearLayout.setVisibility(View.VISIBLE);
-            gif.setVisibility(View.GONE);
-            ImageView imgView = (ImageView)findViewById(R.id.not_found);
-            imgView.setVisibility(View.VISIBLE);
+        @Override
+        public void deliverResult(String data) {
+            if (isStarted()) {
+                // Deliver result if loader is currently started
+                super.deliverResult(data);
+            }
+        }
+
+        @Override
+        protected void onStartLoading() {
+
+            // Start loading
+            forceLoad();
+        }
+
+        @Override
+        protected void onStopLoading() {
+            cancelLoad();
+        }
+
+        @Override
+        protected void onReset() {
+            super.onReset();
+
+            // Ensure the loader is stopped
+            onStopLoading();
         }
     }
-    //-----------------------------------------------
+
 }

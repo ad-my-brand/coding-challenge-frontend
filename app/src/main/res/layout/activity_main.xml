@@ -55,10 +55,10 @@
             android:layout_gravity = "center"
             />
         <ImageView
-            android:id ="@+id/not_found"
+            android:id ="@+id/no_internet"
             android:layout_height = "wrap_content"
             android:layout_width = "match_parent"
-            android:src = "@drawable/not_found"
+            android:src = "@drawable/nosignal"
             android:visibility = "gone"
             />
 
