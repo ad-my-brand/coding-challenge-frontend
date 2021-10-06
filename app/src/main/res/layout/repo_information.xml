@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation = "vertical"
+    android:layout_marginTop = "5dp"
+    >
+
+    <!--repo title geos here-->
+   <LinearLayout
+       android:layout_height = "50dp"
+       android:layout_width = "match_parent"
+       android:orientation = "horizontal"
+       android:padding = "5dp"
+       >
+
+       <TextView
+           android:id = "@+id/repo_title"
+           android:layout_height = "50dp"
+           android:layout_width ="0dp"
+           android:layout_weight = "1"
+           android:layout_marginLeft = "5dp"
+           android:text = "Android App Development"
+           android:textSize = "20sp"
+           android:gravity = "center_vertical"
+           android:maxLines="1"
+           android:ellipsize="end"
+           />
+       <!-- code to know whether a repo is forked or not-->
+       <ImageView
+           android:id = "@+id/fork"
+           android:layout_height = "match_parent"
+           android:layout_width = "20dp"
+           android:src="@drawable/forked"
+           />
+       <!--*********************-->
+   </LinearLayout>
+    <!--repo tile code ends here-->
+
+    <!--repo description goes here-->
+    <LinearLayout
+        android:layout_height = "70dp"
+        android:layout_width = "match_parent"
+        android:orientation="horizontal"
+        android:padding = "5dp"
+        >
+        <TextView
+            android:id = "@+id/rep_desc"
+            android:layout_width = "0dp"
+            android:layout_height = "100dp"
+            android:layout_weight = "1"
+            android:padding = "5dp"
+            android:text = "No description provided."
+            android:ellipsize = "end"
+            android:maxLines = "3"
+            />
+
+    </LinearLayout>
+    <!--repo description ends here-->
+
+    <!-- code to ask the user for issue number goes here-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding = "10dp"
+        android:background = "@drawable/issue_search_box_background"
+
+        >
+
+        <EditText
+            android:layout_width = "0dp"
+            android:layout_height = "40dp"
+            android:layout_weight = "1"
+            android:inputType = "number"
+            android:hint = "Enter issue number"
+            android:background = "@null"
+
+            />
+        <Button
+            android:layout_height = "40dp"
+            android:layout_width = "100dp"
+            android:textColor = "@color/white"
+            android:text = "issues"
+            android:backgroundTint = "@color/mediumseagreen"
+            android:onClick = "checkTheIssues"
+            />
+    </LinearLayout>
+    <!-- issue number asking code ends here-->
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation = "vertical"
+    android:padding = "5dp"
+    >
+    <!--search box goes here-->
+    <LinearLayout
+        android:layout_height = "wrap_content"
+        android:layout_width = "match_parent"
+        android:orientation = "horizontal"
+        android:background = "@drawable/search_box_background"
+        >
+        <EditText
+            android:id = "@+id/get_username"
+            android:layout_height = "50dp"
+            android:layout_width = "0dp"
+            android:layout_weight = "1"
+            android:hint = "@string/search_user"
+            android:padding = "10dp"
+            android:textColorHint = "@color/white"
+            android:background= "@null"
+            android:textColor = "@color/white"
+            />
+        <ImageButton
+            android:layout_width = "30dp"
+            android:layout_height = "30dp"
+            android:layout_marginTop = "10dp"
+            android:layout_marginRight = "5dp"
+            android:background="@drawable/search_icon"
+            android:scaleType = "centerCrop"
+            android:onClick="fetch_repo_info"
+            />
+    </LinearLayout>
+    <!--search box ends here-->
+
+    <!--preview gifs on start-->
+    <LinearLayout
+        android:id ="@+id/no_data"
+        android:layout_height = "match_parent"
+        android:layout_width = "match_parent"
+        android:orientation = "vertical"
+        android:gravity = "center"
+        >
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id = "@+id/gifs"
+            android:layout_height = "wrap_content"
+            android:layout_width = "match_parent"
+            android:src = "@drawable/windmill"
+            android:layout_gravity = "center"
+            />
+        <ImageView
+            android:id ="@+id/no_internet"
+            android:layout_height = "wrap_content"
+            android:layout_width = "match_parent"
+            android:src = "@drawable/nosignal"
+            android:visibility = "gone"
+            />
+
+    </LinearLayout>
+    <!--preview gifs ends here-->
+
+    <!--repository list goes here-->
+    <ListView
+        android:id = "@+id/list_of_repos"
+        android:layout_height = "wrap_content"
+        android:layout_width = "match_parent"
+        android:visibility="gone"
+        ></ListView>
+    <!--repolist ends here-->
+
+
+</LinearLayout>
