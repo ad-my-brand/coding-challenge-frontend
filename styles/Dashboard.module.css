@@ -1,0 +1,47 @@
+.details{
+    flex-grow: 2;
+    background-color: white;
+    padding: 10px;
+}
+.userDetails{
+    padding: 5px;
+    background-color: #ffe4e9;
+    border-radius: 10px;
+    padding-inline-start: 10px;
+}
+.form{
+    border-radius: 20px;
+    background-color: #ffe4e9;
+    padding: 20px;
+    margin: 10px;
+    flex-grow: 2;
+}
+.insideform{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+.sidebyside {
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    /* width: 100% !important; */
+    /* height: 100%; */
+    padding: 10px;
+    flex-grow: 1;
+}
+.submitbutton{
+    background: #f0536d;
+    color: white;
+    border: none;
+    height: 2rem;
+    width: 4rem;
+    font-size: medium;
+    border-radius: 5px;
+    padding: 2px;
+}
+.submitbutton:active{
+    transform: scale(0.98);
+    background: #ee6c82;
+}

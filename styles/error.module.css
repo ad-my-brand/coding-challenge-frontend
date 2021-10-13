@@ -1,0 +1,33 @@
+a.errorachor {
+  background: white;
+  height: 3rem;
+  /* position: relative; */
+  /* top: -50px; */
+  align-items: center;
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  align-content: center;
+  /* top: -5rem !important; */
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: black;
+}
+.errortext {
+  font-size: xxx-large;
+  margin: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.errormain {
+  height: 100%;
+  /* background: pink; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image:
+    linear-gradient(
+      #fffefe, #c54c82
+    );
+}

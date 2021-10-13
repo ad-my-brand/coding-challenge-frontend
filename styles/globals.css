@@ -1,0 +1,90 @@
+/* html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+} */
+html, body{
+  height: 100%;
+  width : 100%;
+  margin: 0;
+
+}
+#__next{
+  height: 100%;
+  width : 100%
+}
+.Main{
+  display: flex;
+    flex-direction: row;
+    height: 100%;
+    flex-wrap: wrap;
+}
+.list {
+  margin: 10px;
+  border: 10px;
+  padding: 5px;
+  font-size: larger;
+  background: #f4aeba;
+  border-radius: 5px;
+  border: 1px solid;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+  border-color: white;
+}
+.list:active {
+  transform: scale(0.98);
+  background-color: #e06377;
+}
+
+.mainList {
+  display: flex;
+  flex-direction: column;
+  float: inline-start;
+  align-self: flex-start;
+  border: 10px;
+  padding: 10px;
+  flex-grow: 1;
+}
+.select{
+  flex-grow: 3;
+  height: 100%;
+  width: auto;
+  background: #f4aeba;
+  padding: 10px;
+  font-size: xx-large;
+  font-weight: 400;
+}
+input{
+  width: 100%;
+    padding: 5px;
+    font-size: initial;
+    border: 1px solid;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+textarea {
+  width: 100%;
+  height: 10rem;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: medium;
+}
+#map{
+  height: 500px !important;
+  width: 500px !important;
+  position: relative;
+  flex-grow: 1;
+}
