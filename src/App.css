@@ -1,0 +1,67 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  width: 100vw;
+  height: 89vh;
+}
+.App, #root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mapsContainer{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+#map{
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gridCol2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  flex: 1;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input[type="submit"]{
+  padding: 5px 30px;
+  outline: 0;
+  background-color: #eee;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 5px auto;
+}
+.alert{
+  padding: 5px 30px;
+  border: 1px solid rgb(167 167 167);
+  background-color: rgb(183 181 181 / 12%);
+  border-radius: 3px;
+  font-size: 19px;
+  color: rgb(90 90 90);
+  margin: 10px 0;
+}
+@media screen and (max-width: 900px) {
+  .gridCol2{
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    flex: 1;
+  }
+}

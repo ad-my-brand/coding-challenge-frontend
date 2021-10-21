@@ -1,0 +1,40 @@
+.selectInput{
+    display: flex;
+    width: 50%;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+}
+.selectInput > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textArea{
+    width: 80%;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.textArea textarea{
+    max-width: 100%;
+    max-height: 100px;
+    min-height: 35px;
+    outline: none;
+    resize: vertical;
+}
+.selectInputLabel{
+    margin: 0 5px 0 0;
+}
+.select{
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+}
+
+@media screen and (max-width: 900px) {
+    .selectInputLabel{
+      font-size: 15px;
+    }
+  }
