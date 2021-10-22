@@ -1,0 +1,32 @@
+[
+    {
+        "id": "0",
+        "name": "3 Windmill Place",
+        "lat": 51.221523,
+        "lng": -0.596995
+    },
+    {
+        "id": "1",
+        "name": "10 Blackberry Lane",
+        "lat": 51.206777,
+        "lng": -0.563556
+    },
+    {
+        "id": "2",
+        "name": "6 Bramblebush Close",
+        "lat": 51.206777,
+        "lng": -0.546255
+    },
+    {
+        "id": "3",
+        "name": "22 Little Oakley",
+        "lat": 51.233130,
+        "lng": -0.592020
+    },
+    {
+        "id": "4",
+        "name": "14 GreenLeaf Avenue",
+        "lat": 51.232712,
+        "lng": -0.540188
+    }
+]
