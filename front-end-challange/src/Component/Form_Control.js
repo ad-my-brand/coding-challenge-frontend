@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Form from './Form';
 import { useForm } from "react-hook-form";
 import Mapp from './Mapp';
+import swal from 'sweetalert';
 
 const Form_Control = () => {
     const [users, setUsers] = useState([]);
@@ -14,7 +15,7 @@ const Form_Control = () => {
 
 
 
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
@@ -26,11 +27,10 @@ const Form_Control = () => {
             .then(res => {
                 // make response after post
                 if (res.ok) {
-                    alert('package added successfully')
+                    swal("Good!", "Your Post Submitted Succesfully", "success");
                 }
             })
         console.log(data);
-        reset()
     }
     const handleOnchange = e => {
         setUserName(e.target.value);
