@@ -3,7 +3,7 @@ import React from 'react';
 const Form = ({ user }) => {
     return (
         <>
-            <option value={user.name}></option>
+            <option>{user.name}</option>
         </>
     );
 };

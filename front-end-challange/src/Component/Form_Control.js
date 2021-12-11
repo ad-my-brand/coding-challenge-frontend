@@ -38,7 +38,7 @@ const Form_Control = () => {
                     })
                 }
             })
-        console.log(data);
+
     }
     const handleOnchange = e => {
         setUserName(e.target.value);
@@ -49,10 +49,10 @@ const Form_Control = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className='container border border-danger m-5 py-5'>
-                <label htmlFor="userName" className='text-danger fw-bold'>User Name: </label>
-                <input placeholder='select user name' onChange={handleOnchange} list="name" required className=' py-1 px-2 m-2 w-25 border border-success rounded' />
-                <br />
-                <datalist id="name">
+                <label htmlFor='UserName' className="text-danger fw-bold">User Name: </label>
+                <select id="" className='py-1 px-2 m-2 w-25 border border-success rounded' required onChange={handleOnchange}>
+                    <option selected disabled value="">Selec An User</option>
+
                     {
                         users.map(user => (
                             <Form
@@ -63,7 +63,7 @@ const Form_Control = () => {
                             </Form>
                         ))
                     }
-                </datalist>
+                </select><br />
                 <label htmlFor="userId" className='text-danger fw-bold'>User Id: </label>
                 {
                     users.filter(usId => usId.name === userName).map(no => (
