@@ -26,27 +26,14 @@ const Form_Control = () => {
         console.log(data);
         reset()
     }
-
-    console.log(watch("example"));
-
-
-
-
     const handleOnchange = e => {
         setUserName(e.target.value);
     }
-    console.log(users);
-    // const handleForm = e => {
-    //    
-    //     console.log();
-    //     e.preventDefault();
-    // }
-    // console.log(handleForm);
     return (
         <div>
-            <form onSubmit={handleSubmit(onSubmit)} className='border'>
+            <form onSubmit={handleSubmit(onSubmit)} className='container border border-danger m-5 py-5'>
                 <label htmlFor="userName" className='text-danger fw-bold'>User Name: </label>
-                <input placeholder='select user name' onChange={handleOnchange} list="name" className=' py-1 px-2 m-2 w-25 border border-success rounded' /><br />
+                <input placeholder='select user name' onChange={handleOnchange} list="name" required className=' py-1 px-2 m-2 w-25 border border-success rounded' /><br />
                 <datalist id="name">
                     {
                         users.map(user => (
@@ -62,7 +49,7 @@ const Form_Control = () => {
                 <label htmlFor="userId" className='text-danger fw-bold'>User Id: </label>
                 {
                     users.filter(usId => usId.name === userName).map(no => (
-                        <input type="number" name="" id="" className=' py-1 px-2 ms-4 w-25%' key={no.id} value={no.id} {...register("userId")} />))
+                        <input type="number" name="" id="" className=' py-1 px-2 m-2 w-25 border border-success rounded' key={no.id} value={no.id} {...register("userId")} />))
                 } <br />
                 <div className='mx-auto d-block'>
                     {
@@ -78,10 +65,11 @@ const Form_Control = () => {
                     }
                 </div>
                 <label htmlFor="title" className='text-danger fw-bold'>Title: </label>
-                <input type="text" name="title" id="" {...register("title", { required: true })} className=' py-1 px-2 ms-5 my-2' required /><br />
+                <input type="text" name="title" id="" {...register("title", { required: true })} className=' py-1 px-2 m-2 w-25 border border-success rounded' required /><br />
                 <label htmlFor="body" className='text-danger fw-bold'>Body: </label>
-                <input type="text" name="body" id="" {...register("body", { required: true })} className=' py-1 px-2 ms-5 my-2' required /><br />
+                <input type="text" name="body" id="" {...register("body", { required: true })} className=' py-1 px-2 m-2 w-25 border border-success rounded' required /><br />
                 <button type="submit" className='btn btn-danger'>Submit</button>
+                {errors.exampleRequired && <span>This field is required</span>}
             </form>
 
         </div>
