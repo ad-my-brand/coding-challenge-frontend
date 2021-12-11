@@ -26,8 +26,16 @@ const Form_Control = () => {
         })
             .then(res => {
                 // make response after post
+                console.log(res);
                 if (res.ok) {
                     swal("Good!", "Your Post Submitted Succesfully", "success");
+                }
+                if (res.status !== 201) {
+                    swal({
+                        title: "Something Wrong",
+                        icon: "warning",
+                        dangerMode: true,
+                    })
                 }
             })
         console.log(data);
@@ -35,6 +43,7 @@ const Form_Control = () => {
     const handleOnchange = e => {
         setUserName(e.target.value);
     }
+    console.log(userName);
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className='container border border-danger m-5 py-5'>
