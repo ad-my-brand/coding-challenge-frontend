@@ -14,7 +14,7 @@ const Form_Control = () => {
 
 
 
-    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
@@ -23,6 +23,12 @@ const Form_Control = () => {
             },
             body: JSON.stringify(data)
         })
+            .then(res => {
+                // make response after post
+                if (res.ok) {
+                    alert('package added successfully')
+                }
+            })
         console.log(data);
         reset()
     }
@@ -33,7 +39,7 @@ const Form_Control = () => {
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className='container border border-danger m-5 py-5'>
                 <label htmlFor="userName" className='text-danger fw-bold'>User Name: </label>
-                <input placeholder='select user name' onChange={handleOnchange} list="name" required className=' py-1 px-2 m-2 w-25 border border-success rounded' /><br />
+                <input placeholder='select user name' onChange={handleOnchange} list="name" className=' py-1 px-2 m-2 w-25 border border-success rounded' /><br />
                 <datalist id="name">
                     {
                         users.map(user => (
@@ -69,7 +75,6 @@ const Form_Control = () => {
                 <label htmlFor="body" className='text-danger fw-bold'>Body: </label>
                 <input type="text" name="body" id="" {...register("body", { required: true })} className=' py-1 px-2 m-2 w-25 border border-success rounded' required /><br />
                 <button type="submit" className='btn btn-danger'>Submit</button>
-                {errors.exampleRequired && <span>This field is required</span>}
             </form>
 
         </div>
