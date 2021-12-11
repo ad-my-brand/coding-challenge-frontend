@@ -43,11 +43,10 @@ const Form_Control = () => {
     // }
     // console.log(handleForm);
     return (
-        <>
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="userName">User Name: </label>
-                <input placeholder='select user name' onChange={handleOnchange} list="name" className=' py-1 px-2 m-2' /><br />
+        <div>
+            <form onSubmit={handleSubmit(onSubmit)} className='border'>
+                <label htmlFor="userName" className='text-danger fw-bold'>User Name: </label>
+                <input placeholder='select user name' onChange={handleOnchange} list="name" className=' py-1 px-2 m-2 w-25 border border-success rounded' /><br />
                 <datalist id="name">
                     {
                         users.map(user => (
@@ -60,13 +59,11 @@ const Form_Control = () => {
                         ))
                     }
                 </datalist>
-                <label htmlFor="userId">User Id: </label>
+                <label htmlFor="userId" className='text-danger fw-bold'>User Id: </label>
                 {
                     users.filter(usId => usId.name === userName).map(no => (
                         <input type="number" name="" id="" className=' py-1 px-2 ms-4 w-25%' key={no.id} value={no.id} {...register("userId")} />))
                 } <br />
-                <label htmlFor="title">Title: </label>
-                <input type="text" name="title" id="" {...register("title", { required: true })} className=' py-1 px-2 ms-5 my-2' required /><br />
                 <div className='mx-auto d-block'>
                     {
                         users.filter(usId => usId.name === userName).map(singleUser => (
@@ -80,12 +77,14 @@ const Form_Control = () => {
                         ))
                     }
                 </div>
-                <label htmlFor="body">Body: </label>
+                <label htmlFor="title" className='text-danger fw-bold'>Title: </label>
+                <input type="text" name="title" id="" {...register("title", { required: true })} className=' py-1 px-2 ms-5 my-2' required /><br />
+                <label htmlFor="body" className='text-danger fw-bold'>Body: </label>
                 <input type="text" name="body" id="" {...register("body", { required: true })} className=' py-1 px-2 ms-5 my-2' required /><br />
                 <button type="submit" className='btn btn-danger'>Submit</button>
             </form>
 
-        </>
+        </div>
     );
 };
 
