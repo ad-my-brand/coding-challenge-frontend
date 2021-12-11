@@ -15,7 +15,7 @@ const Form_Control = () => {
 
 
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
@@ -44,11 +44,14 @@ const Form_Control = () => {
         setUserName(e.target.value);
     }
     console.log(userName);
+
+
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className='container border border-danger m-5 py-5'>
                 <label htmlFor="userName" className='text-danger fw-bold'>User Name: </label>
-                <input placeholder='select user name' onChange={handleOnchange} list="name" className=' py-1 px-2 m-2 w-25 border border-success rounded' /><br />
+                <input placeholder='select user name' onChange={handleOnchange} list="name" required className=' py-1 px-2 m-2 w-25 border border-success rounded' />
+                <br />
                 <datalist id="name">
                     {
                         users.map(user => (
@@ -64,7 +67,7 @@ const Form_Control = () => {
                 <label htmlFor="userId" className='text-danger fw-bold'>User Id: </label>
                 {
                     users.filter(usId => usId.name === userName).map(no => (
-                        <input type="number" name="" id="" className=' py-1 px-2 m-2 w-25 border border-success rounded' key={no.id} value={no.id} {...register("userId")} />))
+                        <input type="number" name="" id="" className=' py-1 px-2 m-2 w-25 border border-success rounded' key={no.id} value={no.id} {...register("userId", { required: true })} />))
                 } <br />
                 <div className='mx-auto d-block'>
                     {
@@ -80,10 +83,14 @@ const Form_Control = () => {
                     }
                 </div>
                 <label htmlFor="title" className='text-danger fw-bold'>Title: </label>
-                <input type="text" name="title" id="" {...register("title", { required: true })} className=' py-1 px-2 m-2 w-25 border border-success rounded' required /><br />
+                <input type="text" name="title" id="" {...register("title", { required: true })} className=' py-1 px-2 m-2 w-25 border border-success rounded' /> <br />
+                {errors.title && <span className='text-danger my-3'>Title is required</span>}
+                <br />
                 <label htmlFor="body" className='text-danger fw-bold'>Body: </label>
-                <input type="text" name="body" id="" {...register("body", { required: true })} className=' py-1 px-2 m-2 w-25 border border-success rounded' required /><br />
-                <button type="submit" className='btn btn-danger'>Submit</button>
+                <input type="text" name="body" id="" {...register("body", { required: true })} className=' py-1 px-2 m-2 w-25 border border-success rounded' /><br />
+                {errors.body && <span className='text-danger my-3'>body is required</span>}
+                <br />
+                <button type="submit" className='btn btn-danger'>Submit</button><br />
             </form>
 
         </div>
