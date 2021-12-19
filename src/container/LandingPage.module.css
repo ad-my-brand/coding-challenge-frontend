@@ -1,0 +1,15 @@
+.MainContainer nav{
+    height: 10vh;
+    background-color: rgb(1, 1, 32);
+    color: white;
+    font-family: 'Exo', sans-serif;
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Container{
+    display: flex;
+    flex-direction: row;
+}
