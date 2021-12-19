@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.ItemContainer{
+    width: 25vw;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all ease 0.1s;
+}
+.ListItem{
+    list-style: none;
+    background-color: rgb(1, 1, 32);
+    font-size: larger;
+    border-radius: 7px;
+    padding: 0.65rem 0;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    font-family: 'Padauk', sans-serif;
+}
+
+.ItemContainer:hover{
+    width: 27vw;
+    padding: 0.75rem;
+}

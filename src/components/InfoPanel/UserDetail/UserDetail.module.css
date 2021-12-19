@@ -1,0 +1,14 @@
+.UserDetail{
+    height: 19%;
+    color: black;
+    text-align: left;
+    border-left: 2px solid black;
+    font-family: 'Exo', sans-serif;
+    padding-left: 2rem;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .UserDetail h */

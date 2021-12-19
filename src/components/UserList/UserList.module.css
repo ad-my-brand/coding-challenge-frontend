@@ -1,0 +1,18 @@
+.ListContainer{
+    width: 28vw;
+    background-color: rgb(173, 222, 245);
+    z-index: 5;
+}
+.List{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ListContainer h1{
+    margin: 0.5rem 0 0.1rem 0;
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+    font-size: 1.75rem;
+}
