@@ -75,7 +75,7 @@ const FormControl = () => {
                                                     <Marker width={50} anchor={[data.address.geo.lng, data.address.geo.lat]} color={color} onClick={() => setHue(hue + 20)} />
                                                 </Map>
                                                 <div className="container">
-                                                    <b>{data.name}</b>
+                                                    <span>{data.name}</span>
                                                 </div>
                                             </div>
                                         </div>
