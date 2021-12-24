@@ -1,0 +1,57 @@
+.users {
+  text-align: start;
+  padding-left: 20px;
+}
+.home {
+  background-image: url("https://www.designyourway.net/blog/wp-content/uploads/2020/04/sun18.jpg");
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.list h1 {
+  color: wheat;
+}
+.list p {
+  font-weight: bold;
+  text-transform: capitalize;
+  border-bottom: 1px solid white;
+  width: 200px;
+  color: white;
+}
+
+.section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.form ul li {
+  list-style: none;
+}
+.form label {
+  font-weight: bold;
+  text-transform: capitalize;
+  color: white;
+}
+.form input {
+  outline: none;
+  border: 1px solid black;
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+}
+.error {
+  text-transform: capitalize;
+  color: red;
+  font-weight: 600;
+}
+.form input[type="submit"] {
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  height: 40px;
+  background-color: rgb(238, 159, 41);
+}

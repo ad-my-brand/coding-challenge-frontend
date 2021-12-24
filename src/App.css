@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill;
+}
+
+.text {
+    display: grid;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    align-items: center;
+}
+
+.text h3 {
+    font-size: 80px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.text p {
+    font-size: 50px;
+    text-transform: capitalize;
+}
+
+.text button {
+    padding: 15px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 30px;
+    text-transform: capitalize;
+}
+
+.text button:hover {
+    background-color: tomato;
+    opacity: 0.5;
+    border: none;
+}
+
+.heading h1 {
+    color: red;
+    font-family: 'Dancing Script', cursive;
+}
+
+.storydata .left p::first-letter {
+    float: left;
+    font-size: 65px;
+    line-height: 5;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.storydata .left,
+.right {
+    width: 500px;
+}
+
+.aboutsign img {
+    filter: drop-shadow(16px 16px 10x black);
+}
+
+.bg img {
+    object-fit: contain;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.package {
+    background: url("./images/blog-3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+    opacity: 0.9;
+    margin-top: 0px;
+}
+
+.foods {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.foods .right {
+    background: white;
+    height: 250px;
+    text-align: left;
+    position: absolute;
+    padding: 30px;
+    right: 20%;
+}
+
+.foods .right h3 {
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.foods .right button {
+    padding: 10px;
+    color: red;
+    border: red;
+    outline: red;
+}
+
+.foods img {
+    object-fit: contain;
+    width: 600px;
+    margin-bottom: 40px;
+}
+
+@media(max-width:1024px) {
+    .foods img {
+        width: 300px;
+    }
+}
+
+.buttons {
+    width: 1000px;
+}
+
+.buttons button {
+    padding: 8px;
+    border: 1px solid black;
+    background: white;
+    color: black;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.buttons button:hover {
+    background-color: rgb(230, 53, 53);
+    color: white;
+    border: none;
+}
+
+
+/* MENU ITEMS */
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    border-bottom: 1px solid rgb(100, 98, 98);
+    outline: none;
+    margin-top: 10px;
+}
+
+.card .item {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-transform: capitalize;
+    align-items: center;
+}
+
+.item h6 {
+    font-weight: bold;
+}
+
+.card .foodimage img {
+    border: 6px solid rgb(109, 109, 109);
+    border-radius: 500px;
+    width: 150px;
+    height: 150px;
+}
+
+.prize p {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* boook table */
+
+.tableimage {
+    background-image: url("./images//promo_slide_2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    margin-top: 10px;
+}
+
+.order {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.order h1 {
+    font-weight: bold;
+    color: white;
+    font-size: 65px;
+    text-transform: capitalize;
+    padding-top: 200px;
+}
+
+.order button {
+    background-color: white;
+    color: red;
+    border: none;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 10px
+}
+
+.order button:hover {
+    background-color: orange;
+}
