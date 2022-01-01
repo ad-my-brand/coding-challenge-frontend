@@ -3,3 +3,35 @@
 .opensans{
     font-family: 'Open Sans', sans-serif;
 }
+
+/* fade-in */
+.fade-in{
+    animation: fadein 0.5s;
+  }
+  @keyframes fadein {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 100;
+    }
+  }
+  
+  .fade-in-out{
+    animation: fadeinout 3s;
+  }
+  
+  @keyframes fadeinout {
+    0%{
+      opacity: 0;
+    }
+    10%{
+      opacity: 100;
+    }
+    80%{
+      opacity: 100;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
