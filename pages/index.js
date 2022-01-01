@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Header from '../components/Header'
+import ParentBox from '../components/ParentBox'
 
 export default function Home() {
   return (
@@ -10,7 +12,8 @@ export default function Home() {
       </Head>
 
       <div className=" ">
-        
+        <Header/>
+        <ParentBox/>
       </div>
     </>
   )
