@@ -43,6 +43,12 @@ export default function FormControl({ label, userData }) {
               // Submit Success
                 showAlertSuccess()
             }
+            // Resetting Data
+            document.getElementById("formtitle").value = ""
+            document.getElementById("formbody").value = ""
+            document.getElementById("username").value = 1
+          }else{
+            alert("Submit Failed! /n HTTP Error Code: " + res.status)
           }
         });
     } else {
