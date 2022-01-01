@@ -10,6 +10,29 @@ export default function FormControl({ label, userData }) {
     setLat(userData[document.getElementById("username").value].lat);
     setLng(userData[document.getElementById("username").value].lng);
   }
+  
+  function formSubmit() {
+    let formTitle = document.getElementById("formtitle").value;
+    let formBody = document.getElementById("formbody").value;
+    let userId = document.getElementById("username").value;
+    //   Checking if title and body are not empty
+    if (
+      formTitle.replaceAll(" ", "") != "" &&
+      formBody.replaceAll(" ", "") != ""
+    ) {
+      //   Submit form
+      let dataToSubmit = {
+        title: formTitle,
+        body: formBody,
+        userId: userId
+      }
+      axios.post("https://jsonplaceholder.typicode.com/posts", dataToSubmit).then((res)=>{
+          alert(res.status)
+      })
+    } else {
+      //   error alert
+    }
+  }
   return (
     <div className="flex flex-col md:flex-row w-full md:w-10/12 mt-16">
       {/* Left Leaning Part */}
@@ -47,7 +70,7 @@ export default function FormControl({ label, userData }) {
           />
         </form>
         <button
-        //   onClick={formSubmit}
+          onClick={formSubmit}
           className="flex flex-row z-10 border-zinc-500 dark:border-cyan-400 border-2 m-4 p-2 px-6 w-max rounded-lg text-xl justify-center items-center opacity-75 transition-all transform ease-in-out duration-300 hover:opacity-95 hover:text-zinc-100 dark:hover:text-cyan-100 hover:bg-zinc-500 dark:hover:bg-cyan-400 font-semibold hover:scale-[0.98] active:scale-95 shadow-lg hover:shadow-zinc-500/20 dark:hover:shadow-cyan-400/20"
         >
           Submit
