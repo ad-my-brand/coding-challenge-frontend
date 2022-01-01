@@ -6,11 +6,16 @@ import LocateOnMap from "./LocateOnMap";
 export default function FormControl({ label, userData }) {
   const [lat, setLat] = useState(userData[0].lat);
   const [lng, setLng] = useState(userData[0].lng);
+  const [isMapVisible, setIsMapVisible] = useState(true);
   function onUserChange() {
     setLat(userData[document.getElementById("username").value].lat);
     setLng(userData[document.getElementById("username").value].lng);
+    setIsMapVisible(false);
+    setTimeout(() => {
+      setIsMapVisible(true);
+    }, 50);
   }
-  
+
   function formSubmit() {
     let formTitle = document.getElementById("formtitle").value;
     let formBody = document.getElementById("formbody").value;
@@ -24,11 +29,14 @@ export default function FormControl({ label, userData }) {
       let dataToSubmit = {
         title: formTitle,
         body: formBody,
-        userId: userId
-      }
-      axios.post("https://jsonplaceholder.typicode.com/posts", dataToSubmit).then((res)=>{
-          alert(res.status)
-      })
+        userId: userId,
+      };
+      axios
+        .post("https://jsonplaceholder.typicode.com/posts", dataToSubmit)
+        .then((res) => {
+          alert(res.status);
+          // if res.data.id > 100 then it means that it is submitted but will not reflect on server because limit 100 is already reached
+        });
     } else {
       //   error alert
     }
@@ -38,7 +46,7 @@ export default function FormControl({ label, userData }) {
       {/* Left Leaning Part */}
       <div className="flex flex-col w-6/12 rounded-l-xl h-max text-2xl font-semibold items-center">
         <form action="" className="w-full">
-          <p className="mt-6">Select User</p>
+          <p className="">Select User</p>
           <select
             name="UserName"
             id="username"
@@ -78,8 +86,15 @@ export default function FormControl({ label, userData }) {
         </button>
       </div>
       {/* Right Leaning Part */}
-      <div className="flex w-6/12 rounded-r-xl h-96 -ml-2">
-        <LocateOnMap lat={lat} lng={lng} />
+      <div className="flex w-6/12 rounded-r-xl h-full -ml-2 justify-center">
+        {isMapVisible && (
+          <LocateOnMap
+            lat={parseFloat(lat)}
+            lng={parseFloat(lng)}
+            trunLat={parseFloat(lat).toFixed(2)}
+            trunLng={parseFloat(lng).toFixed(2)}
+          />
+        )}
       </div>
     </div>
   );
