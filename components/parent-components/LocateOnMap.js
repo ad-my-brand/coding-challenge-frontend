@@ -32,7 +32,7 @@ export default function LocateOnMap({ lat, lng, trunLat, trunLng }) {
         <p className="mr-2">Latitude: {lat}</p>
         <p className="ml-2">Longitude: {lng}</p>
       </div>
-      <p className="text-xs left-2 relative mt-4 opacity-50">*dev version of map is used, you'll get few warnings</p>
+      <p className="text-xs left-2 relative mt-4 opacity-50">*dev version of map is used, you&apos;ll get few warnings</p>
     </div>
   );
 }
