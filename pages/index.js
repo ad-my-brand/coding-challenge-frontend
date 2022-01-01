@@ -11,10 +11,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="bg-zinc-200 dark:bg-zinc-800 h-screen text-cyan-500 dark:text-cyan-200">
+      <body className="bg-zinc-200 dark:bg-zinc-800 h-max text-zinc-600 dark:text-cyan-200 open-sans">
         <Header/>
         <ParentBox/>
-      </div>
+      </body>
     </>
   )
 }

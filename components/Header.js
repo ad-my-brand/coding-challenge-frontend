@@ -15,7 +15,7 @@ export default function Header() {
     localStorage.setItem("isDark", !isDark);
   }
     return (
-        <div className='h-14 w-full fixed top-0 flex justify-end'>
+        <div className='h-14 w-full sticky top-0 flex justify-end'>
             <button className='mr-6 mt-4 hover:scale-95 active:scale-90 transition-transform ease-in-out duration-200 flex justify-center items-center' onClick={toggleTheme} title="Change Theme">
                 {isDark ? <SVG_MOON/> : <SVG_SUN/>}
             </button>

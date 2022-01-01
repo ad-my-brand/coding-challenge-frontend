@@ -1,10 +1,31 @@
+import axios from 'axios'
 import React from 'react'
+import { useState } from 'react'
 import FormControl from './parent-components/FormControl'
 
 export default function ParentBox() {
+    const[isVisible, setIsVisible] = useState(false)
+    axios.get('https://jsonplaceholder.typicode.com/users').then((res)=>{
+        console.log(res)
+        for(let i = 0; i < res.data.length; i++){
+            userData.push({
+                id: res.data[i].id,
+                name: res.data[i].name,
+                lat: res.data[i].address.geo.lat,
+                lng: res.data[i].address.geo.lng,
+            })
+        }
+        console.log()
+        setIsVisible(true)
+    })
     return (
         <div>
-            <FormControl/>
+            {isVisible ?
+            <FormControl userData={userData}/>
+            :
+            <></>
+            }
         </div>
     )
 }
+export let userData = []
