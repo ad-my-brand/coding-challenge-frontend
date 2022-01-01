@@ -42,6 +42,8 @@ export default function FormControl({ label, userData }) {
     }
   }
   return (
+    <div className="w-full  flex flex-col items-center">
+      <p className="text-3xl font-bold underline underline-offset-8 decoration-wavy">{label}</p>
     <div className="flex flex-col md:flex-row w-full md:w-10/12 mt-16">
       {/* Left Leaning Part */}
       <div className="flex flex-col w-6/12 rounded-l-xl h-max text-2xl font-semibold items-center">
@@ -96,6 +98,7 @@ export default function FormControl({ label, userData }) {
           />
         )}
       </div>
+    </div>
     </div>
   );
 }

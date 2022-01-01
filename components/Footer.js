@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div>
+        <div className='z-10 relative'>
             
         </div>
     )
