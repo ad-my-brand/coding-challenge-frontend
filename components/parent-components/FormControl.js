@@ -91,9 +91,9 @@ export default function FormControl({ label, userData }) {
       <p className="text-3xl font-bold underline underline-offset-8 decoration-wavy">
         {label}
       </p>
-      <div className="flex flex-col md:flex-row w-full md:w-10/12 mt-16">
+      <div className="flex flex-col md:flex-row w-full md:w-10/12 mt-16 items-center">
         {/* Left Leaning Part */}
-        <div className="flex flex-col w-6/12 rounded-l-xl h-max text-2xl font-semibold items-center">
+        <div className="flex flex-col w-11/12 md:w-6/12 rounded-l-xl h-max text-2xl font-semibold items-center">
           <form action="" className="w-full">
             <p className="">Select User</p>
             <select
@@ -140,7 +140,7 @@ export default function FormControl({ label, userData }) {
           </button>
         </div>
         {/* Right Leaning Part */}
-        <div className="flex w-6/12 rounded-r-xl h-full -ml-2 justify-center">
+        <div className="flex w-11/12 md:w-6/12 rounded-r-xl h-full -ml-2 justify-center">
           {isMapVisible && (
             <LocateOnMap
               lat={parseFloat(lat)}
@@ -162,7 +162,7 @@ export default function FormControl({ label, userData }) {
       {/* Alert for Limit React*/}
       <div
         id="alertlimit"
-        className="fixed top-6 z-50 w-max fade-in-out hidden left-1/2 transform -translate-x-1/2 items-center bg-rose-400 dark:bg-rose-500 text-zinc-50 p-2 px-4 sm:px-6 md:px-8 text-lg sm:text-xl rounded-lg"
+        className="fixed top-6 z-50 w-screen sm:w-max fade-in-out hidden left-1/2 transform -translate-x-1/2 items-center bg-rose-400 dark:bg-rose-500 text-zinc-50 p-2 px-4 sm:px-6 md:px-8 text-lg sm:text-xl rounded-lg"
       >
         <SVG_ALERT/>
         Submitted, it may not reflect on server because limit reached
