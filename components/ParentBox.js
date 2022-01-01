@@ -19,7 +19,7 @@ export default function ParentBox() {
         setIsVisible(true)
     })
     return (
-        <div>
+        <div className='flex justify-center'>
             {isVisible ?
             <FormControl userData={userData}/>
             :
