@@ -1,0 +1,29 @@
+body{
+    /* background-image: url("https://png.pngtree.com/background/20210711/original/pngtree-blue-background-with-geometric-forms-picture-image_1146994.jpg"); */
+    background-color: rgb(12, 26, 88);
+    box-sizing: border-box;
+}
+.response{
+    text-align:center; 
+    margin-top: 5px;
+    margin-left: 38vw;
+    margin-right:10vw;
+    color: white;
+}
+
+.container{
+    display:flex;
+    justify-content:start;
+    height:70vh;
+    width:100vw;
+}
+.form{
+    width:30vw;
+    height: 60vh;
+    margin-top:10px;
+    color:white;
+}
+.heading{
+    text-align: center;
+    color:white;
+}
