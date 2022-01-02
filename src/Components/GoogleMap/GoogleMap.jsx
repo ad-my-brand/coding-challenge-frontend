@@ -2,7 +2,7 @@ import { Map , Marker } from "google-maps-react";
 import { GoogleApiWrapper } from "google-maps-react";
 import { useState } from "react";
  function CustomMap({ google, coordinates }) {
-
+        console.log("google map")
      console.log(coordinates)
     return (
         <>

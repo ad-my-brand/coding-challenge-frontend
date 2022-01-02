@@ -12,6 +12,7 @@ const FormControl= ()=>{
   const [coordinates,setCoordinates]=useState({ lat: "28.644800", lng: "77.216721"})
   const [users,setUsers]=useState([])
   const [response,setResponse]=useState({})
+  const [isActive,setIsActive]=useState(false)
   const selectData=(e)=>{
     const {value,name}=e.target
     console.log(name);
@@ -20,6 +21,8 @@ const FormControl= ()=>{
       for(let i=0;i<users.length;i++){
         if(users[i].name===value){
           setCoordinates(users[i].address.geo);
+          console.log("form control")
+          console.log(users[i]);
           console.log(coordinates)
           setDataToSubmit((prevState)=>{
             console.log(users[i].id);
@@ -58,6 +61,7 @@ const FormControl= ()=>{
       return false;
     }
     else{
+      setIsActive(true)
       let url="https://jsonplaceholder.typicode.com/posts"
       fetch(url,{
         method:"post",
@@ -66,8 +70,8 @@ const FormControl= ()=>{
             'Content-Type':'application/json'
         }
       }).then(res=>{
-        res.json().then(result=>{setResponse(result); console.log(result)})
-      }).catch(e=>{setResponse(e);console.log("error")})
+        res.json().then(result=>{setResponse(result); console.log(result); setIsActive(false)})
+      }).catch(e=>{setResponse(e);console.log("error");setIsActive(false)})
     }
   }
   const api=async()=>{
@@ -77,7 +81,7 @@ const FormControl= ()=>{
       setUsers(res)
       
     } catch (error) {
-      alert("error")
+      alert("you internet connection is lost or might be this website is down")
     }
     
   }
@@ -118,10 +122,10 @@ const FormControl= ()=>{
 {(dataToSubmit.body==='')?<div className="alert alert-danger" role="alert">
  please enter body
 </div>:''}
-<input type='submit' onClick={onSubmit}/>
+<input type='submit'  disabled={isActive} onClick={onSubmit}/>
     </form>
    
-    <GoogleMap google={'google'} coordinates={coordinates}/>
+    <GoogleMap  coordinates={coordinates}/>
     </div>
     <div className="mb-3 response" >
   <label htmlFor="response" className="form-label">Response</label>
