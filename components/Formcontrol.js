@@ -34,9 +34,10 @@ export default function Formcontrol({
   const [body, setBody] = useState("");
   const [err, setErr] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [postStatus, setPostStatus] = useState(false);
 
-  useEffect(async () => {
-    try {
+  useEffect(() => {
+    const fetchUsers = async () => {
       const res = await fetch("https://jsonplaceholder.typicode.com/users");
       const resOk = res && res.ok;
       if (resOk) {
@@ -45,10 +46,18 @@ export default function Formcontrol({
       } else {
         throw new Error("Oops! something went wrong.");
       }
+    };
+    try {
+      fetchUsers();
     } catch (err) {
       console.log("Error during API Request", err);
     }
   }, []);
+
+  // automatically remove successs status
+  useEffect(() => {
+    setTimeout(() => setPostStatus(false), 1500);
+  }, [postStatus]);
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -62,6 +71,10 @@ export default function Formcontrol({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (selectedUser === null) {
+      alert("please select a user first");
+      return;
+    }
     const url = "https://jsonplaceholder.typicode.com/posts";
     const options = {
       method: "POST",
@@ -84,6 +97,7 @@ export default function Formcontrol({
         setBody("");
         setIsSubmitting(false);
         setErr("");
+        setPostStatus(true);
       } else {
         throw new Error("Oops! something went wrong while posting data.");
       }
@@ -156,6 +170,9 @@ export default function Formcontrol({
           <button>{isSubmitting ? "Submitting..." : "Submit"}</button>
         </div>
         <label style={{ color: "red" }}>{err && err}</label>
+        <label style={{ color: "green" }}>
+          {postStatus && "Post request was sucessful"}
+        </label>
       </form>
       {Object.keys(geo).length ? (
         <div style={{ height: "50vh", width: "95%", marginTop: "8px" }}>
