@@ -1,36 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
-const MapContainer = ({ address }) => {
-    //   console.log(address);
+import React, { useEffect, useState } from "react"
+import { Map, Marker } from "pigeon-maps"
 
-    const [location, setLocation] = useState({ lat: 0, lng: 0 });
+export function MapContainer({address}) {
+    const [location, setLocation] = useState({
+        lat:0,lng:0
+    })
+    // const [locat, setlocat] = useState({})
     useEffect(() => {
-        if (address) {
-            const loc = address.geo;
-            // JSON.stringify(loc)
-            setLocation(loc);
-            console.log(parseFloat(location.lat));
+        if(address){
+    
+            const loc = address.geo
+            // console.log(loc);
+            setLocation(loc)
+            // getLocation()
         }
-    }, [address]);
-    const mapStyles = {
-        height: "20vh",
-        width: "100%",
-    };
+    }, [address])
+    
 
-    const defaultCenter = {
-        lat: location ? parseFloat(location.lat) : 0,
-        lng: location ? parseFloat(location.lng) : 0,
-    };
+  return (
+    <Map height={250} width={300} defaultCenter={[parseFloat(location.lng),parseFloat(location.lat)]} defaultZoom={0}>
+      <Marker width={50} anchor={[parseFloat(location.lng),parseFloat(location.lat)]} />
+      {/* {locat} */}
+    </Map>
+  )
+}
 
-    return (
-        <LoadScript googleMapsApiKey=''>
-            <GoogleMap
-                mapContainerStyle={mapStyles}
-                zoom={13}
-                center={defaultCenter}
-            />
-        </LoadScript>
-    );
-};
-
-export default MapContainer;

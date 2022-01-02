@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import  MapContainer  from "./MapContainer";
-// import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { MapContainer } from "./MapContainer";
 
-
-// GoogleApiWrapper({
-//     apiKey: 'AIzaSyDE9AWwKjf9iggYC9vM2WPliKevhYBBMCA'
-//   })(MapContainer);
-//   console.log(MapContainer);
 const Container = styled.div`
     /* margin: auto; */
     width: 28%;
-    height: 90vh;
+    height: 95vh;
     background-color: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 `;
 const Title = styled.h1`
-    margin: 35px 0;
+    margin: 10px 0;
     text-align: center;
 `;
 const SubmitForm = styled.form`
@@ -87,13 +81,22 @@ const TextArea = styled.textarea`
 const Button = styled.button`
     width: 100%;
     margin: 10px auto;
-    padding: 5px 10px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid transparent;
+    background-color: #3bb78f;
+    background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
 `;
 const IconContainer = styled.div``;
 export const Form = () => {
     const [users, setUsers] = useState(null);
     const [selectedUser, setSelectedUser] = useState({});
-
+    const [saveData, setSaveData] = useState({
+        title: "",
+        body: "",
+        userId: undefined,
+    });
     useEffect(() => {
         getUser();
     }, []);
@@ -103,23 +106,49 @@ export const Form = () => {
             "https://jsonplaceholder.typicode.com/users"
         );
         setUsers(userData.data);
-        // console.log(users);
     };
     const saveUser = (e) => {
-        // console.log(e.target.value,users);
-
         const currentUser = users.find((user) => user.id == e.target.value);
+        setSaveData({ ["userId"]: currentUser.id });
         setSelectedUser(currentUser);
     };
-    // console.log(selectedUser);
+    const sendData = (e) => {
+        // console.log(selectedUser);
+        if (selectedUser) {
+            e.preventDefault();
+            alert("User not selected");
+            return;
+        }
+        if (saveData.title === "" || saveData.body === "") {
+            e.preventDefault();
+            alert("Title or message connot be left empty");
+            return;
+        }
+        axios
+            .post("https://jsonplaceholder.typicode.com/posts", {
+                saveData,
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
-    // console.log(users);
-    // getUser()
-    // console.log(users);
+        console.log(saveData);
+    };
+    const inputsHandler = (e) => {
+        const { name, value } = e.target;
+        setSaveData((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
     return (
         <Container>
             <Title>Message Saver</Title>
-            <SubmitForm>
+            <SubmitForm onSubmit={sendData} preventDefault>
                 {/* <Message>Save a message</Message> */}
                 <InputContainer>
                     <Label>Select a User</Label>
@@ -133,17 +162,28 @@ export const Form = () => {
                             ))}
                     </Select>
                 </InputContainer>
-                
 
-                <MapContainer address={selectedUser.address}/>
-                
+                <MapContainer
+                    address={selectedUser ? selectedUser.address : {}}
+                />
+
                 <InputContainer>
                     <Label>Enter Title</Label>
-                    <Input type='text' placeholder='Title' />
+                    <Input
+                        type='text'
+                        placeholder='Title'
+                        name='title'
+                        onChange={inputsHandler}
+                    />
                 </InputContainer>
                 <InputContainer>
                     <Label>Enter Message</Label>
-                    <TextArea type='text' placeholder='Message' />
+                    <TextArea
+                        type='text'
+                        placeholder='Message'
+                        name='body'
+                        onChange={inputsHandler}
+                    />
                 </InputContainer>
                 <Button type='submit'>Submit</Button>
             </SubmitForm>
