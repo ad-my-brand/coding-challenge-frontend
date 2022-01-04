@@ -34,7 +34,7 @@ const UserList = ({users, fetchData, err, value, handleChange}) => {
         {!users.error &&
         <div style={{ position: 'relative'}}>
             <Label>Select User</Label>
-            <Select onChange={handleChange} value={value}>
+            <Select aria-label="user" onChange={handleChange} value={value}>
                 <option value={'0'}>Select a user</option>
                 {users.data?.map((user) => {
                     return <option key={user.id} value={user.id}>{user.name}</option>

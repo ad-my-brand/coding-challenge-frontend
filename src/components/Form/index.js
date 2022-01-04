@@ -101,11 +101,11 @@ const Form = ({post, makePost}) => {
 
     return (
         <StyledForm onSubmit={(e) => e.preventDefault()}>
-            <Input handleChange={(e) => OnTitleChange(e.target.value)} label="Title" value={title.value} err={title.error} />
-            <Input handleChange={(e) => OnBodyChange(e.target.value)} label="Body" value={body.value} err={body.error} />
-            <UserList handleChange={(e) => onUserChange(e.target.value)} value={user.value} err={user.error} />
+            <Input handleChange={(e) => OnTitleChange(e.target.value)} label="Title" value={title.value} err={title.error} name="title" />
+            <Input handleChange={(e) => OnBodyChange(e.target.value)} label="Body" value={body.value} err={body.error} name="body" />
+            <UserList handleChange={(e) => onUserChange(e.target.value)} value={user.value} err={user.error} name="user" />
             {error && <ErrorMessage>Please fill all the fields!</ErrorMessage>}
-            <Button onClick={handlePost}>POST</Button>
+            <Button role="button" id="button" onClick={handlePost}>POST</Button>
         </StyledForm>
     )
 }

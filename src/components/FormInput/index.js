@@ -28,13 +28,13 @@ export const ErrorMessage = styled.p`
     color: #FF3232;
 `;
 
-const Input = ({value, label, handleChange, err}) => {
+const Input = ({value, label, handleChange, err, name}) => {
 
     return (
         <div>
             <Wrapper>
                 <StyledLabel>{label}</StyledLabel>
-                <StyledInput onChange={handleChange} value={value} />
+                <StyledInput aria-label={name} onChange={handleChange} value={value} name={name} />
             </Wrapper>
             {err && <ErrorMessage>Please fill the above field</ErrorMessage>}
         </div>
