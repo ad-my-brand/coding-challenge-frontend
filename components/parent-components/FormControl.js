@@ -8,19 +8,27 @@ export default function FormControl({ label, userData }) {
   const [lng, setLng] = useState(userData[0].lng);
   const [isMapVisible, setIsMapVisible] = useState(true);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
+  const [formTitle, setFormTitle] = useState("");
+  const [formBody, setFormBody] = useState("");
+  const [userId, setUserId] = useState(1)
+
   function onUserChange() {
-    setLat(userData[document.getElementById("username").value].lat);
-    setLng(userData[document.getElementById("username").value].lng);
+    setUserId(document.getElementById("username").value);
+    setLat(userData[userId].lat);
+    setLng(userData[userId].lng);
     setIsMapVisible(false);
     setTimeout(() => {
       setIsMapVisible(true);
     }, 50);
   }
-
+  function onFormTitleChange(){
+    setFormTitle(document.getElementById("formtitle").value)
+  }
+  function onFormBodyChange(){
+    setFormBody(document.getElementById("formbody").value)
+  }
   function formSubmit() {
-    let formTitle = document.getElementById("formtitle").value;
-    let formBody = document.getElementById("formbody").value;
-    let userId = document.getElementById("username").value;
+    // removing whitespaces to check if text is not empty
     //   Checking if title and body are not empty
     if (
       formTitle.replaceAll(" ", "") != "" &&
@@ -35,57 +43,36 @@ export default function FormControl({ label, userData }) {
       axios
         .post("https://jsonplaceholder.typicode.com/posts", dataToSubmit)
         .then((res) => {
-          if(res.status == 200 || res.status == 201){
+          if (res.status == 200 || res.status == 201) {
             // if res.data.id > 100 then it means that it is submitted but will not reflect on server because limit 100 is already reached
-            if(res.data.id > 100){
-              showAlertLimit()
-            }else{
+            if (res.data.id > 100) {
+              showAlert("alertlimit");
+            } else {
               // Submit Success
-                showAlertSuccess()
+              showAlert("alertsuccess");
             }
             // Resetting Data
-            document.getElementById("formtitle").value = ""
-            document.getElementById("formbody").value = ""
-            document.getElementById("username").value = 1
-          }else{
-            alert("Submit Failed! /n HTTP Error Code: " + res.status)
+            setFormTitle("");
+            setFormBody("");
+            setUserId(1);
+          } else {
+            alert("Submit Failed! /n HTTP Error Code: " + res.status);
           }
         });
     } else {
       //   error alert
-      showAlert()
+      showAlert("alerterror");
     }
   }
-  function showAlert() {
-    if (!isAlertVisible) {
+  function showAlert(alertName) {
       setIsAlertVisible(true);
-      document.getElementById("alerterror").style.display = "flex";
+      document.getElementById(alertName).style.display = "flex";
       setTimeout(() => {
         setIsAlertVisible(false);
-        document.getElementById("alerterror").style.display = "none";
+        document.getElementById(alertName).style.display = "none";
       }, 3000);
-    }
   }
-  function showAlertLimit() {
-    if (!isAlertVisible) {
-      setIsAlertVisible(true);
-      document.getElementById("alertlimit").style.display = "flex";
-      setTimeout(() => {
-        setIsAlertVisible(false);
-        document.getElementById("alertlimit").style.display = "none";
-      }, 3000);
-    }
-  }
-  function showAlertSuccess() {
-    if (!isAlertVisible) {
-      setIsAlertVisible(true);
-      document.getElementById("alertsuccess").style.display = "flex";
-      setTimeout(() => {
-        setIsAlertVisible(false);
-        document.getElementById("alertsuccess").style.display = "none";
-      }, 3000);
-    }
-  }
+
   return (
     <div className="w-full  flex flex-col items-center">
       <p className="text-3xl font-bold underline underline-offset-8 decoration-wavy">
@@ -100,6 +87,7 @@ export default function FormControl({ label, userData }) {
               name="UserName"
               id="username"
               onChange={onUserChange}
+              value={userId}
               className="mx-1 my-2 bg-zinc-100 dark:bg-zinc-600 h-10 ml-4 rounded-md outline-none px-2 focus:ring-2 shadow-xl shadow-zinc-300/50 dark:shadow-zinc-900/50 text-center text-lg placeholder-opacity-40 w-6/12"
             >
               {userData.map((data, index) => (
@@ -116,17 +104,19 @@ export default function FormControl({ label, userData }) {
             <p className="mt-6">Title</p>
             <input
               type="text"
-              name=""
+              onChange={onFormTitleChange}
               id="formtitle"
+              value={formTitle}
               placeholder="Title (max 100 characters)"
               maxLength={100}
               className="mx-1 my-2 bg-zinc-100 dark:bg-zinc-600 h-12 ml-4 rounded-md outline-none px-2 focus:ring-2 shadow-xl shadow-zinc-300/50 dark:shadow-zinc-900/50 text-center text-2xl placeholder-opacity-40 w-11/12"
             />
             <p className="mt-6">Body</p>
             <textarea
-              name=""
+              onChange={onFormBodyChange}
               id="formbody"
               placeholder="Body"
+              value={formBody}
               maxLength={100}
               className="mx-1 my-3 p-2 bg-zinc-100 dark:bg-zinc-600 h-80 ml-4 rounded-md outline-none px-4 focus:ring-2 shadow-xl shadow-zinc-300/50 dark:shadow-zinc-900/50 text-xl placeholder-opacity-40 w-11/12"
             />
@@ -156,7 +146,7 @@ export default function FormControl({ label, userData }) {
         id="alerterror"
         className="fixed top-6 z-50 w-max fade-in-out hidden left-1/2 transform -translate-x-1/2 items-center bg-rose-400 dark:bg-rose-500 text-zinc-50 p-2 px-4 sm:px-6 md:px-8 text-lg sm:text-xl rounded-lg"
       >
-        <SVG_ALERT/>
+        <SVG_ALERT />
         Title and Body are required!
       </div>
       {/* Alert for Limit React*/}
@@ -164,7 +154,7 @@ export default function FormControl({ label, userData }) {
         id="alertlimit"
         className="fixed top-6 z-50 w-screen sm:w-max fade-in-out hidden left-1/2 transform -translate-x-1/2 items-center bg-rose-400 dark:bg-rose-500 text-zinc-50 p-2 px-4 sm:px-6 md:px-8 text-lg sm:text-xl rounded-lg"
       >
-        <SVG_ALERT/>
+        <SVG_ALERT />
         Submitted, it may not reflect on server because limit reached
       </div>
       {/* Alert for Successful Submission*/}
@@ -172,7 +162,7 @@ export default function FormControl({ label, userData }) {
         id="alertsuccess"
         className="fixed top-6 z-50 w-max fade-in-out hidden left-1/2 transform -translate-x-1/2 items-center bg-green-400 dark:bg-green-500 text-zinc-50 p-2 px-4 sm:px-6 md:px-8 text-lg sm:text-xl rounded-lg"
       >
-        <SVG_ALERT/>
+        <SVG_ALERT />
         Submitted, it may not reflect on server because limit reached
       </div>
     </div>
