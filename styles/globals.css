@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.opensans{
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* fade-in */
+.fade-in{
+    animation: fadein 0.5s;
+  }
+  @keyframes fadein {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 100;
+    }
+  }
+  
+  .fade-in-out{
+    animation: fadeinout 3s;
+  }
+  
+  @keyframes fadeinout {
+    0%{
+      opacity: 0;
+    }
+    10%{
+      opacity: 100;
+    }
+    80%{
+      opacity: 100;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
