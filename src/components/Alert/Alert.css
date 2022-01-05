@@ -1,0 +1,35 @@
+.alertMessage {
+  display: none;
+  position: absolute;
+  z-index: 11;
+  bottom: 0;
+  left: 50%;
+  width: fit-content;
+  transform: translateX(-50%);
+
+  transition: all 1s ease-in;
+}
+
+.alertMessage.visible {
+  position: absolute;
+  z-index: 1111;
+  transform: translateY(-30px);
+  display: block;
+}
+
+@media screen and (max-width: 450px) {
+  .alertMessage {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    width: 400px;
+    display: none;
+  }
+
+  .alertMessage.visible {
+    position: absolute;
+    height: fit-content;
+    transform: translateY(20px);
+    display: block;
+  }
+}
