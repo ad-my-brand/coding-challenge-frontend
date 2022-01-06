@@ -1,0 +1,16 @@
+.NavBar {
+  padding: 12px;
+  border: 2px solid gray;
+  background-color: gray;
+  text-align: center;
+}
+
+.NavBar a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.NavBar a:hover {
+  color: bisque;
+}

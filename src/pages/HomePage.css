@@ -1,0 +1,22 @@
+.homePage__Wrapper {
+  width: 60% !important;
+  padding: 40px;
+}
+
+.homePage__Wrapper {
+  margin: 60px auto;
+}
+
+.homePage__ActionContainer {
+  flex: 1;
+}
+
+.homePage__UserList {
+  flex: 1;
+}
+
+@media screen and (max-width: 450px) {
+  .homePage__Wrapper {
+    width: 100% !important;
+  }
+}

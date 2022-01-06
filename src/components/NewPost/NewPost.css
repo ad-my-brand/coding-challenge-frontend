@@ -1,0 +1,52 @@
+.formGrid__NameRowWrapper {
+  display: flex;
+  width: 50%;
+  margin: 20px auto;
+  padding: 12px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.actionButtonWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.homeRedirectButton {
+  box-shadow: 3px 4px 4px gray;
+}
+
+.formGrid__NameRowWrapper label {
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .formGrid__NameRowWrapper {
+    display: block;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .formGrid__NameRowWrapper {
+    display: block;
+    width: 80%;
+  }
+
+  .formGrid__NameRowWrapper label {
+    margin-right: 10px;
+  }
+
+  .actionButtonWrapper {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .actionButtonWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
