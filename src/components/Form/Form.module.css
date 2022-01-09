@@ -1,0 +1,27 @@
+.form-controls {
+  background-color: whitesmoke;
+  border: 1px solid black;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  width: 60vw;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.action {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: black;
+  background-color: white;
+}
+
+.action:active,
+.action:hover {
+  color: white;
+  background-color: black;
+}
