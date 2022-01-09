@@ -11,7 +11,11 @@ const FormControl = (props) => {
         id={props.id}
         onChange={props.onChange}
         value={props.value}
+        onBlur={props.onBlur}
       />
+      {!props.isValid && (
+        <p className={classes.invalid}>{props.label} can not be empty</p>
+      )}
     </div>
   );
 };
