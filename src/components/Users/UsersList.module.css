@@ -63,4 +63,9 @@
   position: absolute;
   right: 0;
   bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.user-list__location:hover {
+  transform: scale(1.5);
 }
