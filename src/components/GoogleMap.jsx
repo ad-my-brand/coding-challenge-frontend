@@ -9,11 +9,13 @@ const LocationLabel = (props) => (
 );
 
 const GoogleMap = (props) => {
+  const googleApiKey = process.env.GOOGLE_MAP_API_KEY;
+
   return (
     <GoogleMapReact
       style={{ width: "100%", height: "100%" }}
       bootstrapURLKeys={{
-        key: "AIzaSyDJ45qlhyPJGjBf8IfiFNYn9LcoDi52mdQ",
+        key: { googleApiKey },
       }}
       defaultCenter={props.center}
       defaultZoom={4}
