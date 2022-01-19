@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="new_theme" parent="Theme.AndroidCoroutineDemoKotlin">
+        <item name="windowSplashScreenBackground">#856363</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_octocat</item>
+        <item name="postSplashScreenTheme">@style/Theme.AndroidCoroutineDemoKotlin</item>
+    </style>
+
+
+
+</resources>

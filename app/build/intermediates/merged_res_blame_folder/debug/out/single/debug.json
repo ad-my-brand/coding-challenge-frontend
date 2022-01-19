@@ -1,0 +1,122 @@
+[
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/drawable-v24_back.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/drawable-v24/back.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_activity_repo.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/activity_repo.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_fragment_repo.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/fragment_repo.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_recycler_list_row.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/recycler_list_row.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_fragment_not_available.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/fragment_not_available.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/navigation_nav_graph.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_fragment_recycler_list.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/fragment_recycler_list.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_fragment_anime.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/fragment_anime.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/drawable_lay_back.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/drawable/lay_back.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_fragment_issues.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/fragment_issues.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/layout_repo_row.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/repo_row.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/drawable-v24_hub.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/drawable-v24/hub.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/drawable_octocat.png.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/drawable/octocat.png"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/anim_anim1.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/anim/anim1.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/res/merged/debug/drawable_ic_octocat.xml.flat",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/drawable/ic_octocat.xml"
+    }
+]

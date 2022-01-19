@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v29/values-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/akshatsaxena/.gradle/caches/transforms-2/files-2.1/696f1b2f7802e4c34a166d148d803455/jetified-core-splashscreen-1.0.0-alpha02/res/values-v29/values-v29.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "271"
+                    }
+                }
+            ]
+        }
+    ]
+}
