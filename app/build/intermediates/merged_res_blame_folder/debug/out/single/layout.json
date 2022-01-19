@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/repo_row.xml",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/repo_row.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_recycler_list.xml",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/fragment_recycler_list.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_repo.xml",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/fragment_repo.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/recycler_list_row.xml",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/recycler_list_row.xml"
+    },
+    {
+        "merged": "/Users/akshatsaxena/Desktop/GitApp-main/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_issues.xml",
+        "source": "/Users/akshatsaxena/Desktop/GitApp-main/app/src/main/res/layout/fragment_issues.xml"
+    }
+]

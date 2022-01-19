@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/animeFragment">
+
+    <fragment
+        android:id="@+id/animeFragment"
+        android:name="com.android.androidcoroutinedemokotlin.fragments.AnimeFragment"
+        android:label="fragment_anime"
+        tools:layout="@layout/fragment_anime" >
+        <action
+            android:id="@+id/action_animeFragment_to_recyclerListFragment"
+            app:destination="@id/recyclerListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recyclerListFragment"
+        android:name="com.android.androidcoroutinedemokotlin.fragments.RecyclerListFragment"
+        android:label="RecyclerListFragment" >
+        <action
+            android:id="@+id/action_recyclerListFragment_to_repoFragment"
+            app:destination="@id/repoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoFragment"
+        android:name="com.android.androidcoroutinedemokotlin.fragments.RepoFragment"
+        android:label="RepoFragment" >
+        <action
+            android:id="@+id/action_repoFragment_to_recyclerListFragment"
+            app:destination="@id/recyclerListFragment" />
+        <action
+            android:id="@+id/action_repoFragment_to_issuesFragment"
+            app:destination="@id/issuesFragment" />
+        <action
+            android:id="@+id/action_repoFragment_to_notAvailableFragment"
+            app:destination="@id/notAvailableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/issuesFragment"
+        android:name="com.android.androidcoroutinedemokotlin.fragments.IssuesFragment"
+        android:label="IssuesFragment" >
+        <action
+            android:id="@+id/action_issuesFragment_to_recyclerListFragment"
+            app:destination="@id/recyclerListFragment" />
+        <action
+            android:id="@+id/action_issuesFragment_to_notAvailableFragment"
+            app:destination="@id/notAvailableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notAvailableFragment"
+        android:name="com.android.androidcoroutinedemokotlin.fragments.NotAvailableFragment"
+        android:label="fragment_not_available"
+        tools:layout="@layout/fragment_not_available" >
+        <action
+            android:id="@+id/action_notAvailableFragment_to_recyclerListFragment"
+            app:destination="@id/recyclerListFragment" />
+    </fragment>
+</navigation>
