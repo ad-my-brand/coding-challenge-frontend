@@ -1,0 +1,71 @@
+.users-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 60vw;
+  margin: auto;
+}
+
+.user-list {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 2px solid #30475e;
+  border-radius: 4px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.user-list__name-part {
+  margin: 1rem 0;
+}
+
+.user-list__name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  color: #121212;
+  vertical-align: middle;
+}
+
+.user-list__username {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(63, 63, 63);
+  padding: 0.5rem;
+  color: #30475e;
+  vertical-align: middle;
+}
+
+.user-list__email {
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: monospace;
+  padding: 0.5rem;
+  margin-right: 5rem;
+  text-decoration: underline;
+  vertical-align: middle;
+}
+
+/* .user-list__address {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgb(63, 63, 63);
+  vertical-align: middle;
+  padding: 0.5rem;
+  margin-right: 5rem;
+} */
+
+.user-list__location {
+  vertical-align: middle;
+  padding: 0.5rem;
+  margin-right: 5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.user-list__location:hover {
+  transform: scale(1.5);
+}
