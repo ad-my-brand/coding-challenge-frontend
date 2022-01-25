@@ -1,0 +1,32 @@
+* {
+	margin: 0;
+	padding: 0;
+	letter-spacing: 1px;
+	box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #000000;
+	color: rgb(255, 255, 255);
+	display: flex;
+	min-width: 100vw;
+	padding: 1rem;
+	/* overflow-x: hidden; */
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+
+#root {
+	width: 100%;
+}
