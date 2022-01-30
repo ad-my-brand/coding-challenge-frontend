@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.githubapp.ui.fragments.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_reposFragment"
+            app:destination="@id/reposFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/reposFragment"
+        android:name="com.example.githubapp.ui.fragments.ReposFragment"
+        android:label="ReposFragment" >
+        <argument
+            android:name="UserName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_reposFragment_to_issuesFragment"
+            app:destination="@id/issuesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/issuesFragment"
+        android:name="com.example.githubapp.ui.fragments.IssuesFragment"
+        android:label="IssuesFragment" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="reponame"
+            app:argType="string" />
+    </fragment>
+</navigation>

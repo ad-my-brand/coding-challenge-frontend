@@ -1,0 +1,33 @@
+package com.example.githubapp.models
+
+data class issuesResponseItem(
+    val active_lock_reason: Any,
+    val assignee: Any,
+    val assignees: List<Any>,
+    val author_association: String,
+    val body: String,
+    val closed_at: Any?,
+    val comments: Int,
+    val comments_url: String,
+    val created_at: String,
+    val draft: Boolean,
+    val events_url: String,
+    val html_url: String,
+    val id: Int,
+    val labels: List<Any>,
+    val labels_url: String,
+    val locked: Boolean,
+    val milestone: Any,
+    val node_id: String,
+    val number: Int,
+    val performed_via_github_app: Any,
+    val pull_request: PullRequest,
+    val reactions: Reactions,
+    val repository_url: String,
+    val state: String,
+    val timeline_url: String,
+    val title: String,
+    val updated_at: String,
+    val url: String,
+    val user: User
+)

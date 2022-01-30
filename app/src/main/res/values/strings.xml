@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GitHubApp</string>
+    <string name="githubText"><u>GitHub</u></string>
+    <string name="repositoriesText"><u>Repositories</u></string>
+    <string name="text_no_issues">No issues</string>
+    <string name="text_no_repos">No repos</string>
+    <string name="text_no_user">No user with input name</string>
+</resources>
