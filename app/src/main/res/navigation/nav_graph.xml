@@ -10,7 +10,11 @@
         android:label="SearchFragment" >
         <action
             android:id="@+id/action_searchFragment_to_reposFragment"
-            app:destination="@id/reposFragment" />
+            app:destination="@id/reposFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/reposFragment"
@@ -21,7 +25,11 @@
             app:argType="string" />
         <action
             android:id="@+id/action_reposFragment_to_issuesFragment"
-            app:destination="@id/issuesFragment" />
+            app:destination="@id/issuesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/issuesFragment"
