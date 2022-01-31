@@ -1,0 +1,25 @@
+.map-wrap {
+  flex: 0.25;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+  padding: 20px;
+  height: 100vh;
+  background: #ffe873;
+  /* height: calc(
+    100vh - 77px
+  ); calculate height of the screen minus the heading */
+}
+
+.map {
+  /* position: absolute; */
+  width: 100%;
+  height: 40%;
+  border-radius: 10px;
+  border-left: 4px solid rgba(0, 0, 0, 0.6);
+  box-shadow: 3px -1px 6px -2px rgba(0, 0, 0, 0.81);
+  -webkit-box-shadow: 3px -1px 6px -2px rgba(0, 0, 0, 0.81);
+  -moz-box-shadow: 3px -1px 6px -2px rgba(0, 0, 0, 0.81);
+}
