@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-mapboxToken.js
+mapTilerKey.js
 
 # testing
 /coverage
