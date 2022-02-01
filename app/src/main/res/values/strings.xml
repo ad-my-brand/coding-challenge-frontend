@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GitApiApplication</string>
+
+
+    <string name="username">username: </string>
+    <string name="login">Log In</string>
+    <string name="repositories">Repositories</string>
+
+    <string name="progress_title">Getting issues</string>
+    <string name="progress_body">Please Wait</string>
+
+</resources>
