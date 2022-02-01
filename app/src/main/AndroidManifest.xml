@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.gitapiapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GitApiApplication">
+        <activity android:name=".Screens.UserActivity_Main"></activity>
+        <activity android:name=".Screens.IssuesScreen" />
+        <activity android:name=".Screens.UserActivity" />
+        <activity android:name=".Screens.Repositories" />
+        <activity android:name=".Screens.MainActivity" />
+        <activity android:name=".Screens.SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
