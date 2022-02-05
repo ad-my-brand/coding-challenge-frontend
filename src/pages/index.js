@@ -47,7 +47,6 @@ export default function Home({users}) {
     
     <form onSubmit= {handleSubmit}>
       <FormControl label='name' kind="select" users={users} error={errorinId}/>
-      <div></div>
       <FormControl label="title" error={errorinTitle}/>
       <FormControl label="body" error={errorinBody}/>
       <FormControl label="submit" type="submit"/>
@@ -62,13 +61,19 @@ export async function getServerSideProps()  {
   return {
     props: {users:[
     {
-      "id":1, "name":"victor"
+      "id":1, "name":"victor","geo":{
+        "lat":0,"lng":4
+      }
     },
     {
-      "id":2, "name":"ezinne"
+      "id":2, "name":"ezinne","geo":{
+        "lat":3,"lng":6
+      }
     },
     {
-      "id":3, "name":"george"
+      "id":3, "name":"george","geo":{
+      "lat":0,"lng":7
+      }
     }
   
   ]},
