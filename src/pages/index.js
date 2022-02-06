@@ -54,28 +54,11 @@ export default function Home({users}) {
   )
 }
 export async function getServerSideProps()  {
-  console.log('yesnsbddww')
-  // const data = await fetchData();
+  // console.log('yesnsbddww')
+  const data = await fetchData();
   console.log("here now")
   // console.log({data})
   return {
-    props: {users:[
-    {
-      "id":1, "name":"victor","geo":{
-        "lat":0,"lng":4
-      }
-    },
-    {
-      "id":2, "name":"ezinne","geo":{
-        "lat":3,"lng":6
-      }
-    },
-    {
-      "id":3, "name":"george","geo":{
-      "lat":0,"lng":7
-      }
-    }
-  
-  ]},
+    props: {users:data},
   };
 }
