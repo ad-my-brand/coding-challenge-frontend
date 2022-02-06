@@ -1,0 +1,16 @@
+.App{
+    display: flex;
+    justify-content: center;
+}
+.btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+}
+.invalid-feedback{
+    display: block;
+}
+.invalid-control{
+    border-color:red;
+    
+}
