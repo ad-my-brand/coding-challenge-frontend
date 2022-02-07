@@ -1,16 +1,22 @@
 import { useState } from "react"
 
 const Select = ({users}) => {
-  console.log(users)
+  // console.log(users)
   const [userIdvalue, setUserIdvalue]= useState('')
   const [latValue, setLatvalue]= useState('')
   const [lngValue, setLngvalue]= useState('')
 
   const getUserIdval=(event)=>{
-    console.log(event)
+    const selected_option=document.querySelectorAll('option')
+    // console.log(selected_option)
+    selected_option.forEach(option => {
+      if (option.value==event.target.value) {
+        // console.log(option, 'yes')
+        setLatvalue(option.getAttribute("data-lat")*1)
+        setLngvalue(option.getAttribute("data-lng")*1)
+      }
+    });
     setUserIdvalue(event.target.value)
-    setLatvalue(event.target.getAttribuite("data-lat")*1)
-    setLngvalue(event.target.getAttribuite("data-lng")*1)
   }
   return (
     <>

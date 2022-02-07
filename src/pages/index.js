@@ -12,16 +12,31 @@ const fetchData = async () => await axios.get('https://jsonplaceholder.typicode.
     console.log(er)
   }   
 );
+const postData= async(data)=>{
+  console.log('post request')
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: data,
+  }).then(res=>{
+    console.log('no error')
+    console.log(res.json)
+    console.log(res)
+  }).catch((er)=>{
+    console.log('there is an error')
+    console.log(er)    
+  })
+}
+
 
 export default function Home({users}) {  
-  console.log(users)
+  // console.log(users)
   // const [errorDiv, setErrorDiv]= useState([])
   const [errorinTitle, setErrorinTitle]= useState(false)
   const [errorinBody, setErrorinBody]= useState(false)
   const [errorinId, setErrorinId]= useState(false)
   // const validationFunction=(tag)=><p>Please select a {"tag"}</p>
  
-  const handleSubmit=(event)=> {
+  const handleSubmit=async (event)=> {
     setErrorinTitle(false)
     setErrorinBody(false)
     setErrorinId(false)
@@ -31,17 +46,18 @@ export default function Home({users}) {
     console.log(userId)
     if (title==''){
       setErrorinTitle(true)
+      return false
     }
     if (body==''){
       setErrorinBody(true)
+      return false
     }
     if (userId==null){
       setErrorinId(true)
+      return false
     }
-    // fetch('/api/form-submit-url', {
-    //   method: 'POST',
-    //   body: data,
-    // })
+    const result=await postData(data)
+    if(result) console.log(result)
 }
   return (
     
@@ -59,6 +75,6 @@ export async function getServerSideProps()  {
   console.log("here now")
   // console.log({data})
   return {
-    props: {users:data},
+    props: data,
   };
 }
