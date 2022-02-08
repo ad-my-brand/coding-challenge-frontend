@@ -1,0 +1,76 @@
+form {
+  position: relative;
+}
+.container {
+  display: flex;
+  flex: 0.5;
+  align-items: center;
+  background: #b2c9cc;
+}
+.container form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: 100px;
+}
+
+.container form input,
+button,
+textarea {
+  padding: 10px;
+  background: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin: 5px 0px;
+  font-size: 16px;
+}
+
+.container label {
+  color: rgb(2, 25, 54);
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+}
+
+.container button {
+  width: 150px;
+  margin: 50px auto;
+  font-weight: 700;
+  background: #ffda73;
+}
+
+.container button:active {
+  background: white;
+  border: 1px solid #3764be;
+}
+
+.suggested__user {
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  text-align: center;
+}
+
+.suggested__user ul {
+  list-style-type: none;
+  padding-left: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: white;
+}
+
+.suggested__user ul li {
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  color: black;
+}
+
+.suggested__user ul li:hover {
+  background: #e5e5e5;
+  cursor: context-menu;
+}
