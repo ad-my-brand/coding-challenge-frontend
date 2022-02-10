@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  height: 100vh;
+  width: 100vw;
+}
+.appContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  background-color: tan;
+}
+.formContainer > h1 {
+  color: black;
+}
+form {
+  width: 70%;
+  margin: 20px;
+  padding: 35px 50px;
+  border: 2px solid grey;
+  border-radius: 10px;
+  background-color: silver;
+}
+.inputControl,
+.selectControl {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputControl > input {
+  margin: 10px;
+  padding: 10px;
+}
+.selectControl > select {
+  margin: 10px;
+  padding: 10px;
+}
+
+form > button {
+  margin-top: 20px;
+  padding: 10px 40px;
+  font-size: 16px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background-color: royalblue;
+}
+
+.submitMessage {
+  padding: 10px;
+  font-weight: bold;
+  color: green;
+}
+.errorMessage {
+  padding: 10px;
+  font-weight: bold;
+  color: red;
+}
+
+.map {
+  height: 100%;
+  width: 60%;
+}
