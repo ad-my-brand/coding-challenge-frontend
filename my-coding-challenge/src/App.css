@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+*{
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #f1356d;
+    --white: #fff;
+    --black: rgb(212, 212, 212);
+}
+
+/* Form Section */
+.form-section {
+    height: 100vh;
+}
+
+.form-container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.form-container > h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--pink);
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.form-container input, .form-container textarea, .form-container select {
+    margin: .5rem 0;
+    padding: .5rem;
+    outline: none;
+    border: 1px solid var(--black);
+    border-radius: 5px;
+}
+
+.form-container label{
+    margin: .5rem 0;
+}
+
+.form-container button{
+    cursor: pointer;
+    width: 150px;
+    margin: 1rem auto;
+    padding: .8rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--pink);
+    color: var(--white);
+}
+
+.form-container select{
+    cursor: pointer;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    font-size: 80%;
+    display: flex;
+    justify-content: center;
+    color: #f1356d;
+}
+
+.success{
+    font-size: 80%;
+    display: flex;
+    justify-content: center;
+    color: #35f154;
+}
+
+/* Media Queries */
+@media screen and (max-width: 750px) {
+    .form-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .form-container form {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .form-container > h1 {
+        font-size: 150%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .form-container {
+        width: 100%;
+    }
+}
