@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import BlogForm from './components/BlogForm';
 
 function App() {
   return (
     <div className="App">
-      <h1>Yooo</h1>
+      <BlogForm />
     </div>
   );
 }
