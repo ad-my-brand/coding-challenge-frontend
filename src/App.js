@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Form } from "./components/Form";
+import { LocationForm } from "./components/LocationForm";
 function App() {
     const [greeting, setGreeting] = useState();
     const [name, setName] = useState();
@@ -13,9 +13,7 @@ function App() {
     };
     return (
         <>
-            <div className="my-5 mx-5 d-flex justify-content-center">
-                <Form />
-            </div>
+            <LocationForm />
         </>
     );
 }
