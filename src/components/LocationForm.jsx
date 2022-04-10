@@ -8,15 +8,19 @@ export const LocationForm = () => {
     const [toggle, setToggle] = useState(false);
     const [selects, setSelects] = useState();
     const [new_location, setNewLocation] = useState({});
-    const getNames = () => {
-        axios
+    const [error, setError] = useState();
+    const [apiError, setApiError] = useState();
+    const getNames = async () => {
+        await axios
             .get("https://jsonplaceholder.typicode.com/users")
             .then(response => {
                 setNames(response.data);
+            })
+            .catch(error => {
+                setApiError(error);
             });
     };
-    const renderMap = e => {
-        e.preventDefault();
+    const renderMap = () => {
         const userToDisplay = names.filter(user => user.id == selects);
         const latitude = Number(userToDisplay[0].address.geo.lat);
         const longitude = Number(userToDisplay[0].address.geo.lng);
@@ -28,7 +32,17 @@ export const LocationForm = () => {
             lat: latitude,
             lng: longitude,
         });
+
         setToggle(!toggle);
+    };
+    const handleSubmit = e => {
+        e.preventDefault();
+        if (!selects) {
+            setError("Please select a user!");
+        } else {
+            setError("");
+            renderMap();
+        }
     };
     useEffect(() => {
         getNames();
@@ -39,8 +53,9 @@ export const LocationForm = () => {
                 <div className="row">
                     <div className="col">
                         <div className="py-3 my-5 d-flex justify-content-center border border-primary rounded">
-                            <form onSubmit={renderMap}>
+                            <form onSubmit={handleSubmit}>
                                 <label className="my-3 h3">Select a user</label>
+                                <p className="text-danger">{apiError}</p>
                                 <select
                                     className="form-select"
                                     aria-label="Default select example"
@@ -56,6 +71,7 @@ export const LocationForm = () => {
                                         );
                                     })}
                                 </select>
+                                <p className="text-danger">{error}</p>
                                 <button
                                     className="btn btn-primary my-3"
                                     type="submit"
@@ -64,7 +80,7 @@ export const LocationForm = () => {
                                 </button>
                             </form>
                         </div>
-                        <PostForm />
+                        <PostForm userId={selects} />
                     </div>
                     <div className="col">
                         {toggle && <Maps new_location={new_location} />}

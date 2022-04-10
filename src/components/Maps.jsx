@@ -26,7 +26,6 @@ export const Maps = ({ new_location }) => {
     );
     return (
         <>
-            {console.log(location)}
             <div className="map my-5 mx-5 d-flex justify-content-center">
                 <div className="google-map">
                     <h3 className="map-h2">User Location</h3>

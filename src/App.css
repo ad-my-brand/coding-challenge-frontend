@@ -40,3 +40,6 @@ div {
     text-align: center;
     align-items: center;
 }
+.item-left {
+    text-align: left;
+}
