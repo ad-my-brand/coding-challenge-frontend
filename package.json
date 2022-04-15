@@ -7,12 +7,14 @@
   },
   "dependencies": {
     "next": "latest",
+    "pigeon-maps": "^0.21.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/node": "17.0.4",
     "@types/react": "17.0.38",
+    "@types/react-simple-maps": "^1.0.8",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
