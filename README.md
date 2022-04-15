@@ -1,4 +1,8 @@
-# coding-challenge-frontend
+#Assignment
 
-- Create a branch of main
-- Commit and push your branch with your name to this repository
+By Manan Shah
+
+## **⚡️** Screenshots
+
+<img src="./assets/screenshot-app" alt="Img" style="height:500px"/>
+<img src="./assets/screenshot-form" alt="Img" style="height:500px"/>
