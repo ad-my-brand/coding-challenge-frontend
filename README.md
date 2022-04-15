@@ -1,4 +1,10 @@
-# coding-challenge-frontend
+#Assignment
 
-- Create a branch of main
-- Commit and push your branch with your name to this repository
+https://manan-assignment-admybrand.netlify.app/
+
+By Manan Shah
+
+## **⚡️** Screenshots
+
+<img src="./assets/screenshot-app.png" alt="Img" style="height:500px"/>
+<img src="./assets/screenshot-form.png" alt="Img" style="height:500px"/>
