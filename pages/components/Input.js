@@ -1,4 +1,4 @@
-// import { useForm ,useFormContext} from "react-hook-form";
+
 
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ const Input = ({ label, valF, reg, message }) => {
       <label>
         {label}:<br />
         <input
-          class="form-group w-100 center"
+          className="form-group w-100 center"
           name={label}
           {...reg(label, {
             validate: {

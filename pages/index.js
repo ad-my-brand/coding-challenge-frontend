@@ -16,7 +16,7 @@ export default function Home({ data }) {
   };
   
 
-  const bodyF = (input, message) => input.length > 10;
+  const bodyF = (input, message) => input.length > 10;  //validation functions
   const titleF = (input, message) => input.length > 0;
 
   const {
@@ -29,7 +29,7 @@ export default function Home({ data }) {
   
 
 
-const postData = (da)=>{
+const postData = (da)=>{                                          // post data function
   axios.post('https://jsonplaceholder.typicode.com/posts/', {
     title: da.title,
     body: da.body,
@@ -44,7 +44,7 @@ const postData = (da)=>{
       html: 'The data is successfully posted to the server',
       timer: 2000,
       timerProgressBar: true,
-      didOpen: () => {
+      didOpen: () => {                                             //sweet alert timed alert
         Swal.showLoading()
         const b = Swal.getHtmlContainer().querySelector('b')
         timerInterval = setInterval(() => {
@@ -56,7 +56,7 @@ const postData = (da)=>{
         clearInterval(timerInterval)
       }
     }).then((result) => {
-      /* Read more about handling dismissals below */
+      
       if (result.dismiss === Swal.DismissReason.timer) {
         console.log('I was closed by the timer')
       }
@@ -81,7 +81,7 @@ const postData = (da)=>{
         clearInterval(timerInterval)
       }
     }).then((result) => {
-      /* Read more about handling dismissals below */
+     
       if (result.dismiss === Swal.DismissReason.timer) {
         console.log('I was closed by the timer')
       }
@@ -104,21 +104,21 @@ const postData = (da)=>{
       >
         <div>
           {" "}
-          <div class="form-group  col-md-offset-6">
+          <div className="form-group  col-md-offset-6">
             <Dropdown
-              label="user"
+              label="user"                               //form control of dropdown type
               set={setId}
               options={[...data.map((m) => m)]}
             ></Dropdown>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <Input
               label="title"
               valF={titleF}
-              message={"dont leave me empty"}
-              reg={register}
+              message={"dont leave me empty"}                   //form control component of input type
+              reg={register}                        //label , validating function , message , validation register
             ></Input>
-            <p class="form-text text-danger">
+            <p className="form-text text-danger">
               {" "}
               {errors != null && errors.title != null
                 ? errors.title.message
@@ -132,7 +132,7 @@ const postData = (da)=>{
               message={"at least 10characters are needed"}
               reg={register}
             ></Input>
-            <p class="form-text text-danger">
+            <p className="form-text text-danger">
               {" "}
               {errors != null && errors.body != null
                 ? errors.body.message
@@ -140,7 +140,7 @@ const postData = (da)=>{
             </p>
           </div>
           <button
-            class="form-control w-50  p-15 m-10"
+            className="form-control w-50  p-15 m-10"
             onClick={() => {
               if (id == -1) alert("please select a user");
             }}
@@ -150,16 +150,16 @@ const postData = (da)=>{
           </button>
         </div>{" "}
       </form>
-      <div>{id == -1 ? null : <MapChart geo={data[id]}></MapChart>}</div>
+      <div>{id == -1 ? null : <MapChart geo={data[id]}></MapChart>}</div>     
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
+  
+  const res = await fetch(`https://jsonplaceholder.typicode.com/users`);  //populating data
   const data = await res.json();
 
-  // Pass data to the page via props
+
   return { props: { data } };
 }
