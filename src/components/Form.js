@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import FormControl from './FormControl'
-import Map from './Map'
 
 const Form = () => {
     const [users, setUsers] = useState([])
@@ -32,7 +31,13 @@ const Form = () => {
         setBody(e.target.value)
     }
 
-    const handleSubmit = async(e) => {
+    const post = async (response) => {
+        await axios.post('https://jsonplaceholder.typicode.com/posts', response)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
+    }
+
+    const handleSubmit = (e) => {
         e.preventDefault()
         if (user === 'default')
             alert("Please enter a user")
@@ -40,17 +45,15 @@ const Form = () => {
             alert("Title cannot be empty")
         else if (!body)
             alert("Body cannot be empty")
-
-        const response = {
-            title: title,
-            body: body,
-            userId: user
+        else {
+            const response = {
+                title: title,
+                body: body,
+                userId: user
+            }
+            post(response)
+            // console.log(response)
         }
-
-        // console.log(response)
-        await axios.post('https://jsonplaceholder.typicode.com/posts', response)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err))   
     }
 
     return (

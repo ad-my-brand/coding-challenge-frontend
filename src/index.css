@@ -18,9 +18,10 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
-#map {
+.Map {
   width: 300px;
   height: 300px;
 }

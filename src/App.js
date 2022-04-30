@@ -1,10 +1,11 @@
 import Form from './components/Form';
-import logo from './logo.svg';
+import MapComp from './components/MapComp';
 
 function App() {
   return (
     <div className="App">
       <Form />
+      <MapComp />
     </div>
   );
 }
