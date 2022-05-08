@@ -1,9 +1,15 @@
 import React from 'react'
 
-const FormControl = () => {
+const FormControl = ({ label, isValid, id }) => {
+  if (isValid)
   return (
-    <div>Form Control</div>
+    <option key={id} value={id}>{label}</option>
   )
+  else {
+    alert('500 : INTERNAL SERVER ERROR, NO USERS LOADED')
+    return(<></>)
+  }
+  
 }
 
 export default FormControl
