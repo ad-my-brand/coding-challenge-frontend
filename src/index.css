@@ -22,8 +22,8 @@ code {
 }
 
 .Map {
-  width: 400px ;
-  height: 300px ;
+  width: 400px !important;
+  height: 300px !important;
   max-width: 100vw;
   max-height: 100vh; 
 }
@@ -37,4 +37,10 @@ code {
   width: 400px;
   max-width: 100vw;
   max-height: 100vh;
+}
+
+.openlayers-map {
+  height: 300px !important;
+  width: 300px !important;
+  max-width: 90vw !important;
 }
