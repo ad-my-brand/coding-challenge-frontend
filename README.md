@@ -1,4 +1,6 @@
-# coding-challenge-frontend
+# Frontend Task
+## -By Anish Sarkar
 
-- Create a branch of main
-- Commit and push your branch with your name to this repository
+* Done with React.js.
+* Map used is from openlayers.org.
+* Axios library is used to make HTTP requests.
