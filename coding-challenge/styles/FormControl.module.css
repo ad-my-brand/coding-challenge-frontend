@@ -1,0 +1,20 @@
+.formGroup{
+   display: flex;
+   flex-direction: column;
+   margin: 0.1rem;
+}
+.button{
+    background-color: purple;
+    color: aliceblue;
+    font-size: large;
+    border-radius: 1rem;
+    padding : 1rem;
+    margin: 1rem;
+}
+.input{
+    border-radius: 1rem;
+    padding: 0.3rem;
+    font-size: large;
+    background-color:purple;
+    color: aliceblue;
+}
