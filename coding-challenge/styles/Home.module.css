@@ -9,6 +9,11 @@
 }
 .error{
   color: red;
-  font-size: large;
+  font-size: xx-large;
+  margin: 0.5rem;
+}
+.message{
+  color: green;
+  font-size: xx-large;
   margin: 0.5rem;
 }

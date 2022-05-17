@@ -7,6 +7,7 @@ import FormControl from "../components/formControl"
 const MyMapComponent = dynamic(() => import('../components/map'), { ssr: false });
 
 export default function Home() {
+  const [message, setMessage] = useState("");
   const [users, setUsers] = useState("");
   const [selectedUser, setSelectedUser] = useState(-1);
   const [title, setTitle] = useState("");
@@ -21,13 +22,17 @@ export default function Home() {
         setUsers(data);
       }
       catch (e) {
-        setError(e);
+        setError(e.message);
       }
     }
     getData();
   }, []);
   const postIt = async () => {
-
+    setMessage("");
+    if (title.length === 0 || body.length === 0 || selectedUser === -1) {
+      setError("Please fill all the fields");
+      return;
+    }
     try {
       await fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
@@ -39,15 +44,17 @@ export default function Home() {
       });
       setTitle("");
       setBody("");
+      setMessage("Post added successfully");
     }
     catch (e) {
-      setError(e);
+      setError(e.message);
     }
   }
   return (
     <>
       <div>
         <form className={styles.form}>
+          {error && <div className={styles.error}>{error}</div>}
           <FormControl
             type="select"
             options={users}
@@ -66,10 +73,8 @@ export default function Home() {
           <FormControl type="text" label="Title" value={title} onChange={setTitle} validation={() => title.length == 0 && "Enter Title"} />
           <FormControl type="text" label="Body" value={body} onChange={setBody} validation={() => body.length == 0 && "Enter Body"} />
           <FormControl type="submit" label="Post" onChange={postIt} />
+          {message && <div data-testid="message" className={styles.message}>{message}</div>}
         </form>
-      </div>
-      <div className={styles.error}>
-        {error}
       </div>
     </>
   )

@@ -29,5 +29,6 @@ select,option{
   font-size: large;
   background-color: purple;
   color: aliceblue;
-  padding: 0.2rem;
+  padding: 0.3rem;
+  border-radius: 1rem;
 }

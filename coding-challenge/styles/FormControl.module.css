@@ -10,6 +10,11 @@
     border-radius: 1rem;
     padding : 1rem;
     margin: 1rem;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: antiquewhite;
+    color: purple;
 }
 .input{
     border-radius: 1rem;
