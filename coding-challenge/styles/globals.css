@@ -1,0 +1,34 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: x-large;
+    color: aliceblue;
+    background: linear-gradient(to right, #fc00ff, #00dbde);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.alert{
+  background-color: red;
+  color: aliceblue;
+  font-size: large;
+  border-radius: 5px;
+  padding: 0.1rem;
+  margin: 0.2rem;
+}
+select,option{
+  font-size: large;
+  background-color: purple;
+  color: aliceblue;
+  padding: 0.3rem;
+  border-radius: 1rem;
+}
