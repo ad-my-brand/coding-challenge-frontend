@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import styles from "../styles/Home.module.css";
 
 import dynamic from "next/dynamic";
@@ -6,27 +6,14 @@ import FormControl from "../components/formControl"
 
 const MyMapComponent = dynamic(() => import('../components/map'), { ssr: false });
 
-export default function Home() {
+export default function Home({ users }) {
   const [message, setMessage] = useState("");
-  const [users, setUsers] = useState("");
+
   const [selectedUser, setSelectedUser] = useState(-1);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [error, setError] = useState("");
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const url = "https://jsonplaceholder.typicode.com/users";
-        const response = await fetch(url);
-        const data = await response.json();
-        setUsers(data);
-      }
-      catch (e) {
-        setError(e.message);
-      }
-    }
-    getData();
-  }, []);
+
   const postIt = async () => {
     setMessage("");
     if (title.length === 0 || body.length === 0 || selectedUser === -1) {
@@ -78,4 +65,24 @@ export default function Home() {
       </div>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const getData = async () => {
+    try {
+      const url = "https://jsonplaceholder.typicode.com/users";
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    }
+    catch (e) {
+      setError(e.message);
+    }
+  }
+  const users = await getData();
+  return {
+    props: {
+      users
+    }
+  }
 }
