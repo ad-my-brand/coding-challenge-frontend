@@ -1,0 +1,39 @@
+.Input__control{
+    display: flex;
+    flex-direction: column;
+}
+
+.Label{
+    font-size: 1.5rem;
+}
+
+.Input{
+    font-size: 1.3rem;
+    padding: 0.3rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.Label__error{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Input__reqError{
+    color: orangered;
+    font-weight: 500;
+    animation: slide 300ms ease-in-out forwards;
+    margin: 0;
+}
+
+@keyframes slide {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
