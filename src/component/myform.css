@@ -1,0 +1,91 @@
+.formContainer {
+  display: flex;
+  padding: 1rem;
+  background-color: white;
+  width: 80%;
+  min-height: 70vh;
+  gap: 1rem;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.form {
+  position: relative;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem 1rem 1rem;
+  border: 1px solid gray;
+}
+
+.formLabel {
+  position: absolute;
+  font-size: 20px;
+  top: -1rem;
+  left: 1rem;
+  background-color: white;
+}
+
+.inputLabel {
+  display: block;
+  width: max-content;
+  margin-bottom: 0.2rem;
+}
+
+.userLabelAndIcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  width: 100%;
+  padding: 0.2rem;
+  border: 0;
+  border-radius: 4px;
+  outline: 1px solid lightslategray;
+}
+
+.errorLabel {
+  color: red;
+  display: block;
+  width: max-content;
+  font-size: 12px;
+}
+
+.errorLabelHidden {
+  visibility: hidden;
+  color: red;
+  display: block;
+  width: max-content;
+  font-size: 12px;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.2rem;
+  border: 0;
+  border-radius: 4px;
+  outline: 1px solid lightslategray;
+}
+
+.submitButton {
+  padding: 0.5rem;
+}
+
+.mapContainer {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightslategray;
+}
