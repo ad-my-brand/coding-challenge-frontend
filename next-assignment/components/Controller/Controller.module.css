@@ -1,0 +1,100 @@
+.form_container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  margin-left: 20px;
+  row-gap: 1.5rem;
+}
+
+.form_element {
+  width: 100%;
+}
+
+.label {
+  transform: translateX(-13px) translateY(-35px);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.input {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(199, 198, 198);
+  font-size: 14px;
+  width: 100%;
+  line-height: 30px;
+}
+
+.input:focus {
+  outline: 0;
+  border-bottom-color: rgb(0, 255, 26);
+  width: 100%;
+}
+
+.span {
+  font-size: 12px;
+  padding: 3px;
+  color: rgb(255, 255, 255);
+  display: none;
+  position: relative;
+  font-family: tahoma;
+  font-size: 16px;
+  opacity:0;
+  background-color: red;
+  width: 45%;
+  display: flex;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.input:invalid[focused= "true"] ~ span {
+  display: block;
+  top:-40px;
+  left:20px;
+  animation: slideDown ease .4s forwards .6s;
+}
+
+@keyframes slideDown {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(45px);opacity:1;}
+}
+
+/* .input:invalid[focused= "true"] ~ span {
+  border-bottom-color: rgb(255, 0, 0);
+} */
+
+.button {
+  background-color: transparent;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  color: #3b3b3b;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 16px 24px;
+  text-decoration: none;
+  width: 40%;
+}
+
+.button:hover {
+  color: rgb(255, 255, 255);
+  background-color: #030303;
+  box-shadow: rgba(47, 47, 47, 0.25) 0 8px 15px;
+}
+
+.button:active {
+  box-shadow: none;
+  font-size: 1.1rem;
+}

@@ -1,0 +1,42 @@
+.flexbox_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.flex_items {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  padding: 5px;
+  width: 30%;
+  height: 10%;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  line-height: 50px;
+  transition: all .3s ease-in-out;
+  border: 2px solid #1a1a1a;
+  font-weight: 600;
+}
+
+.flex_items:hover {
+  transform: scale(1.05);
+  padding: 12px 24px;
+}
+
+.flex_items_selected {
+  background-color: #1a1a1a;
+  color: whitesmoke;
+}
