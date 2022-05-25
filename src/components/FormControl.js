@@ -16,6 +16,7 @@ const FormControl = () => {
             try {
                 const res = await axios.get(`https://jsonplaceholder.typicode.com/users`)
                 if (res.status === 200) {
+                    console.log(res.data)
                     setUsers(res.data)
                     setDidWeGetTheInfo('true')
                 }
@@ -42,12 +43,12 @@ const FormControl = () => {
                         initialValues={{
                             title: '',
                             body: '',
-                            id: ''
+                            userId: ''
                         }}
                         validationSchema={Yup.object({
                             title: Yup.string().required('Title is Required.'),
                             body: Yup.string().required('Body is Required.'),
-                            id: Yup.number().required('User is Required.')
+                            userId: Yup.number().required('User is Required.')
                         })}
                         onSubmit={async (values, {setSubmitting, resetForm}) => {
                             setSubmitting(false);
@@ -72,7 +73,7 @@ const FormControl = () => {
                         <Form onSubmit={handleSubmit} className="space-y-2 py-4">
                             <FormInput label="Title" name="title" type="text"/>
                             <FormInput as='textarea' label="Body" name="body" rows={8}/>
-                            <FormInput as='select' name="id">
+                            <FormInput as='select' name="userId">
                                 <option disabled="">
                                     Select a user
                                 </option>
