@@ -16,7 +16,6 @@ const FormControl = () => {
             try {
                 const res = await axios.get(`https://jsonplaceholder.typicode.com/users`)
                 if (res.status === 200) {
-                    console.log(res.data)
                     setUsers(res.data)
                     setDidWeGetTheInfo('true')
                 }
@@ -94,9 +93,9 @@ const FormControl = () => {
                             <div>{errorMsg && <p>{errorMsg}</p>}</div>
 
                             <div className="mt-3">
-                                {values.id &&
-                                    <MapComponent lat={users[values.id].address.geo.lat}
-                                                  lng={users[values.id].address.geo.lng}/>
+                                {values.userId &&
+                                    <MapComponent lat={users.find(x => x.id == values.userId).address.geo.lat}
+                                                  lng={users.find(x => x.id == values.userId).address.geo.lng}/>
                                 }
                             </div>
                         </Form>
