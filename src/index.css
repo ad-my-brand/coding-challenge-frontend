@@ -1,0 +1,10 @@
+li{
+    list-style: upper-greek inside;
+}
+
+.form-box{
+    box-shadow: 5px 5px 6px 4px #000;
+}
+body{
+    background: linear-gradient(64deg, rgba(0, 0, 0, 0.58) 0%, #fff 100%);
+}
