@@ -1,0 +1,18 @@
+@use './sass/variables' as *;
+
+.header {
+  padding: 3rem 0;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: $md) {
+    padding: 2rem 0;
+    margin-top: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 250%;
+  }
+}

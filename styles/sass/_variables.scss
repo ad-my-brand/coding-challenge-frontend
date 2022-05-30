@@ -1,0 +1,12 @@
+@use 'sass:math';
+
+// BREAK POINTS
+$lg: math.div(1200, 16) * 1em;
+$lg-sm: math.div(1000, 16) * 1em;
+$md: math.div(900, 16) * 1em;
+$md-sm: math.div(680, 16) * 1em;
+$sm: math.div(485, 16) * 1em;
+$sm-sm: math.div(320, 16) * 1em;
+
+// BOXES
+// $box-shadow: 0, 1.5rem, 4rem, rgba($color-black, 0.15);

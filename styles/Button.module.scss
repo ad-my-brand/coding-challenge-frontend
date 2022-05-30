@@ -1,0 +1,72 @@
+@use './sass/mixins' as *;
+
+.btn {
+  &,
+  &:link,
+  &:visited {
+    @include btnReset;
+    box-shadow: 0.2rem 0.5rem 1rem 0.5rem rgba($color: #000, $alpha: 0.03);
+
+    &:hover {
+      box-shadow: 0.2rem 0.75rem 1.5rem 0.5rem rgba($color: #000, $alpha: 0.03);
+      transform: translateY(-2px);
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      transform: translateY(0px);
+      box-shadow: 0.2rem 0.5rem 1rem 0.5rem rgba($color: #000, $alpha: 0.03);
+    }
+
+    &.round {
+      font-size: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      max-width: 50rem;
+      width: 100%;
+      padding: 1rem 1.25rem;
+
+      border-radius: 10rem;
+      background-color: #fff;
+
+      svg {
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+
+        &:last-child {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    &.rect {
+      box-shadow: 0.2rem 0.5rem 1rem 0.5rem rgba($color: #000, $alpha: 0.08);
+
+      &:hover {
+        box-shadow: 0.2rem 0.75rem 1.5rem 0.5rem
+          rgba($color: #000, $alpha: 0.08);
+        transform: translateY(-2px);
+        background-color: var(--color-secondary);
+      }
+
+      &:active,
+      &:focus {
+        outline: none;
+        transform: translateY(0px);
+        box-shadow: 0.2rem 0.5rem 1rem 0.5rem rgba($color: #000, $alpha: 0.08);
+      }
+
+      font-size: 1.6rem;
+      text-align: center;
+      width: 124px;
+      height: 40px;
+      color: #fff;
+      border-radius: 4px;
+      background-color: var(--color-primary);
+    }
+  }
+}

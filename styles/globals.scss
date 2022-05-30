@@ -1,0 +1,60 @@
+@use 'sass:math';
+@use './sass/mixins' as *;
+@use './sass/variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  // FONTS
+  --font-primary: 'Poppins', sans-serif;
+  --font-size: 1.6rem;
+
+  // COLORS
+  --color-primary: #2563eb;
+  --color-secondary: #3b82f6;
+  --color-delete: #eb5757;
+  --color-bg: #f1f3f5;
+  --color-light: #fff;
+
+  --color-text: #1e293b;
+  --color-grey-1: #adb5bd;
+  --color-grey-2: #ced4da;
+  --color-grey-3: #f7f7f7;
+
+  // WIDTH
+  --max-width: 100rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: math.div(100, 16) * 10%; //62.5% - 10px
+  // font-size: 10px;
+
+  @media only screen and (max-width: $lg) {
+    font-size: math.div(100, 16) * 9%;
+  }
+
+  /*  @media only screen and (max-width: $md) {
+    font-size: math.div(100, 16) * 8%;
+  } */
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size);
+  line-height: 150%;
+  font-weight: 500;
+
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  // padding: 0 5%;
+}

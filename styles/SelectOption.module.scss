@@ -1,0 +1,26 @@
+.select-option {
+  &__label {
+    padding: 0.4rem 2rem;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+
+    &:first-of-type {
+      padding-top: 1rem;
+    }
+
+    &:last-of-type {
+      padding-bottom: 1rem;
+    }
+
+    &:hover,
+    &:focus {
+      // font-weight: bold;
+      background-color: rgba(#3b82f6, 0.1);
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+}
