@@ -1,4 +1,4 @@
-export const URL = `https://jsonplaceholder.typicode.cocm`;
+export const URL = `https://jsonplaceholder.typicode.com`;
 export const URL_GET = `${URL}/users`;
 export const URL_POST = `${URL}/posts`;
 export const NOTIFICATION_TIMEOUT = 2;
