@@ -23,8 +23,13 @@ const FormControl = () => {
     }
   };
   const field = {
-    width: "fit-content",
+    width: "250px",
     padding: "5px",
+    margin: "10px",
+  };
+  const formfield = {
+    width: "500px",
+    padding: "25px",
     margin: "10px",
   };
   useEffect(() => {
@@ -68,54 +73,57 @@ const FormControl = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <fieldset style={field}>
-          <legend>
-            User:<span color="red">*</span>
-          </legend>
+      <fieldset style={formfield}>
+        <legend>Form</legend>
+        <form onSubmit={handleSubmit}>
+          <fieldset style={field}>
+            <legend>
+              User:<span color="red">*</span>
+            </legend>
 
-          <select id="userid" name="userId" onChange={handleChange}>
-            <option value={0} key={0}>
-              ---Select User---
-            </option>
-            {data.map((e) => {
-              return (
-                <option value={e.id} key={e.id}>
-                  {e.name}-{e.id}
-                </option>
-              );
-            })}
-          </select>
-          <p id="selectError">{formErrors.userId}</p>
-        </fieldset>
-        <fieldset style={field}>
-          <legend>
-            Title<span>*</span>
-          </legend>
-          <input
-            type="text"
-            id="Title"
-            name="title"
-            placeholder="Enter the user name"
-            onChange={handleChange}
-          />
-          <p id="nameError">{formErrors.title}</p>
-        </fieldset>
-        <fieldset style={field}>
-          <legend>
-            Body<span>*</span>
-          </legend>
-          <input
-            type="text"
-            name="body"
-            id="Body"
-            placeholder="Enter the body value"
-            onChange={handleChange}
-          />
-          <p id="bodyError">{formErrors.body}</p>
-        </fieldset>
-        <button type="submit">Submit</button>
-      </form>
+            <select id="userid" name="userId" onChange={handleChange}>
+              <option value={0} key={0}>
+                ---Select User---
+              </option>
+              {data.map((e) => {
+                return (
+                  <option value={e.id} key={e.id}>
+                    {e.name}-{e.id}
+                  </option>
+                );
+              })}
+            </select>
+            <p id="selectError">{formErrors.userId}</p>
+          </fieldset>
+          <fieldset style={field}>
+            <legend>
+              Title<span>*</span>
+            </legend>
+            <input
+              type="text"
+              id="Title"
+              name="title"
+              placeholder="Enter the user name"
+              onChange={handleChange}
+            />
+            <p id="nameError">{formErrors.title}</p>
+          </fieldset>
+          <fieldset style={field}>
+            <legend>
+              Body<span>*</span>
+            </legend>
+            <input
+              type="text"
+              name="body"
+              id="Body"
+              placeholder="Enter the body value"
+              onChange={handleChange}
+            />
+            <p id="bodyError">{formErrors.body}</p>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
+      </fieldset>
       <div>
         {responsemsg ? (
           <div>
