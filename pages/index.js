@@ -4,5 +4,9 @@ import styles from "../styles/Home.module.css";
 import FormControl from "../components/FormControl";
 
 export default function Home() {
-  return <FormControl />;
+  return (
+    <div>
+      <FormControl />
+    </div>
+  );
 }
