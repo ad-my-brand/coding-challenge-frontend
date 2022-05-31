@@ -49,8 +49,6 @@ const Form = ({ className, users }) => {
       bodyValidate(inputValues.body) &&
       (user ? true : false);
 
-    console.log(formIsValid);
-
     setSubmitResponse({
       isSubmitted: true,
       formIsValid,
