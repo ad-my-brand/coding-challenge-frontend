@@ -1,9 +1,9 @@
 import { createContext, useCallback, useReducer } from 'react';
 
 const errorsInitialState = {
-  user: true,
-  title: true,
-  body: true,
+  user: false,
+  title: false,
+  body: false,
 };
 
 const errorReducer = (state, action) => {
