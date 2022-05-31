@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
 class Map extends Component {
-  c;
   render = () => {
     const GOOGLE_MAP_KEY = process.env.GOOGLE_MAP_KEY;
     const containerStyle = {
