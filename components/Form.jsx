@@ -44,7 +44,12 @@ const Form = ({ className, users }) => {
   const formSubmitHandler = e => {
     e.preventDefault();
 
-    const formIsValid = !errors.body && !errors.title && (user ? true : false);
+    const formIsValid =
+      titleValidate(inputValues.title) &&
+      bodyValidate(inputValues.body) &&
+      (user ? true : false);
+
+    console.log(formIsValid);
 
     setSubmitResponse({
       isSubmitted: true,
