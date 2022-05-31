@@ -8,9 +8,35 @@ const FormControl = () => {
     title: "",
     body: "",
   });
+  const [formstyle, setformstyle] = useState({
+    userId: {
+      border: "2px solid red",
+    },
+    title: {
+      border: "2px solid red",
+    },
+    body: {
+      border: "2px solid red",
+    },
+  });
   const [formErrors, setformErrors] = useState({});
   const [responsemsg, setresponsemsg] = useState("");
   const handleChange = (e) => {
+    if (e.target.value != 0 && e.target.value != "") {
+      setformstyle({
+        ...formstyle,
+        [e.target.name]: {
+          border: "2px solid green",
+        },
+      });
+    } else {
+      setformstyle({
+        ...formstyle,
+        [e.target.name]: {
+          border: "2px solid red",
+        },
+      });
+    }
     setformValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
@@ -81,7 +107,12 @@ const FormControl = () => {
               User:<span color="red">*</span>
             </legend>
 
-            <select id="userid" name="userId" onChange={handleChange}>
+            <select
+              id="userid"
+              style={formstyle.userId}
+              name="userId"
+              onChange={handleChange}
+            >
               <option value={0} key={0}>
                 ---Select User---
               </option>
@@ -101,6 +132,7 @@ const FormControl = () => {
             </legend>
             <input
               type="text"
+              style={formstyle.title}
               id="Title"
               name="title"
               placeholder="Enter the user name"
@@ -115,6 +147,7 @@ const FormControl = () => {
             <input
               type="text"
               name="body"
+              style={formstyle.body}
               id="Body"
               placeholder="Enter the body value"
               onChange={handleChange}
