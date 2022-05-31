@@ -10,13 +10,13 @@ const FormControl = () => {
   });
   const [formstyle, setformstyle] = useState({
     userId: {
-      border: "2px solid red",
+      border: "3px solid red",
     },
     title: {
-      border: "2px solid red",
+      border: "3px solid red",
     },
     body: {
-      border: "2px solid red",
+      border: "3px solid red",
     },
   });
   const [formErrors, setformErrors] = useState({});
@@ -26,14 +26,14 @@ const FormControl = () => {
       setformstyle({
         ...formstyle,
         [e.target.name]: {
-          border: "2px solid green",
+          border: "3px solid green",
         },
       });
     } else {
       setformstyle({
         ...formstyle,
         [e.target.name]: {
-          border: "2px solid red",
+          border: "3px solid red",
         },
       });
     }
@@ -58,6 +58,7 @@ const FormControl = () => {
     padding: "25px",
     margin: "10px",
   };
+
   useEffect(() => {
     getData();
   });
@@ -98,78 +99,88 @@ const FormControl = () => {
   };
 
   return (
-    <div>
-      <fieldset style={formfield}>
-        <legend>Form</legend>
-        <form onSubmit={handleSubmit}>
-          <fieldset style={field}>
-            <legend>
-              User:<span color="red">*</span>
-            </legend>
+    <center>
+      <div style={{ "background-color": "#d9dce4" }}>
+        <div
+          style={{
+            "background-color": "#7996e0",
+            width: "fit-content",
+            paddingBottom: "5px",
+          }}
+        >
+          <fieldset style={formfield}>
+            <legend>Form</legend>
+            <form onSubmit={handleSubmit}>
+              <fieldset style={field}>
+                <legend>
+                  User:<span color="red">*</span>
+                </legend>
 
-            <select
-              id="userid"
-              style={formstyle.userId}
-              name="userId"
-              onChange={handleChange}
-            >
-              <option value={0} key={0}>
-                ---Select User---
-              </option>
-              {data.map((e) => {
-                return (
-                  <option value={e.id} key={e.id}>
-                    {e.name}-{e.id}
+                <select
+                  id="userid"
+                  style={formstyle.userId}
+                  name="userId"
+                  onChange={handleChange}
+                >
+                  <option value={0} key={0}>
+                    ---Select User---
                   </option>
-                );
-              })}
-            </select>
-            <p id="selectError">{formErrors.userId}</p>
+                  {data.map((e) => {
+                    return (
+                      <option value={e.id} key={e.id}>
+                        {e.name}-{e.id}
+                      </option>
+                    );
+                  })}
+                </select>
+                <p id="selectError">{formErrors.userId}</p>
+              </fieldset>
+              <fieldset style={field}>
+                <legend>
+                  Title<span>*</span>
+                </legend>
+                <input
+                  type="text"
+                  style={formstyle.title}
+                  id="Title"
+                  name="title"
+                  placeholder="Enter the user name"
+                  onChange={handleChange}
+                />
+                <p id="nameError">{formErrors.title}</p>
+              </fieldset>
+              <fieldset style={field}>
+                <legend>
+                  Body<span>*</span>
+                </legend>
+                <input
+                  type="text"
+                  name="body"
+                  style={formstyle.body}
+                  id="Body"
+                  placeholder="Enter the body value"
+                  onChange={handleChange}
+                />
+                <p id="bodyError">{formErrors.body}</p>
+              </fieldset>
+              <button type="submit">Submit</button>
+            </form>
           </fieldset>
-          <fieldset style={field}>
-            <legend>
-              Title<span>*</span>
-            </legend>
-            <input
-              type="text"
-              style={formstyle.title}
-              id="Title"
-              name="title"
-              placeholder="Enter the user name"
-              onChange={handleChange}
-            />
-            <p id="nameError">{formErrors.title}</p>
-          </fieldset>
-          <fieldset style={field}>
-            <legend>
-              Body<span>*</span>
-            </legend>
-            <input
-              type="text"
-              name="body"
-              style={formstyle.body}
-              id="Body"
-              placeholder="Enter the body value"
-              onChange={handleChange}
-            />
-            <p id="bodyError">{formErrors.body}</p>
-          </fieldset>
-          <button type="submit">Submit</button>
-        </form>
-      </fieldset>
-      <div>
-        {responsemsg ? (
-          <div>
-            <p>{responsemsg}</p>
-          </div>
-        ) : (
-          <p></p>
-        )}
+        </div>
+        <div>
+          {responsemsg ? (
+            <div>
+              <p>{responsemsg}</p>
+            </div>
+          ) : (
+            <p></p>
+          )}
+        </div>
+        <div>
+          <Map />
+        </div>
       </div>
-      <div>
-        <Map />
-      </div>
-    </div>
+    </center>
   );
 };
 export default FormControl;
