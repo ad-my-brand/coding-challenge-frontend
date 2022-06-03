@@ -1,0 +1,13 @@
+@use './sass/variables' as *;
+
+.map {
+  width: 50%;
+  height: auto;
+  box-shadow: 2px 5px 10px 5px rgba($color: #000, $alpha: 0.03);
+
+  @media screen and (max-width: $md) {
+    min-height: 30rem;
+    height: 100%;
+    width: 100%;
+  }
+}

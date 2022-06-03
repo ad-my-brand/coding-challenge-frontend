@@ -1,0 +1,22 @@
+// @use './sass/variables' as *;
+
+.select {
+  z-index: 5;
+  font-size: 1.4rem;
+  position: relative;
+  user-select: none;
+  border-radius: 10rem;
+
+  &__options {
+    background: var(--color-light);
+
+    border-radius: 4px;
+    box-shadow: 2px 5px 10px 5px rgba($color: #000, $alpha: 0.03);
+
+    text-transform: capitalize;
+    width: 100%;
+    position: absolute;
+    top: 5.75rem;
+    left: 0;
+  }
+}

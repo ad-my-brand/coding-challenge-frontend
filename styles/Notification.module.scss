@@ -1,0 +1,29 @@
+.notification {
+  position: fixed;
+  top: 4rem;
+  left: 50%;
+
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  width: max-content;
+
+  display: flex;
+  align-items: center;
+
+  transform: translateX(-50%);
+  border-radius: 10rem;
+  color: var(--color-light);
+
+  // Icons
+  svg {
+    margin-right: 1rem;
+  }
+
+  &.fail {
+    background-color: var(--color-delete);
+  }
+
+  &.success {
+    background-color: var(--color-secondary);
+  }
+}
