@@ -16,15 +16,10 @@ const formComponent = () => {
     
 }, [])
 
-const handleSubmit=()=>{
-
-}
-
-console.log(user);
   return (
-    <form>
-    <select>{user.map((data)=>(<option key ={data.id} value={data.username}>{data.username}</option>))}</select>
-    <input type='submit'/>
+    <form >
+    <select onChange={(e)=>{console.log(e.target.value)}} >{user.map((data)=>(<option key ={data.id} value={data.username}>{data.username}</option>))}</select>
+    <button> submit</button>
     </form>
   )
 }
