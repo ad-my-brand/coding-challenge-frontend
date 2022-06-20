@@ -1,11 +1,15 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import { useState } from 'react'
 import styles from '../styles/Home.module.css'
 import FormComponent from '../components/formComponent'
+import MapComponent from '../components/mapComponent'
+
 export default function Home() {
+    
+  const [name,setName] =useState([])
   return (
     <div className={styles.container}>
-      <FormComponent/>
+      <FormComponent setName={setName}  />
+      <MapComponent name={name}/>
     </div>
   )
 }
