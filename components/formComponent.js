@@ -2,9 +2,9 @@ import React,{useEffect,useState} from 'react'
 import { fetchData } from '../utils/fetchData'
 
 
-const formComponent = ({setName}) => {
+const formComponent = ({id,setId,setUser,user,setFilter}) => {
   
-  const [user, setUser] = useState([])
+
   useEffect(() => {
     const fetchUserData= async()=>{
       const userData = await fetchData('https://jsonplaceholder.typicode.com/users');
@@ -15,10 +15,23 @@ const formComponent = ({setName}) => {
     
 }, [])
 
+
+const filterData =()=>{
+  const Data= user.filter((data)=>{
+    return data.username===id
+  }).map((data)=>{return [data.address.geo]})
+ 
+  setFilter(Data)
+ }
+
+
 const handleChange=(e)=>
 {
-  setName(e.target.value)
+  setId(e.target.value)
+  filterData();
 }
+
+
 
 
   return (
