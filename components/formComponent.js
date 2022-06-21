@@ -20,9 +20,13 @@ const filterData =()=>{
   const Data= user.filter((data)=>{
     return data.username===id
   }).map((data)=>{return data.address.geo})
- 
-  console.log((Data[0]))
-  setFilter(Data[0])
+   
+   const latitude = Data.map((data)=>{return data.lat})
+   const longitude = Data.map((data)=>{ return data.lng})
+   latitude[0] = parseFloat(latitude[0]);
+   longitude[0] = parseFloat(longitude[0]);
+   console.log(latitude[0],longitude[0])
+  setFilter({lat:latitude[0],lng:longitude[0]})
  }
 
 

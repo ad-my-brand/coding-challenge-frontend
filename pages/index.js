@@ -7,7 +7,7 @@ export default function Home() {
     
   const [id,setId] =useState([])
   const [user, setUser] = useState([])
-  const [coordinates, setCoordinates] = useState({lat:20.5937,lng:78.9629})
+  const [coordinates, setCoordinates] = useState({lat:"20.5937",lng:"78.9629"})
   const [filter, setFilter] = useState({lat:20.5937,lng:78.9629})
 
   return (
