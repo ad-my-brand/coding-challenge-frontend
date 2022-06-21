@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { doGetAllUsers, doAddUser } from '../common/services/ApiServices';
 import { getValidatedData } from '../common/Validation';
-import { Form, Label, FormGroup, Input, Button, Card, CardTitle } from 'reactstrap';
+import { Form, Label, FormGroup, Input, Button, Card, CardTitle, Row } from 'reactstrap';
 import { ErrorModal, FormModal } from '../common/classes/classes'
+import MAP from './maps.jsx'
 
 // import Select from "react-select";
 const Select = React.lazy(() => import("react-select"));
@@ -97,7 +98,8 @@ const FormControl = () => {
 
   return (
     <Fragment>
-        <div className='col-sm-5 mx-auto my-4'>
+        <Row className='d-flex'>
+        <div className='col-sm-5 my-4 mx-4'>
             <Card body style={{backgroundColor:'thistle'}}>
                 <CardTitle tag="h4" className='text-center'>
                     <strong>Frontend Challenge Task</strong>
@@ -187,6 +189,10 @@ const FormControl = () => {
                 </Form>
             </Card>
         </div>
+        <div className='col-sm-5 my-4'>
+        <MAP/>
+        </div>
+        </Row>
     </Fragment>
   )
 }
