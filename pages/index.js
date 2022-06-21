@@ -6,10 +6,11 @@ import MapComponent from '../components/mapComponent'
 export default function Home() {
     
   const [name,setName] =useState([])
+  const [coodinates, setCoodinates] = useState({lat:0,lng:0})
   return (
     <div className={styles.container}>
       <FormComponent setName={setName}  />
-      <MapComponent name={name}/>
+      <MapComponent name={name} coorinates={coodinates}/>
     </div>
   )
 }
