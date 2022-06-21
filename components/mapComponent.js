@@ -1,21 +1,29 @@
 import React from 'react'
-import GoogleMapReact from 'google-map-react';
-
+import {GoogleMap,useLoadScript,Maker,InfoWindow} from '@react-google-maps/api';
+import usePlacesAutocomplete ,{getGeocode,getLatLng} from 'use-places-autocomplete'
 
 const mapComponent = ({name,coorinates}) => {
+
+const libraries=["places"]
+const mapContainerStyle ={width:'100vw', height:'100vh'}
+const center=
+  {
+    lat:0,
+    lng:0
+}
+
+  const {isLoaded,loadError}= useLoadScript({
+    googleMapsApiKey:'AIzaSyBya0fMRC8WFiJaE2wZjK_2xFdaU15zZgk',
+    libraries
+  })
+
+  if(loadError) return "Error Loading Map"
+  if(!isLoaded) return "Loading Maps"
 
     console.log(name);
   return (
     <div>
-      <GoogleMapReact bootstrapURLKeys ={{key:'AIzaSyBNWhk13OpDc6HicOmilxsLVKGREi0bgio'}}
-        defaultCenter={coorinates}
-        center={coorinates}
-        defaultZoom={14}
-        margin={[50,50,50,50]}
-        option=''
-        onChange={()=>{}}
-        onChildClick={()=>{}}
-      ></GoogleMapReact>
+      <GoogleMap mapContainerStyle={mapContainerStyle} zoom={8} center={center}></GoogleMap>
     </div>
   )
 }
