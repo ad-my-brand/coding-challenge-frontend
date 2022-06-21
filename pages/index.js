@@ -9,6 +9,7 @@ export default function Home() {
   const [user, setUser] = useState([])
   const [coordinates, setCoordinates] = useState({lat:20.5937,lng:78.9629})
   const [filter, setFilter] = useState({lat:20.5937,lng:78.9629})
+
   return (
     <div className={styles.container}>
       <FormComponent id={id} setId={setId} setUser={setUser} user={user} setFilter={setFilter} />
