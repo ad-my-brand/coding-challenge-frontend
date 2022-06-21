@@ -1,6 +1,6 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { fetchData } from '../utils/fetchData'
-import { Autocomplete } from '@react-google-maps/api'
+import Axios from 'axios'
 
 const formComponent = ({id,setId,setUser,user,setFilter}) => {
   
@@ -36,15 +36,37 @@ const handleChange=(e)=>
   filterData();
 }
 
+const url='https://jsonplaceholder.typicode.com/posts'
+
+const [Title, setTitle] = useState([])
+const [Body, setBody] = useState([])
 
 
+const handleTitle =(e)=>{
+  const data=e.target.value
+  setTitle(data);
+}
+const handleBody =(e)=>{
+  const data=e.target.value
+  setBody(data);
+}
+const handleSubmit= async (e)=>{
+   e.preventDefault();
+   const userdata={title:Title,body:Body,userId:1}
+   await Axios.post(url,JSON.stringify(userdata)).then(result=>console.log(result))
+}
 
   return (
-    <form >
-    <select onChangeCapture={(e)=>{
+    <form onSubmit={handleSubmit}>
+    <select onChange={(e)=>{
     handleChange(e)
-    }} >{user.map((data)=>(<option key ={data.id} value={data.username}>{data.username}</option>))}</select>
-    <button> submit</button>
+    }} ><option>Please select</option>
+      {user.map((data)=>(<option key ={data.id} value={data.username}>{data.username}</option>))}</select>
+      <input type='text' placeholder='tilte' id="title" onChange={(e)=>handleTitle(e)} />
+      <input type='text' placeholder ='body' id='body' onChange={(e)=>handleBody(e)} />
+      <button type='submit' >submit</button>
+
+
     </form>
   )
 }

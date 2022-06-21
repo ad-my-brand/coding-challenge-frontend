@@ -15,7 +15,7 @@ const mapContainerStyle ={width:'100vw', height:'100vh'}
   if(!isLoaded) return "Loading Maps"
   return (
     <div>
-      <GoogleMap mapContainerStyle={mapContainerStyle} zoom={4} center={filter}></GoogleMap>
+      <GoogleMap mapContainerStyle={mapContainerStyle} zoom={8} center={filter}></GoogleMap>
     </div>
   )
 }
