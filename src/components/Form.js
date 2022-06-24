@@ -118,7 +118,7 @@ const Form = () => {
           </select>
           {!country && (
             <p className="mt-2 text-sm text-red-600 dark:text-red-500">
-              Country name is required!
+              Country name is required
             </p>
           )}
         </div>
