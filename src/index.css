@@ -1,0 +1,155 @@
+body {
+  background-color: rgba(59, 3, 96, 0.963);
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(35, 202, 9);
+  font-weight: 800;
+  text-shadow: 1px 3px grey;
+
+}
+
+.App {
+  margin-top: 42px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  list-style: upper-greek inside;
+}
+
+.Users__Container {
+  height: 400px;
+  width: 600px;
+  background-color: darkgoldenrod;
+  padding: 12px;
+  margin: auto;
+  margin-bottom: 18px;
+  box-shadow: 5px 5px 6px 4px #000;
+}
+
+.Users__Container>ul {
+  margin-left: 13rem;
+  font-size: 26px;
+  color: white;
+}
+
+.Form__Container {
+  height: 400px;
+  padding: 12px;
+  background-color: darkgoldenrod;
+  margin: auto;
+  /* margin-top: 64px; */
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 2px;
+  box-shadow: 5px 5px 6px 4px #000;
+}
+
+.form__Container {
+  text-transform: capitalize;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+
+.form__Container>label {
+  margin-right: 23px;
+  margin-bottom: 22px;
+  text-indent: 22px;
+  font-size: 23px;
+}
+
+input {
+  height: 40px;
+  width: 300px;
+  margin-left: 23px;
+  outline: none;
+  text-indent: 12px;
+  border: none;
+  border-radius:10px ;
+}
+
+button {
+  height: 44px;
+  width: 100px;
+  text-align: center;
+  margin-top: 33px;
+  margin-left: 9rem;
+  border: none;
+  border-radius: 12px;
+  background-color: purple;
+  color: white;
+  font-size: 19px;
+  padding: 3px;
+}
+
+button:hover{
+  background-color: white;
+  color: purple;
+}
+
+@media screen and (max-width:756px) {
+  .Form__Container {
+    height: 400px;
+    margin: auto;
+    width: 898px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 2px;
+    box-shadow: 5px 5px 6px 4px #000;
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: rgb(35, 202, 9);
+    font-weight: 800;
+    text-shadow: 1px 3px grey;
+
+  }
+
+  .Users__Container {
+    height: 500px;
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    width: 900px;
+    background-color: darkgoldenrod;
+    padding: 12px;
+  }
+
+  .Users__Container>ul {
+    margin-left: 1rem;
+    font-size: 24px;
+    color: white;
+  }
+  button {
+    margin-top: 33px;
+    margin-left: 5rem;
+    border: none;
+    border-radius: 12px;
+    background-color: purple;
+    color: white;
+    font-size: 19px;
+    padding: 3px;
+  }
+  input {
+    height: 40px;
+    width: 300px;
+    margin-left: 23px;
+    outline: none;
+    text-indent: 12px;
+    border: none;
+    border-radius: 10px;
+  }
+}
