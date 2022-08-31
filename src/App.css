@@ -1,0 +1,27 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#item {
+    display: grid;
+    margin: 20px;
+}
+
+#item span {
+    margin: 4px 0px 4px 0px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map {
+    height: 300px;
+    width: 500px;
+    margin: 20px;
+}
