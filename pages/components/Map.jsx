@@ -30,7 +30,7 @@ const Map = ({ center }) => {
         if (1) {
             addMarker(map, center);
         }
-    }, [center]);
+    }, [center, timeOfTheDay]);
     return <div id="map"></div>;
 };
 

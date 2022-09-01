@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
-import { FormControl } from './components/FormControl';
+import FormControl from './components/FormControl';
 
-export default function Home({ users }) {
+export default function Home() {
 
   const TitleErrorMessage = 'Special Characters not allowed';
   const DescriptionErrorMessage = 'Please enter atleast 6 characters';
@@ -15,7 +15,6 @@ export default function Home({ users }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <FormControl
-        users={users}
         TitleErrorMessage={TitleErrorMessage}
         DescriptionErrorMessage={DescriptionErrorMessage}
       />

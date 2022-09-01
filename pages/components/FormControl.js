@@ -6,8 +6,18 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Map from "./Map";
 
-export function FormControl(props) {
-    const { users, TitleErrorMessage, DescriptionErrorMessage } = props;
+export default function FormControl({ TitleErrorMessage, DescriptionErrorMessage }) {
+
+    const [users, setUsers] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('https://jsonplaceholder.typicode.com/users');
+            const data = await response.json();
+            setUsers(data);
+        }
+        fetchData();
+    }, []);
 
     const [titleIsValid, setTitleIsValid] = useState(true);
     const [descriptionIsValid, setDescriptionIsValid] = useState(true);
@@ -95,21 +105,21 @@ export function FormControl(props) {
             const userCordinates = users[parseInt(currentUser) - 1].address.geo;
             setCords([userCordinates.lng, userCordinates.lat]);
         }
-    }, [currentUser]);
+    }, [currentUser, users]);
 
     return (
         <>
             <div className="h-screen flex items-center justify-center">
                 <div className="w-full max-w-4xl h-full grid grid-cols-1 place-content-center auto-rows-max gap-3 sm:grid-cols-2 p-4">
-                    <div className="h-52 rounded relative border border-[#FFB1A4] sm:h-full">
+                    <div className="h-52 rounded relative border-y border-black sm:h-full">
                         <Map center={cords} />
                     </div>
                     <form className="col-span-1 h-full flex flex-col gap-3" onSubmit={submitHandler}>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="users" className="text-base text-[#232323] font-medium uppercase">Select a User</label>
-                            <select name="users" id="users" className="focus:outline-0 bg-white py-1.5 px-2.5 h-9 border border-[#FFB1A4] rounded" required defaultValue={""} onChange={(e) => setCurrentUser(e.target.value)}>
+                            <select name="users" id="users" className="focus:outline-0 bg-white py-1.5 px-2.5 h-9 border  rounded" required defaultValue={""} onChange={(e) => setCurrentUser(e.target.value)}>
                                 <option value="" disabled>Select a User</option>
-                                {users.map(user => {
+                                {users && users.map(user => {
                                     return (
                                         <option key={user.id} value={user.id}>{user.name}</option>
                                     )
@@ -118,12 +128,12 @@ export function FormControl(props) {
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="title" className="text-base text-[#232323] font-medium uppercase">Enter Title</label>
-                            <input type="text" name="title" id="title" placeholder="Enter a Valid Title..." required className="focus:outline-0 py-1.5 px-2.5 h-9 bg-white border border-[#FFB1A4] rounded" onChange={titleValidator} />
+                            <input type="text" name="title" id="title" placeholder="Enter a Valid Title..." required className="focus:outline-0 py-1.5 px-2.5 h-9 bg-white border  rounded" onChange={titleValidator} />
                             {!titleIsValid && <small className="text-red-600">{TitleErrorMessage}</small>}
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="body" className="text-base text-[#232323] font-medium uppercase">Enter Description</label>
-                            <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter a Valid Desctription Here..." required className="focus:outline-0 resize-none h-32 py-1.5 px-2.5 h-9 border border-[#FFB1A4] rounded sm:h-40"
+                            <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter a Valid Desctription Here..." required className="focus:outline-0 resize-none h-32 py-1.5 px-2.5 h-9 border  rounded sm:h-40"
                                 onChange={descriptionValidator}></textarea>
                             {!descriptionIsValid && <small className="text-red-600">{DescriptionErrorMessage}</small>}
                         </div>
