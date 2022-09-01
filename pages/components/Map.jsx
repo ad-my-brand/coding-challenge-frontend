@@ -1,5 +1,6 @@
-import mapboxgl from "mapbox-gl";
 import { useEffect, useState } from "react";
+
+import mapboxgl from "mapbox-gl";
 
 const Map = ({ center }) => {
     const [timeOfTheDay, setTimeOfTheDay] = useState("day");

@@ -1,9 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import Map from "./Map";
 
 export function FormControl(props) {
-    const { users } = props;
+    const { users, TitleErrorMessage, DescriptionErrorMessage } = props;
+
     const [titleIsValid, setTitleIsValid] = useState(true);
     const [descriptionIsValid, setDescriptionIsValid] = useState(true);
     const [currentUser, setCurrentUser] = useState();
@@ -44,8 +49,6 @@ export function FormControl(props) {
         e.preventDefault();
         const formBody = e.target;
         if (!(formBody.title.value && formBody.body.value && formBody.users.value)) {
-            // toast return
-            alert('error');
             return;
         }
         fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -59,9 +62,32 @@ export function FormControl(props) {
                 body: formBody.body.value,
                 userId: formBody.users.value
             })
-        });
-        // toast for successfull post
-        alert('submitted');
+        }).then(response => {
+            if (response.ok) {
+                toast.success('🦄 Submitted Successfully', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                });
+            } else {
+                throw new Error('Something went wrong');
+            }
+        }).catch(err => {
+            toast.error('🦄 Error Occured!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+            });
+        })
+
     }
 
     useEffect(() => {
@@ -73,9 +99,9 @@ export function FormControl(props) {
 
     return (
         <>
-            <div className="h-screen flex items-center justify-center p-3 bg-[#FDFDFD]">
-                <div className="w-full max-w-4xl h-full grid grid-cols-1 place-content-center auto-rows-max gap-3 bg-[#FDFDFD] sm:grid-cols-2">
-                    <div className="w-full h-52 rounded col-span-1 relative flex items-center border border-[#FFB1A4] sm:h-full">
+            <div className="h-screen flex items-center justify-center">
+                <div className="w-full max-w-4xl h-full grid grid-cols-1 place-content-center auto-rows-max gap-3 sm:grid-cols-2 p-4">
+                    <div className="h-52 rounded relative border border-[#FFB1A4] sm:h-full">
                         <Map center={cords} />
                     </div>
                     <form className="col-span-1 h-full flex flex-col gap-3" onSubmit={submitHandler}>
@@ -93,17 +119,28 @@ export function FormControl(props) {
                         <div className="flex flex-col gap-1">
                             <label htmlFor="title" className="text-base text-[#232323] font-medium uppercase">Enter Title</label>
                             <input type="text" name="title" id="title" placeholder="Enter a Valid Title..." required className="focus:outline-0 py-1.5 px-2.5 h-9 bg-white border border-[#FFB1A4] rounded" onChange={titleValidator} />
-                            {!titleIsValid && <small className="text-red-600">Please Enter a valid title</small>}
+                            {!titleIsValid && <small className="text-red-600">{TitleErrorMessage}</small>}
                         </div>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="body" className="text-base text-[#232323] font-medium uppercase">Enter Description</label>
                             <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter a Valid Desctription Here..." required className="focus:outline-0 resize-none h-32 py-1.5 px-2.5 h-9 border border-[#FFB1A4] rounded sm:h-40"
                                 onChange={descriptionValidator}></textarea>
-                            {!descriptionIsValid && <small className="text-red-600">Please enter atleast 6 characters</small>}
+                            {!descriptionIsValid && <small className="text-red-600">{DescriptionErrorMessage}</small>}
                         </div>
                         <button type="submit" className='bg-[#FF725E] rounded uppercase text-white text-xl font-semibold tracking-wide py-1.5 px-3'
                             disabled={!(titleIsValid && descriptionIsValid)}
                         >Submit</button>
+                        <ToastContainer
+                            position="top-center"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover={false}
+                        />
                     </form>
                 </div>
             </div>

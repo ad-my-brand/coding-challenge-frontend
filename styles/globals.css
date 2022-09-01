@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: linear-gradient(135deg, white, #5ac8fa);
 }
 
 a {
@@ -31,6 +32,10 @@ a {
 }
 
 #map {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
+}
+
+button:disabled {
+  background-color: darkgrey;
 }
