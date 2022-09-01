@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+import Map from "./Map";
 
 export function FormControl(props) {
     const { users } = props;
-
     const [titleIsValid, setTitleIsValid] = useState(true);
     const [descriptionIsValid, setDescriptionIsValid] = useState(true);
+    const [currentUser, setCurrentUser] = useState();
+    const [cords, setCords] = useState([81.1496, -37.3159]);
 
     const titleValidator = (e) => {
         const { target } = e;
@@ -61,17 +64,24 @@ export function FormControl(props) {
         alert('submitted');
     }
 
+    useEffect(() => {
+        if (currentUser) {
+            const userCordinates = users[parseInt(currentUser) - 1].address.geo;
+            setCords([userCordinates.lng, userCordinates.lat]);
+        }
+    }, [currentUser]);
+
     return (
         <>
             <div className="h-screen flex items-center justify-center p-3 bg-[#FDFDFD]">
                 <div className="w-full max-w-4xl h-full grid grid-cols-1 place-content-center auto-rows-max gap-3 bg-[#FDFDFD] sm:grid-cols-2">
                     <div className="w-full h-52 rounded col-span-1 relative flex items-center border border-[#FFB1A4] sm:h-full">
-                        {/* insert map here */}
+                        <Map center={cords} />
                     </div>
                     <form className="col-span-1 h-full flex flex-col gap-3" onSubmit={submitHandler}>
                         <div className="flex flex-col gap-1">
                             <label htmlFor="users" className="text-base text-[#232323] font-medium uppercase">Select a User</label>
-                            <select name="users" id="users" className="focus:outline-0 bg-white py-1.5 px-2.5 h-9 border border-[#FFB1A4] rounded" required defaultValue={""}>
+                            <select name="users" id="users" className="focus:outline-0 bg-white py-1.5 px-2.5 h-9 border border-[#FFB1A4] rounded" required defaultValue={""} onChange={(e) => setCurrentUser(e.target.value)}>
                                 <option value="" disabled>Select a User</option>
                                 {users.map(user => {
                                     return (
