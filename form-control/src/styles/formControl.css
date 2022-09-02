@@ -1,0 +1,50 @@
+.formDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.formTitle{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.users{
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.radioBtn{
+    margin-right: 5px;
+}
+
+.submitBtn{
+    color: black;
+    margin: 10px 0 10px 20px;
+    font-size: 1rem;
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-weight: bold;
+    border: solid 2px white;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.submitBtn:hover{
+    background-color: #2B2B2B;
+    color: white;
+}
+
+.msg{
+    width: 300px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: black;
+    position: absolute;
+    left: calc(30vw - 150px);
+    top: calc(45vh - 75px);
+}
