@@ -1,0 +1,11 @@
+.form-input {
+  @apply input input-bordered w-full;
+}
+
+.form-select {
+  @apply select select-bordered w-full;
+}
+
+.form-textarea {
+  @apply textarea textarea-bordered h-24  w-full;
+}
