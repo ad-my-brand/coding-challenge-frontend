@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    border: 0;
+    font-family: 'Poppins',sans-serif;
+    color: white;
+}
+
+.mapDiv{
+    width: 60vw;
+    height: 60vh;
+}
+
+.appDiv{
+    background-color: rgb(65, 63, 63);
+    width: 100vw;
+    height: 100vh;
+}
+
+.contentDiv{
+    background-color: #2B2B2B;
+    width: 60vw;
+    height: 90vh;
+    position: relative;
+    left: 20vw;
+    top: 5vh;
+    border-radius: 5px;
+    overflow-y: hidden;
+}
+
