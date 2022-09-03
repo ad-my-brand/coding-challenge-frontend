@@ -1,13 +1,30 @@
-import { useState } from "react";
-import FormControl from "./components/FormControl";
+import { SnackbarProvider } from "notistack";
+import { useEffect, useState } from "react";
+import "./App.css";
+import { User } from "./App.types";
+import Form from "./components/Form";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const { signal } = abortController;
+    fetch("https://jsonplaceholder.typicode.com/users", { signal: signal })
+      .then((response) => response.json())
+      .then((users) => setUsers(users));
+
+    return () => {
+      abortController.abort();
+    };
+  }, []);
 
   return (
-    <div className="App">
-      <FormControl></FormControl>
-    </div>
+    <SnackbarProvider>
+      <div className="w-screen h-screen flex items-center justify-center">
+        <Form users={users} />
+      </div>
+    </SnackbarProvider>
   );
 }
 
