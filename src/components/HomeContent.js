@@ -146,9 +146,7 @@ function HomeContent({ users }) {
                 </div>
                 {
                     selectedUserId !== "" && (
-                        <div data-testid="map__wrapper">
-                            <MapContainer cordinates={users?.[selectedUserId - 1]?.address?.geo} />
-                        </div>
+                        <MapContainer cordinates={users?.[selectedUserId - 1]?.address?.geo} />
                     )
                 }
             </div>
