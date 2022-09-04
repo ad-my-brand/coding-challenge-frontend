@@ -1,0 +1,46 @@
+.center{
+    text-align: center;
+    background-color: rgb(195, 219, 227);
+}
+.input{
+   background-color:rgb(207, 235, 232);
+    width: 700px;
+    border-radius: 15px;
+}
+
+.padded{
+    padding-top: 50px;
+}
+.padded10{
+    padding-top: 10px;
+}
+.bd{
+    border-radius: 15px;
+}
+
+.font{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+    
+}
+.shadow{
+    box-shadow: -5px -5px 10px lightblue,
+    5px 5px 10px darkblue;
+}
+.button {
+    background: #5c6cc6;
+  }
+  
+  .button:hover{
+    background: rgb(26, 145, 243);
+  }
+
+.pb10{
+padding-bottom: 100px;
+}  
+.ar{
+    text-align: right;
+    padding: 10px;
+}
+
+
