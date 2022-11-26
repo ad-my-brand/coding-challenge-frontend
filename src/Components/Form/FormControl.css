@@ -1,0 +1,135 @@
+.formComponent{
+    background-color: white;
+    width: 40%;
+    height: 600px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 0 1px 15px rgb(1, 27, 43) ;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.formComponent small{
+    position: absolute;
+    right: 40px;
+    color: red;
+}
+.err1{
+    top: 85px;
+}
+.err2{
+    top : 174px;
+}
+.err3{
+    top: 263px;
+}
+.formHead{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.selectUser{
+    width: 100%;
+    display: flex;
+}
+.selectUser select{
+    width: 90%;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding: 10px 10px;
+    font-size: 22px;
+    border: 3px solid rgb(0, 124, 202);
+    outline-color: rgb(0, 124, 202);
+    text-align: center;
+    
+}
+
+.titleDiv{
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.titleDiv input{
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 8px;
+    padding: 10px 10px;
+    font-size: 22px;
+    border: 3px solid rgb(0, 124, 202);
+    outline-color:rgb(0, 124, 202);
+}
+.titleDiv span{
+    position: absolute;
+    left: 50px;
+    top: 43px;
+    font-size: 22px;
+    transition: 0.5s;
+    
+}
+.titleDiv input:valid ~ span, .titleDiv input:focus ~ span{
+    color: navy;
+    background-color: white;
+    font-size: 16px;
+    border-left: 3px solid rgb(0, 124, 202);
+    border-right: 3px solid rgb(0, 124, 202);
+    padding: 0 15px;
+    /* border-radius: 4px; */
+    transform: translateX(-5px) translateY(-25px);
+
+}
+
+.bodyDiv{
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+.bodyDiv textarea{
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 8px;
+    padding: 10px 10px;
+    font-size: 22px;
+    border: 3px solid rgb(0, 124, 202);
+    outline-color:rgb(0, 124, 202);
+    resize: none;
+}
+
+.bodyDiv span{
+    position: absolute;
+    left: 48px;
+    top: 43px;
+    font-size: 22px;
+    transition: 0.5s;
+    
+}
+
+.bodyDiv textarea:valid ~ span, .bodyDiv textarea:focus ~ span{
+    color: navy;
+    background-color: white;
+    font-size: 16px;
+    border-left: 3px solid rgb(0, 124, 202);
+    border-right: 3px solid rgb(0, 124, 202);
+    padding: 0 15px;
+    /* border-radius: 4px; */
+    transform: translateX(-5px) translateY(-25px);
+    
+}
+.formSubmit{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 17px 10px;
+    font-size: 22px;
+    border: none;
+    color: white;
+    background-color: rgb(0, 0, 128);
+}
