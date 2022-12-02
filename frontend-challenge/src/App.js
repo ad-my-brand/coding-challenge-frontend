@@ -4,7 +4,7 @@ import FormControl from './FormControl/FormControl';
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
         <FormControl></FormControl>
     </div>
   );
