@@ -1,4 +1,25 @@
-# coding-challenge-frontend
+# Getting Started with Create React App
 
-- Create a branch of main
-- Commit and push your branch with your name to this repository
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+
+### `install CSS framewrok material UI-5`
+npm install @mui/material @emotion/react @emotion/styled --legacy-peer-deps
+
+### `install styled component material UI-5`
+npm install @mui/material @mui/styled-engine-sc styled-components --legacy-peer-deps
+
+### `install material icons`
+npm install @mui/icons-material --legacy-peer-deps
