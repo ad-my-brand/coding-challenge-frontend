@@ -1,3 +1,29 @@
+# Personnel Location
+
+Live Site [Link](https://coding-callenge.web.app/).
+
+## Description
+
+* Form Control Create With Label and Input
+* Form Validation Added with React-Hook
+* Used React Hook Form to import data from API
+* Used normal fetch to import a particular data
+* Data is Posted By clicking Submit button.
+* By clicking see in map button it will redirect to map page where the location would be displayed in a map
+
+## Tools and Technologies
+
+* React JS
+* Tailwind CSS
+* CSS
+* Html
+* Daisy UI
+* react-hook-form
+* tanStack/react-query
+* react-hot-toast
+* react-leaflet
+* leaflet
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
