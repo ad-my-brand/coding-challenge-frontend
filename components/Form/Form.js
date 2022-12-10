@@ -12,7 +12,7 @@ const INPUTCLASS =
   'border-b border-gray-300 focus:outline-none focus:border-blue-900 focus:border-b-2 p-2 w-full';
 
 const FORMCLASS =
-  'w-full h-auto bg-white  border-gray-400 p-8 py-6 flex flex-col items-center gap-y-8 font-sans shadow-md';
+  ' w-full h-auto bg-white  border-gray-400 p-8 py-6 flex flex-col items-center gap-y-8 font-sans shadow-md';
 
 const H2CLASS =
   'text-4xl font-sans text-blue-900 w-full text-center pb-2 border-gray-400';
@@ -109,7 +109,7 @@ const Form = () => {
     }
   };
   return (
-    <div className='related flex items-center justify-center'>
+    <div className='related flex items-center  justify-center w-full  md:w-1/3'>
       {loading ? (
         <div>
           <HashLoader
@@ -135,7 +135,7 @@ const Form = () => {
               validationFn={validationFn}
               errorMsg={userSelectErrorMsg}
             />
-            <div className='w-full  overflow-hidden location-input'>
+            <div className='w-full  overflow-hidden h-auto location-input'>
               <label htmlFor='location'>Location</label>
               {userSelected ? (
                 <Location
