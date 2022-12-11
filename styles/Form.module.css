@@ -1,0 +1,17 @@
+.successMessage {
+  box-sizing: border-box;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #39987b;
+  color: rgb(0, 0, 0);
+}
+
+.errorMessage {
+  box-sizing: border-box;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #b72828;
+  color: rgb(0, 0, 0);
+}
