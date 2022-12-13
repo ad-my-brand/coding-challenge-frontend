@@ -1,3 +1,3 @@
 # coding-challenge-frontend
 
-- Made by Mudit Virmani
+- Compiled By Smit Doshi

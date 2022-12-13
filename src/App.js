@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 import FormControl from "./components/FormControl";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -49,8 +49,7 @@ function App() {
             return;
         }
         setSelectedUser(e.target.value);
-        // console.log("user", users[e.target.value - 1]);
-        // console.log("lat", users[e.target.value].address.geo.lat);
+      
         setLocation({
             lat: parseInt(users[e.target.value].address.geo.lat),
             lng: parseInt(users[e.target.value].address.geo.lng),
@@ -94,13 +93,14 @@ function App() {
                             </option>
                         ))}
                     </select>
-                    <div className="" style={{ width: "fit-content" }}>
+                    <div className="" style={{ width: "fit-content", marginTop:"20px" }}>
                         <iframe
                             src={mapURL}
                             width="500"
                             height="400"
                             allowfullscreen=""
                             loading="lazy"
+                            title="map"
                         ></iframe>
                     </div>
                 </div>
