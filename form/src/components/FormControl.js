@@ -170,10 +170,11 @@ function FormControl(props) {
                                 placeholder="Enter Body"
                             />
                         </div>
-                        {error?.body !== "" && <div className='flex flex-row items-center'>
-                            <FiAlertCircle color='white' />
-                            <p className="text-white ml-2">{error.title}</p>
-                        </div>}
+                        {error?.body !== "" &&
+                            <div className='flex flex-row items-center'>
+                                <FiAlertCircle color='white' />
+                                <p className="text-white ml-2">{error.title}</p>
+                            </div>}
                     </div>
                     <button
                         className="m-6 flex flex-row items-center w-36 justify-center bg-green-700 rounded-3xl hover:bg-green-800 py-2 tracking-wide text-white "
