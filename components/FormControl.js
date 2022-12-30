@@ -1,6 +1,4 @@
-import React from "react";
-import { FormControl as InputControl, FormErrorMessage, FormLabel, Input } from "@chakra-ui/react";
-import { useState } from "react";
+import { FormControl as InputControl, FormLabel, Input } from "@chakra-ui/react";
 
 export const FromControl = ({ label, onChange, value, type = "text", id, handleValidation, validate, ...props }) => {
 
@@ -20,10 +18,10 @@ export const FromControl = ({ label, onChange, value, type = "text", id, handleV
           value={value}
           onChange={(event) => onChange(event.target.value)}
           {...props}
+          data-testid="input"
         />
         {!isError &&
           handleValidation()}
-
       </InputControl>
     </>
   )

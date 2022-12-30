@@ -1,29 +1,29 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/form-next/node_modules
-/.pnp
+/node_modules
+.pnp
 .pnp.js
 
 # testing
-/form-next/coverage
+coverage
 
 # next.js
-/form-next/.next/
-/form-next/out/
+.next/
+/out/
 
 # production
-/form-next/build
+build
 
 # misc
-/form-next/.DS_Store
+.DS_Store
 *.pem
 
 # debug
-/form-next/npm-debug.log*
-/form-next/yarn-debug.log*
-/form-next/yarn-error.log*
-/form-next/.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
 # local env files
 .env*.local
