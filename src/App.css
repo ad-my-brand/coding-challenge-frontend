@@ -1,0 +1,135 @@
+body{
+  background-image: url(wp8926127-aot-4k-wallpapers.jpg);
+}
+.App {
+  text-align: center;
+  margin: 0 auto;
+  
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form{
+  border: 1px solid #bc9595;
+  border-radius: 1.1rem;
+  display: flex;
+  padding: 1.8rem 3rem;
+  flex-direction: column;
+  background: #e2e3f6;
+  box-shadow: 0px 0px 10px 2px #f0dcff;
+  
+}
+.form h3 ,.form label,.form select,.form input, .form textarea,.form button{
+  margin: 0.6rem 0;
+  border-radius: 1.5rem;
+  padding: 0.8rem;
+  
+  }
+.btn{
+  padding: 1rem 0;
+}
+textarea{
+  height: 30vh;
+}
+textarea::-webkit-scrollbar{
+  
+  width: 20px;
+  
+  
+  color: #282c34;
+  scroll-behavior: smooth;
+  scrollbar-color: black;
+  scrollbar-face-color: #61dafb;
+}
+.btn:hover{
+background-color: #0d6efd;
+}
+#select-user-warning{
+  justify-self:end !important; 
+  font-size: large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.internet-error {
+  background: #FFBA75;
+margin-top: 0;
+font-size: 20px;
+display: flex;
+justify-content: center;  
+}
+
+.internet-error p {
+color: #151254;
+margin: 0;
+margin: 10px;
+font-weight: 600;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+svg:hover{
+  transform: scale(1.2) ;
+}
+.fine-tune{
+border: 0px;
+padding: 0;
+color: #103053;
+background-color: transparent;
+}
+.maps{
+  margin: 0;
+  padding: 0;  box-sizing: border-box;
+}
+.maps:first-child{
+  display: none;
+  background-color: #103053;
+  margin: 10rem;
+
+}
+.successAlert{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.7rem;
+  transition: 3s cubic-bezier(0, 1.95, 1, 1);
+  animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+.h4
+{
+  font-size: 17px !important;
+}
