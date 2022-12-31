@@ -8,27 +8,25 @@ import "./App.css"
 
 const mapStyles = {
     height:"400px",
-    margin:"5px"
 };
 
 
 const maps=(props)=> {
-    
+    console.log(props.location)
     const location = {
         // address: '1600 Amphitheatre Parkway, Mountain View, california.',
-        lat:Number(props.location[0].lat),
-        lng: Number(props.location[0].lng),
+        lat:Number(props.location.lat),
+        lng: Number(props.location.lng),
     }
     const onLoad = map => {
-        const bound = new window.google.maps.LatLngBounds()
-        bound.extend(location)
+        const bound = new window.google.maps.LatLngBounds(location)
         map.fitBounds(bound)
       }
     return (
         
        
         <GoogleMap mapContainerStyle={mapStyles} center={location} zoom={0} onLoad={onLoad}>
-           <Marker  position={{lat:Number(props.location[0].lat),lng:Number(props.location[0].lng)}}     />
+           <Marker  position={{lat:Number(props.location.lat),lng:Number(props.location.lng)}}     />
         </GoogleMap>
         
        

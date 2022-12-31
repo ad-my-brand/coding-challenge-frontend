@@ -4,13 +4,14 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import NetworkHelp from './NeworkHelp'
 import Maps from './maps';
-import { useLoadScript } from '@react-google-maps/api';
+import { useJsApiLoader } from '@react-google-maps/api';
 import Alert from 'react-bootstrap/Alert';
 
 
 
 function App(props) {
-  const { isLoaded } = useLoadScript({
+  const { isLoaded } = useJsApiLoader({
+    id :'google-map-script',
     googleMapsApiKey: "AIzaSyDRV_QjIzWOBdx619vSdamJQnT-ReTqqz4"
   })
   let op = 0
@@ -108,11 +109,11 @@ function App(props) {
               }))
               }
             </select>
-            <div className="text-danger fs-6 fw-bold d-inline-flex ms-2 my-0 p-0" id="select-user-warning" ></div>
+            <div className="text-danger fs-6 fw-bold d-inline-flex  m-0 p-0" id="select-user-warning" ></div>
 
           </label>
           {
-            (data.userId !== -1) && <Maps location={[props.user[data.userId].address.geo]} />
+            (data.userId !== -1) && isLoaded?<Maps  location={props.user[data.userId].address.geo} />:<></>
           }
 
           <input data-cy="title" type="text" required className='form-control' name='title' value={data.title} onChange={handleChange} placeholder="Title" />
