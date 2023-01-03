@@ -1,0 +1,38 @@
+.Title{
+    text-align: center;
+    font-size: 4rem;
+    color: chartreuse;
+
+}
+.body{
+    font-family: cursive;
+}
+.List{
+    font-size: 1rem;
+    display: flex;
+    margin:2vw 10vw ;
+    color: blueviolet;
+}
+.COntent{
+    margin: 0 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Field{
+    margin: 10px;
+    font-size: 1.2rem;
+}
+.but{
+    background-color:cyan;
+    border: none ;
+    border-radius: 5px ;
+    font-size: 2rem ;
+    padding: 5px ;
+    margin: 10px;
+}
+.but:hover{
+    font-size: 2.1rem;
+    cursor: pointer;
+}
