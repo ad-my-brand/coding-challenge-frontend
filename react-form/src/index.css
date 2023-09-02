@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.notification-block {
+  animation: moveUp 100ms ease-in 1;
+}
+
+@keyframes moveUp {
+  0% {
+    bottom: -1rem;
+  }
+
+  90%,
+  100% {
+    bottom: 1rem;
+  }
+}
