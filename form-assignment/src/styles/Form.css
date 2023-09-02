@@ -1,0 +1,123 @@
+.main-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30rem;
+  width: 70rem;
+}
+
+.form-control {
+  height: 70%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(126, 101, 101);
+  padding: 3rem;
+  gap: 2rem;
+  color: #422800;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 5px 0px rgba(240, 235, 240, 1);
+}
+
+.form-user-name{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.username {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.dropdown {
+  background-color: rgba(240, 235, 240, 1);
+  color: black;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.form-user-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.form-user-input {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.form-user-input label {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.form-user-input input {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  font-size: 1.3rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form-submit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.submit-btn {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.submit-btn:hover {
+  background-color: #fff;
+}
+
+.submit-btn:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+.error-msg {
+  font-size: 1rem;
+  color: red;
+}
+
+.map-div {
+  z-index: 0;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-color: #000000;
+  height: 90%;
+  width: 45%;
+}
