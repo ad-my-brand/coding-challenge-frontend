@@ -8,7 +8,7 @@ const FormInput = ({value, placeholder, onChange, error, errorMsg}) => {
                 placeholder={placeholder}
                 className='w-full h-9 rounded-md pl-4 border border-[#B0BEC5]'
             />
-            {error && <span className='ml-1 text-xs text-red-600' >{errorMsg}</span>}
+            {error && <span className='ml-1 text-xs text-red-600 block' >{errorMsg}</span>}
         </div>
     )
 }
