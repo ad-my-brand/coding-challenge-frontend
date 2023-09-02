@@ -7,8 +7,7 @@ export const fetchUser = () => async dispatch => {
         const response = await userApi.get('/users')
         dispatch({ type: FETCH_USER, payload: response?.data })
     } catch (err) {
-        const errors = err?.response?.data?.errors
-        console.error(errors);
+        console.error("Something went wrong");
     }
 }
 
@@ -20,7 +19,6 @@ export const postUser = (title, body, userId) => async dispatch => {
     }
 
     const jsonBody = JSON.stringify({ title, body, userId })
-    console.log(jsonBody);
     try {
         await userApi.post('/posts', jsonBody, config)
         dispatch({ type: POST_SUCCESS })
@@ -28,8 +26,9 @@ export const postUser = (title, body, userId) => async dispatch => {
             dispatch({ type: REMOVE_ALERT })
         }, 3500);
     } catch (err) {
-        const errors = err.response.data.errors
         dispatch({ type: POST_FAILED })
-        console.error(errors);
+        setTimeout(() => {
+            dispatch({ type: REMOVE_ALERT })
+        }, 3500);
     }
 }
