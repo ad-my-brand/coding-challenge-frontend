@@ -1,0 +1,81 @@
+.labels{
+    display: flex;
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh; 
+    padding: 0.5rem;
+    background-color: #d7d2da;
+  }
+  .select, input{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1.3px solid black;
+    font-size: large;
+    width: 100%;
+  }
+  input{
+    width: 90%;
+  }
+.part{
+    flex: 1;
+}
+.forms{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 70vh;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+}
+.newdivs{
+  margin: 0.5rem 0;
+}
+.button{
+    background-color: #2f153a;
+    margin-top: 1.5rem;
+  padding: 0.5rem;
+  color: #fff;
+  cursor: pointer;  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.button:hover{
+    color: #c4c1c7;
+    transition: ease-in;
+}
+.but{
+  width: 30%;
+}
+.para{
+  margin: 0px;
+  color: red;
+
+}
+@media screen and (max-width: 480px) {
+  .forms{
+    flex-direction: column;
+    padding: 0px;
+  }
+  .App{
+    padding: 0px;
+  }
+}
