@@ -163,7 +163,7 @@ h1{
 @media screen and (max-width: 480px) {
   .forms{
     flex-direction: column;
-    max-width: 350px;
+    max-width: 400px;
     padding: 0px;
   }
   .form{
@@ -173,22 +173,48 @@ h1{
   .part{
     max-height: 65vh;
   }
+  .partform{
+    z-index: 1000;
+  }
   .App{
     padding: 0px;
     max-height: 200vh;
   }
-  .newdivs{
-    width: 80%;
+  .newdivs, .newdiv{
+    width: 70%;
     margin: 1rem 0;
-  }
-  .newdiv{
-    margin: 1rem 0;
-
   }
   input{
     width: 95%;
   }
   .but{
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .forms{
+    max-width: 380px;
+  }
+  .maps{
+    margin-top: 4rem;
+  }
+  .but{
+    margin-bottom: 2rem;
+  }
+  .App{
+    max-height: 250vh;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .forms{
+    max-width: 350px;
+  }
+  .but{
+    margin-bottom: 2rem;
+  }
+  .App{
+    max-height: 250vh;
   }
 }

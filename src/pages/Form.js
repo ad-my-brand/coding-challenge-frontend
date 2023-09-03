@@ -103,7 +103,7 @@ const Form = () => {
 
   return (
     <div className="forms">
-      <div className="part">
+      <div className="part partform">
         <h1>Register!</h1>
         <form className="form" onSubmit={handleSubmit}>
           <div className="newdivs">
