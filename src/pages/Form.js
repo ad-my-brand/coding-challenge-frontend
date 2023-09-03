@@ -119,7 +119,7 @@ const Form = () => {
                 </option>
               ))}
             </select>
-            {error && <p className="para">Enter a User!</p>}
+            {error && <p className="para">Select a User!</p>}
           </div >
           <FormControl
             label="Title:"
