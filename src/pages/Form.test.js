@@ -8,9 +8,15 @@ describe('Form', () => {
 
     fireEvent.click(screen.getByText('Submit'));
     
-    const errorMessage = await screen.findByText('Please select a user.');
+    const errorMessage = await screen.findByText('Fill all the fields!');
     expect(errorMessage).toBeInTheDocument();
+
+    const errorMessage1 = await screen.findByText('Please select a user.');
+    expect(errorMessage1).toBeInTheDocument();
+
+    const errorMessage2 = await screen.findByText('Please enter a title.');
+    expect(errorMessage2).toBeInTheDocument();
+
   });
 
-  // Write additional tests here
 });

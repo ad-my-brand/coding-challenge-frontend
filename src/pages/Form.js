@@ -71,9 +71,9 @@ const Form = () => {
       validateRequiredBody(body)
     ) {
       const postData = {
+        userId: parseInt(selectedUserId),
         title: title,
         body: body,
-        userId: parseInt(selectedUserId),
       };
       fetch("https://jsonplaceholder.typicode.com/posts", {
         method: "POST",
@@ -119,7 +119,7 @@ const Form = () => {
                 </option>
               ))}
             </select>
-            {error && <p className="para">Select a User!</p>}
+            {error && <p className="para">Please select a user.</p>}
           </div >
           <FormControl
             label="Title:"
@@ -127,7 +127,7 @@ const Form = () => {
             errorMessage=""
             onChange={handleTitleChange}
             />
-            {errorTitle && <p className="para">Enter a Title!</p>}
+            {errorTitle && <p className="para">Please enter a title.</p>}
 
           <FormControl
             label="Body:"
@@ -135,7 +135,7 @@ const Form = () => {
             errorMessage=""
             onChange={handleBodyChange}
           />
-            {errorBody && <p className="para">Enter a Body!</p>}
+            {errorBody && <p className="para">Please enter a body.</p>}
           <div className="but">
             <button className="button" type="submit">
               Submit
