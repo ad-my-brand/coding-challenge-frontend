@@ -8,7 +8,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const validationSchema = Yup.object().shape({
-  userId: Yup.number().required('Please select a user'),
+  userId: Yup.number().required('Please select a user from the list'),
   title: Yup.string().required('Title is required'),
   body: Yup.string().required('Body is required'),
 });
