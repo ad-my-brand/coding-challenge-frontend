@@ -1,4 +1,4 @@
-// cypress/integration/form.spec.js
+// cypress/e2e/spec.cy.js
 
 describe('Form Submission', () => {
   it('should successfully submit the form', () => {
@@ -8,8 +8,7 @@ describe('Form Submission', () => {
     cy.get('[name="body"]').type('Test Body'); // Fill in the body field
     cy.get('button[type="submit"]').click(); // Click the submit button
 
-    // You can add more assertions here to check for success messages, etc.
+   
   });
 
-  // Add more test cases for edge cases, validation, etc.
 });
