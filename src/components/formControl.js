@@ -13,10 +13,10 @@ const FormControl = ({ label, validation, errorMessage, onChange }) => {
   };
 
   return (
-    <div className="newdivs">
-      <label className='labels'>{label}</label>
-      <input type="text" value={value} onChange={handleChange} />
-      {error && <p className="para">{error}</p>}
+    <div className="newdiv">
+      <input type="text" value={value} onChange={handleChange} className='newinput' />
+      <label className='newlabel'><span className='newspan'>{label}</span></label>
+      {/* {error && <p className="para">{error}</p>} */}
     </div>
   );
 };

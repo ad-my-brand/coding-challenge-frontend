@@ -85,6 +85,9 @@ const Form = () => {
         .then((response) => response.json())
         .then((data) => {
           toast.success("New post created!");
+          setUsers('')
+          setTitle('')
+          setBody('')
           console.log("New post created:", data);
           // Reset form fields here if needed
         })
@@ -101,6 +104,7 @@ const Form = () => {
   return (
     <div className="forms">
       <div className="part">
+        <h1>Register!</h1>
         <form className="form" onSubmit={handleSubmit}>
           <div className="newdivs">
             <label className="labels">User:</label>
@@ -120,7 +124,7 @@ const Form = () => {
           <FormControl
             label="Title:"
             validation={validateRequiredTitle}
-            errorMessage="Please enter a title."
+            errorMessage=""
             onChange={handleTitleChange}
             />
             {errorTitle && <p className="para">Enter a Title!</p>}
@@ -128,7 +132,7 @@ const Form = () => {
           <FormControl
             label="Body:"
             validation={validateRequiredBody}
-            errorMessage="Please enter a body."
+            errorMessage=""
             onChange={handleBodyChange}
           />
             {errorBody && <p className="para">Enter a Body!</p>}
@@ -139,7 +143,7 @@ const Form = () => {
           </div>
         </form>
       </div>
-      <div className="part">
+      <div className="part maps">
         <EmbeddedMap
           latitude={selectedUser?.address?.geo?.lat}
           longitude={selectedUser?.address?.geo?.lng}
