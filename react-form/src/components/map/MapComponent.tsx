@@ -22,7 +22,7 @@ const MapComponent = ({ selectedUser }: MapProps) => {
       setCenter(position);
       setCity(selectedUser.address.city);
 
-      console.log(center);
+      console.log(selectedUser);
 
       if (mapRef && mapRef.current) {
         mapRef.current.setView(position, ZOOM_LEVEL);
@@ -31,23 +31,30 @@ const MapComponent = ({ selectedUser }: MapProps) => {
   }, [selectedUser]);
 
   return (
-    <MapContainer
-      className="relative w-full h-80 mt-4 lg:w-2/3 lg:h-[30rem] rounded-md border border-black z-0"
-      center={center}
-      zoom={ZOOM_LEVEL}
-      ref={mapRef}
-    >
-      <TileLayer
-        url={mapTiler.url}
-        attribution={mapTiler.attribution}
-        className="relative z-0"
-      />
-      {city && (
-        <Marker position={[center.lat, center.lng]}>
-          <Popup>{city}</Popup>
-        </Marker>
+    <section className="w-full lg:w-2/3 flex flex-col">
+      {selectedUser?.name && (
+        <h2 className="text-xl font-medium text-center">
+          {selectedUser.name} lives in {city}.
+        </h2>
       )}
-    </MapContainer>
+      <MapContainer
+        className="relative w-full h-80 mt-4 lg:h-[30rem] rounded-md border border-black z-0"
+        center={center}
+        zoom={ZOOM_LEVEL}
+        ref={mapRef}
+      >
+        <TileLayer
+          url={mapTiler.url}
+          attribution={mapTiler.attribution}
+          className="relative z-0"
+        />
+        {city && (
+          <Marker position={[center.lat, center.lng]}>
+            <Popup>{city}</Popup>
+          </Marker>
+        )}
+      </MapContainer>
+    </section>
   );
 };
 

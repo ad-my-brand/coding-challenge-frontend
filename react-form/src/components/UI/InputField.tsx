@@ -54,6 +54,7 @@ const InputField = ({
         type={type}
         className="py-2 px-4 mb-4 rounded w-full border border-gray-400 bg-white"
         id={`${type}-${label}`}
+        name={label}
         value={value}
         onChange={onChange}
         ref={inputRef}

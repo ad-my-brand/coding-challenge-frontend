@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import client from "../api/client";
+import client from "../../api/client";
 
-import Select from "./UI/Select";
-import PostForm from "./PostForm";
-import type { UserData } from "../types";
+import Select from "../UI/Select";
+import PostForm from "../postForm/PostForm";
+import type { UserData } from "../../types";
 
 type FormProps = {
   setSelectedUser: (user: UserData) => void;

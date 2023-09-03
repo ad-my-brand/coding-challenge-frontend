@@ -4,16 +4,16 @@ import type { UserData } from "../../types";
 
 type SelectProps = {
   label: string;
-  data?: UserData[] | null;
+  data: UserData[] | null;
   validateInput: (error: string) => string;
-  onChange?: (e: React.ChangeEvent) => void;
+  onChange: (e: React.ChangeEvent) => void;
 };
 
 const Select = ({ label, onChange, data, validateInput }: SelectProps) => {
   const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
-    setErrorMsg(validateInput("Please select a user"));
+    setErrorMsg(validateInput("Please select a user."));
   }, [validateInput]);
 
   return (

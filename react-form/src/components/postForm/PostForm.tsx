@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import client from "../api/client";
-import InputField from "./UI/InputField";
-import Button from "./UI/Button";
-import Notification from "./UI/Notification";
+import client from "../../api/client";
+import InputField from "../UI/InputField";
+import Button from "../UI/Button";
+import Notification from "../UI/notification/Notification";
 
 type Post = {
   title: string;
@@ -68,7 +68,7 @@ const PostForm = () => {
       setPost(post);
     } else {
       setError(true);
-      setErrorMsg("Title and Body can not be blank");
+      setErrorMsg("Title and Body can not be blank.");
       setShowToast(true);
     }
   };

@@ -1,5 +1,3 @@
-import React from "react";
-
 type NotificationProps = {
   label: string;
   success: boolean;
