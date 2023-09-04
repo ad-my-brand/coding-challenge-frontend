@@ -49,7 +49,6 @@
     flex-direction: column;
     min-height: 70vh;
     border-radius: 10px;
-    /* border: 1px solid black; */
 }
 .newdivs{
   margin: 1rem 0;
@@ -92,7 +91,6 @@ h1{
 }
 
 .newdiv{
-  /* width: 100%; */
   margin-top: 1rem;
   position: relative;
   height: 60px;

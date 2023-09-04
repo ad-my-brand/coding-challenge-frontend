@@ -10,7 +10,6 @@ const Form = () => {
   const [selectedUserId, setSelectedUserId] = useState("70");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [value, setValue] = useState("");
   const [error, setError] = useState("");
   const [errorTitle, setErrorTitle] = useState(false);
   const [errorBody, setErrorBody] = useState(false);
@@ -25,9 +24,6 @@ const Form = () => {
   useEffect(() => {
     setError("");
   }, [selectedUserId]);
-  // const handleUserChange = (userId) => {
-  //   setSelectedUserId(userId);
-  // };
 
   const handleTitleChange = (newTitle) => {
     setTitle(newTitle);
@@ -89,17 +85,12 @@ const Form = () => {
           setTitle('')
           setBody('')
           console.log("New post created:", data);
-          // Reset form fields here if needed
         })
         .catch((error) => toast.error("Error creating post"));
     } else {
       toast.error("Fill all the fields!");
     }
   };
-
-  const selectedUser = users.find(
-    (user) => user.id === parseInt(selectedUserId)
-  );
 
   return (
     <div className="forms">
@@ -113,7 +104,7 @@ const Form = () => {
               onChange={(e) => setSelectedUserId(e.target.value)}
             >
               <option value="70">Select an option</option>
-              {users.map((user) => (
+              {users?.map((user) => (
                 <option key={user.id} value={user.id}>
                   {user.name}
                 </option>
@@ -144,10 +135,7 @@ const Form = () => {
         </form>
       </div>
       <div className="part maps">
-        <EmbeddedMap
-          latitude={selectedUser?.address?.geo?.lat}
-          longitude={selectedUser?.address?.geo?.lng}
-        />
+        <EmbeddedMap />
       </div>
       <ToastContainer />
     </div>
