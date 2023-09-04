@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import 'leaflet/dist/leaflet.css'; // Import Leaflet CSS
+import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
 const UserMap = ({ location }) => {
     const mapContainer = useRef(null);
-    const mapRef = useRef(null); // Reference to the Leaflet map instance
+    const mapRef = useRef(null);
 
     useEffect(() => {
         if (location) {
@@ -20,13 +20,13 @@ const UserMap = ({ location }) => {
         }
     }, [location]);
 
-    // Add CSS styles for the map container
+
     const mapStyle = {
         height: '300px',
         width: '65%',
-        margin: '0 auto', // Center horizontally
-        borderRadius: '8px', // Apply curved border
-        boxShadow: '3px 3px 10px black', // Add shadow
+        margin: '0 auto',
+        borderRadius: '8px',
+        boxShadow: '3px 3px 10px black',
 
     };
 
