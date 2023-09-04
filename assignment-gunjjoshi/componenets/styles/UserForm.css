@@ -1,0 +1,98 @@
+/* UserForm.css */
+
+/* Container styles */
+.container {
+    background: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Form styles */
+  .form {
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* Header styles */
+  .header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Input container styles */
+  .input-container {
+    margin-bottom: 1rem;
+    width: 60vh;
+    margin: 0 auto;
+  }
+  
+  /* Label styles */
+  .label {
+    font-size: 0.875rem;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Input styles */
+  .input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #000; /* Set text color to black */
+  }
+  
+  /* User info styles */
+  .user-info {
+    margin-top: 1rem;
+  }
+  
+  /* User info header styles */
+  .user-info-header {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Textarea styles */
+  .textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 100px;
+    color: #000; /* Set text color to black */
+  }
+  
+  /* Error message styles */
+  .error {
+    color: red;
+    margin-top: 0.5rem;
+  }
+  
+  /* Submit button styles */
+  .submit-button {
+    display: block;
+    margin: 10px auto;
+    background-color: #3498db;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  
