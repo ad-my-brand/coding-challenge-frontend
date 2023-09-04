@@ -89,15 +89,15 @@ const Form = () => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    toast.success("New post created!");
+                    toast.success("Post generated!");
                     console.log("New post : ", data);
                     setTitle("");
                     setBody("");
                     setUser([]);
                 })
-                .catch((error) => toast.error("Error creating post"));
+                .catch((error) => toast.error("Cannot create post!"));
         } else {
-            toast.error("Fill all the fields!");
+            toast.error("Fill the form correctly!");
         }
     };
 
@@ -138,6 +138,7 @@ const Form = () => {
                     <button className="submit-btn">Submit</button>
                 </section>
             </form>
+            <ToastContainer />
         </div>
     )
 }
