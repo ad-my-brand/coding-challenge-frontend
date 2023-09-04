@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import UserMap from './UserMap';
 import './styles/UserForm.css'; // Import the CSS file
+import dynamic from 'next/dynamic';
+
+const UserMap = dynamic(() => import('./UserMap'), { ssr: false });
 
 const UserForm = () => {
     const [formData, setFormData] = useState({
@@ -81,65 +83,70 @@ const UserForm = () => {
         }
     };
 
+
+
     return (
-        <div className="w-full"> {/* Ensure the main container takes up full width */}
-            <div className="form">
-                <UserMap key={userKey} location={location} />
-                <h2 className="header">Create a New Post</h2>
-                <div className="input-container">
-                    <label htmlFor="userId" className="label">
-                        User
-                    </label>
-                    <select
-                        id="userId"
-                        name="userId"
-                        onChange={handleUserChange}
-                        value={formData.userId}
-                        className="input"
+        <>
+            < div className="w-full" > {/* Ensure the main container takes up full width */}
+                < div className="form" >
+
+                    <UserMap key={userKey} location={location} />
+                    <br></br>
+                    <br></br>
+                    <div className="input-container">
+                        <label htmlFor="userId" className="label">
+                            User
+                        </label>
+                        <select
+                            id="userId"
+                            name="userId"
+                            onChange={handleUserChange}
+                            value={formData.userId}
+                            className="input"
+                        >
+                            <option value="">Select a user</option>
+                            {users.map((user) => (
+                                <option key={user.id} value={user.id}>
+                                    {user.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <div className="input-container">
+                        <label htmlFor="title" className="label">
+                            Title
+                        </label>
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            value={formData.title}
+                            onChange={(e) => handleInputChange('title', e.target.value)}
+                            className="input"
+                        />
+                    </div>
+                    <div className="input-container">
+                        <label htmlFor="body" className="label">
+                            Body
+                        </label>
+                        <input
+                            id="body"
+                            name="body"
+                            value={formData.body}
+                            onChange={(e) => handleInputChange('body', e.target.value)}
+                            className="input"
+                        />
+                    </div>
+                    {error && <p className="error">{error}</p>}
+                    <button
+                        type="submit"
+                        onClick={handleSubmit}
+                        className="submit-button"
                     >
-                        <option value="">Select a user</option>
-                        {users.map((user) => (
-                            <option key={user.id} value={user.id}>
-                                {user.name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="input-container">
-                    <label htmlFor="title" className="label">
-                        Title
-                    </label>
-                    <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        value={formData.title}
-                        onChange={(e) => handleInputChange('title', e.target.value)}
-                        className="input"
-                    />
-                </div>
-                <div className="input-container">
-                    <label htmlFor="body" className="label">
-                        Body
-                    </label>
-                    <input
-                        id="body"
-                        name="body"
-                        value={formData.body}
-                        onChange={(e) => handleInputChange('body', e.target.value)}
-                        className="input"
-                    />
-                </div>
-                {error && <p className="error">{error}</p>}
-                <button
-                    type="submit"
-                    onClick={handleSubmit}
-                    className="submit-button"
-                >
-                    Submit
-                </button>
-            </div>
-        </div>
+                        Submit
+                    </button>
+                </div >
+            </div ></>
     );
 };
 

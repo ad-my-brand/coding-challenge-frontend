@@ -15,7 +15,6 @@ const FormControl = ({ label, name, value, onChange, validation }) => {
                     }`}
             >
                 <option value="">Select an option</option>
-                {/* Populate options here */}
             </select>
             {validation() && <p className="text-red-500 mt-1">{validation()}</p>}
         </div>
