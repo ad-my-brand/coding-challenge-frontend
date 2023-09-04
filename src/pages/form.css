@@ -1,0 +1,218 @@
+.labels{
+    display: flex;
+    width: 100%;
+    color: #8c84a4;
+    margin: 0.5rem 0;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh; 
+    padding: 0.5rem;
+    background-color: #8c84a4;
+  }
+  .select, input{
+    padding: 0.5rem;
+    color: #8c84a4;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid #8c84a4;
+    font-size: 18px;
+    width: 100%;
+  }
+  inputs{
+    width: 95%;
+  }
+.part{
+    flex: 1;
+}
+.forms{
+    width: 100%;
+    background-color:white;
+    display: flex;
+    border-radius: 30px;
+    flex-direction: row;
+    max-width: 800px;
+    justify-content: flex-start;
+    padding: 1rem;
+    margin: 1rem;
+}
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 70vh;
+    border-radius: 10px;
+}
+.newdivs{
+  margin: 1rem 0;
+  width: 70%;
+}
+.newdiv{
+  margin: 1rem 0;
+  width: 70%;
+}
+.button{
+    background-color: #8c84a4;
+    margin-top: 2rem;
+  padding: 0.8rem;
+  border: none;
+  color: #fff;
+  cursor: pointer;  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.button:hover{
+    background-color: #645987;
+    transition: 0.3s ease-in-out;
+}
+.but{
+  width: 70%;
+}
+
+.maps{
+  margin-top: 2rem;
+}
+.para{
+  margin: 0px;
+  color: red;
+
+}
+h1{
+  color: #625782;
+}
+
+.newdiv{
+  margin-top: 1rem;
+  position: relative;
+  height: 60px;
+  overflow: hidden;
+}
+
+.newinput{
+  width: 100%;
+  height: 100%;
+  color: #8c84a4;
+  font-size: 18px;
+  padding: 20px 10px; 
+  padding-top: 12px;
+  border: none;
+  appearance: none;
+  
+}
+
+.newinput:focus{
+  outline: none;
+}
+
+.newlabel{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid #100808;
+}
+
+.newlabel::after{
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 3px solid #8c84a4;
+  transform: translateX(-150%);
+  transition: all 0.3s ease;
+}
+
+.newspan{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.newinput:focus + .newlabel .newspan, .newinput:valid + .newlabel .newspan{
+  transform: translateY(-110%);
+  font-size: larger;
+  font-weight: 600;
+  left: 0px;
+  color: #8c84a4;
+}
+
+.newinput:focus + .newlabel::after, .newinput:valid + .newlabel::after{
+  transform: translateX(0%);
+  
+} 
+
+
+@media screen and (max-width: 480px) {
+  .forms{
+    flex-direction: column;
+    max-width: 400px;
+    padding: 0px;
+  }
+  .form{
+    justify-content: flex-start;
+    margin-top: 3rem;
+  }
+  .part{
+    max-height: 65vh;
+  }
+  .partform{
+    z-index: 1000;
+  }
+  .App{
+    padding: 0px;
+    max-height: 200vh;
+  }
+  .newdivs, .newdiv{
+    width: 80%;
+    margin: 1rem 0;
+  }
+  input{
+    width: 95%;
+  }
+  .but{
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .forms{
+    max-width: 380px;
+  }
+  .maps{
+    margin-top: 4rem;
+  }
+  .but{
+    margin-bottom: 2rem;
+  }
+  .App{
+    max-height: 250vh;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .forms{
+    max-width: 350px;
+  }
+  .but{
+    margin-bottom: 2rem;
+  }
+  .App{
+    max-height: 250vh;
+  }
+}
