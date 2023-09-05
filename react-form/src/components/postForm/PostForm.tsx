@@ -23,8 +23,9 @@ const PostForm = () => {
     const sendPost = async () => {
       try {
         const { data } = await client.post("posts", post);
-        console.log(data);
-        setError(false);
+        if (data) {
+          setError(false);
+        }
       } catch (error) {
         setError(true);
         setErrorMsg("Error: Failed to send post");

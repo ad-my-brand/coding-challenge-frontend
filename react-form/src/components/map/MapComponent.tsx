@@ -22,8 +22,6 @@ const MapComponent = ({ selectedUser }: MapProps) => {
       setCenter(position);
       setCity(selectedUser.address.city);
 
-      console.log(selectedUser);
-
       if (mapRef && mapRef.current) {
         mapRef.current.setView(position, ZOOM_LEVEL);
       }

@@ -13,6 +13,7 @@ const Form = ({ setSelectedUser }: FormProps) => {
   const [users, setUsers] = useState<UserData[] | null>(null);
   const [selectedUserID, setSelectedUserID] = useState<number>(0);
 
+  // fetch users data to populate select
   useEffect(() => {
     const fetchUsers = async () => {
       try {
