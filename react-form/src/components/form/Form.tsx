@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import client from "../../api/client";
 
 import Select from "../UI/Select";
@@ -13,19 +13,18 @@ const Form = ({ setSelectedUser }: FormProps) => {
   const [users, setUsers] = useState<UserData[] | null>(null);
   const [selectedUserID, setSelectedUserID] = useState<number>(0);
 
-  // fetch users data to populate select
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const { data } = await client.get("users");
-        setUsers(data);
-      } catch (error: unknown) {
-        console.log(error);
-      }
-    };
-
-    fetchUsers();
+  const fetchUsers = useCallback(async () => {
+    try {
+      const { data } = await client.get("users");
+      setUsers(data);
+    } catch (error: unknown) {
+      console.log(error);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
 
   const selectUserHandler = (e: React.ChangeEvent): void => {
     const usersSelectField = e.target as HTMLSelectElement;
