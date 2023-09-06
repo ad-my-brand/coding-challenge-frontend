@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import client from "../../api/client";
 import InputField from "../UI/InputField";
 import Button from "../UI/Button";
@@ -14,43 +14,38 @@ const PostForm = () => {
   const [postTitle, setPostTitle] = useState<string>("");
   const [postBody, setPostBody] = useState<string>("");
   const [post, setPost] = useState<Post | null>(null);
-  const [error, setError] = useState({
-    status: false,
-    message: "",
-    showToast: false,
-  });
+  const [error, setError] = useState<boolean | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string>("");
+  const [showToast, setShowToast] = useState<boolean>(false);
   const titleInput = useRef<HTMLInputElement>(null);
 
-  const sendPost = useCallback(async () => {
-    try {
-      const { data } = await client.post("posts", post);
-      if (data) {
-        setError({ ...error, status: false });
-      }
-    } catch (error) {
-      setError({
-        status: true,
-        message: "Error: Failed to send post",
-        showToast: false,
-      });
-    } finally {
-      setPostTitle("");
-      setPostBody("");
-      setError({ ...error, showToast: true });
-    }
-  }, []);
-
   useEffect(() => {
+    const sendPost = async () => {
+      try {
+        const { data } = await client.post("posts", post);
+        if (data) {
+          setError(false);
+        }
+      } catch (error) {
+        setError(true);
+        setErrorMsg("Error: Failed to send post");
+      } finally {
+        setPostTitle("");
+        setPostBody("");
+        setShowToast(true);
+      }
+    };
+
     if (post) {
       sendPost();
     }
-  }, [post, sendPost]);
+  }, [post]);
 
   useEffect(() => {
     setTimeout(() => {
-      setError({ ...error, showToast: false });
-    }, 1500);
-  }, [error]);
+      setShowToast(false);
+    }, 1200);
+  }, [showToast]);
 
   const setPostTitleHandler = (e: React.ChangeEvent) => {
     const titleField = e.target as HTMLInputElement;
@@ -73,11 +68,9 @@ const PostForm = () => {
 
       setPost(post);
     } else {
-      setError({
-        status: true,
-        message: "Title and Body can not be blank.",
-        showToast: true,
-      });
+      setError(true);
+      setErrorMsg("Title and Body can not be blank.");
+      setShowToast(true);
     }
   };
 
@@ -118,12 +111,10 @@ const PostForm = () => {
         validateInput={validateBody}
       />
       <Button title="Send Post" onClick={submitPostHandler} />
-      {!error.status && post && error.showToast && (
+      {!error && post && showToast && (
         <Notification label="Successfully added post!" success={true} />
       )}
-      {error.status && error.showToast && (
-        <Notification label={error.message} success={false} />
-      )}
+      {error && showToast && <Notification label={errorMsg} success={false} />}
     </section>
   );
 };
