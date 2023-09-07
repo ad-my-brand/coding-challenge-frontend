@@ -8,6 +8,13 @@ import { InputLabel } from "@mui/material";
 import { Select } from "@mui/material";
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 function UserSelectionForm() {
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627
+    },
+    zoom: 11
+  };
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState("");
   const [title, setTitle] = useState("");
@@ -47,6 +54,7 @@ function UserSelectionForm() {
       setMapCenter({ lat: parseFloat(lat), lng: parseFloat(lng) });
     }
   };
+  console.log(mapCenter)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -163,7 +171,8 @@ function UserSelectionForm() {
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBzclJZwbiD4B58SBznmYK9u0BPQSESOy4" }}
           center={mapCenter}
-          defaultZoom={10}
+          defaultCenter={defaultProps.center}
+          defaultZoom={defaultProps.zoom}
         >
           <AnyReactComponent
             lat={mapCenter.lat}
