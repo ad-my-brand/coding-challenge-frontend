@@ -1,0 +1,38 @@
+/* Customize the Leaflet popup content */
+.leaflet-popup-content {
+  background-color: #fff; /* Background color */
+  color: #333; /* Text color */
+  border: 2px solid #007BFF; /* Border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding inside the popup */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Box shadow for a lifted effect */
+}
+
+/* Customize the Leaflet popup close button */
+.leaflet-popup-close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #007BFF; /* Close button background color */
+  color: #fff; /* Close button text color */
+  border: none;
+  width: 24px; 
+  height: 24px; 
+  border-radius: 50%; /* Make it a circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Define the custom marker icon style */
+.custom-marker-icon {
+  background-color: #007BFF; /* Background color for the marker icon */
+  color: #fff; 
+  padding: 5px 10px; /* Padding around the text */
+  border-radius: 5px; /* Border radius to make it rounded */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Center text horizontally */
+  display: inline-block; /* an inline-block element */
+  transform: translateX(-50%); /* Center text horizontally */
+}
