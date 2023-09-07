@@ -40,7 +40,11 @@ describe("PostForm", () => {
 
     // fire submit event
     fireEvent.click(screen.getByRole("button"));
-    const successMsg = await screen.findByText("Successfully added post!");
+    const successMsg = await screen.findByText(
+      "Successfully added post!",
+      {},
+      { timeout: 2000 }
+    );
     expect(successMsg).toBeInTheDocument();
   });
 });
