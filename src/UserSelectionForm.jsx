@@ -169,7 +169,7 @@ function UserSelectionForm() {
       </LoadScript> */}
       <div style={{ height: "60vh", width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyBzclJZwbiD4B58SBznmYK9u0BPQSESOy4" }}
+          bootstrapURLKeys={{ key: import.meta.env.VITE_API }}
           center={mapCenter}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
