@@ -1,0 +1,68 @@
+.customForms{
+    /* background-color: red; */
+    width: 20%;
+    min-width: 300px;
+    height: 50%;
+    min-height: 530px;
+    padding: 0px 10px;
+    margin-left: 3vw;
+
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px rgba(159, 159, 159, 0.42);
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 20px;
+    width: 100%;
+    gap: 40px;
+
+    /* background-color: red; */
+    /* overflow: scroll; */
+}
+
+.title{
+    font-size: 30px;
+    color: rgb(12, 128, 230);
+    font-weight: 700;
+    border-bottom: 1px solid rgb(234, 234, 234);
+}
+
+.title p {
+    padding-top:0px;
+    font-size: 14px;
+    color: rgb(138, 137, 137);
+    font-weight: 300;
+}
+
+
+.titleInp, .bodyInp, .selectInp{
+    width: 100%;
+}
+
+
+
+
+button {
+    width: 60%;
+    height: 60px;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(0, 136, 255);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 3px rgba(3, 68, 125, 0.182);
+    cursor: pointer;
+}
+
+button:active{
+    box-shadow: none;
+    background-color: rgb(6, 98, 179);
+    scale: 1.02;
+}
