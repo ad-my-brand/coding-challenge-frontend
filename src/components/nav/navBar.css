@@ -1,0 +1,14 @@
+.navBar{
+    background-color: rgb(35, 153, 255);
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+}
